@@ -487,6 +487,7 @@ body.menu-open{overflow:hidden}
 .demo{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px));background:rgba(42,32,27,.52);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .demo-card{position:relative;width:min(100%,440px);max-height:calc(100vh - 48px);max-height:calc(100svh - 48px);overflow-y:auto;padding:34px 26px 24px;border-radius:6px;background:var(--paper);box-shadow:0 40px 80px -40px rgba(42,32,27,.6);animation:pop .45s var(--ease)}
 @keyframes pop{from{opacity:0;transform:translateY(14px)}}
+.demo-card:focus{outline:none}
 .demo-x{position:absolute;right:6px;top:6px;width:44px;height:44px;font:300 26px/1 var(--sans);color:var(--muted)}
 .demo-card h3{margin:14px 0 18px;font:300 clamp(25px,6vw,31px)/1.12 var(--serif);color:var(--ink);text-wrap:balance}
 .demo-card h3 em{font-style:italic;color:var(--taupe)}
@@ -1094,18 +1095,18 @@ body.menu-open{overflow:hidden}
 
 <!-- prévia: convite -->
 <div class="demo" id="demo" hidden role="dialog" aria-modal="true" aria-labelledby="demoT">
-  <div class="demo-card">
+  <div class="demo-card" tabindex="-1">
     <button class="demo-x" type="button" data-close aria-label="Fechar">×</button>
     <p class="label">Imagine este site no ar</p>
-    <h3 id="demoT">O seu WhatsApp, <em>agora mesmo.</em></h3>
+    <h3 id="demoT">O WhatsApp da VIV, <em>agora mesmo.</em></h3>
     <div class="notif">
       <div class="notif-top"><i></i>WhatsApp<span>agora</span></div>
       <b class="notif-from">Nova cliente</b>
       <p id="demoMsg"></p>
     </div>
-    <p class="demo-after">É assim que cada cliente chega pelo site: decidida, sabendo o que quer. Você só responde.</p>
+    <p class="demo-after">É assim que cada cliente chega pelo site: decidida, sabendo o que quer. A sua equipe só confirma o horário.</p>
     <div class="demo-pitch">
-      <p class="demo-say">Este site foi criado para a VIV: as suas fotos, as suas palavras, o seu jeito. <b>Gostou? Me chama e a gente coloca no ar.</b></p>
+      <p class="demo-say">Enquanto você cuida do negócio, o site apresenta a VIV por você, a qualquer hora. Feito sob medida, com as fotos e o jeito da sua marca. <b>Gostou? Me chama e a gente coloca no ar.</b></p>
       <a class="btn" href="https://wa.me/5579991235917?text=Oi%2C%20Kaue%21%20Vi%20a%20pr%C3%A9via%20do%20site%20da%20VIV%20e%20gostei.%20Quero%20conversar%20sobre%20colocar%20no%20ar." target="_blank" rel="noopener">Quero este site na VIV</a>
       <p class="demo-sign">Abre uma conversa no WhatsApp com Kaue Britto</p>
       <button class="demo-skip" type="button" data-close>Continuar vendo o site</button>
@@ -1147,7 +1148,7 @@ body.menu-open{overflow:hidden}
       e.preventDefault();
       demoMsg.textContent = text;
       demo.hidden = false;
-      demo.querySelector('[data-close]').focus();
+      demo.querySelector('.demo-card').focus();
     });
   });
   if (demo) demo.addEventListener('click', e => { if (e.target === demo || e.target.closest('[data-close]')) closeDemo(); });
