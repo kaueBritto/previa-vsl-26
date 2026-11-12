@@ -198,15 +198,13 @@ body.menu-open{overflow:hidden}
 .hx-head .h2{margin-top:20px;max-width:14ch}
 .hx-steps{border-top:1px solid var(--line)}
 .hx-steps li{border-bottom:1px solid var(--line)}
-.hx-steps button{display:grid;grid-template-columns:44px 1fr;align-items:baseline;width:100%;padding:17px 0;text-align:left;transition:opacity .5s var(--ease)}
+/* As descrições ficam sempre abertas: nada muda de altura, então a página não pula enquanto o relógio anda. */
+.hx-steps button{display:block;position:relative;width:100%;padding:17px 0 17px 44px;text-align:left;-webkit-appearance:none;appearance:none;transition:opacity .5s var(--ease)}
 .js .hx-steps li:not(.on) button{opacity:.42}
-.js .hx-steps li:not(.on) button:hover{opacity:.8}
-.hx-steps .sn{font:300 italic 24px/1 var(--serif);color:var(--taupe)}
+@media (hover:hover){.js .hx-steps li:not(.on) button:hover{opacity:.8}}
+.hx-steps .sn{position:absolute;left:0;top:14px;font:300 italic 24px/1 var(--serif);color:var(--taupe)}
 .hx-steps b{display:block;font:500 14px/1.3 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
-.hx-steps .tx{display:grid;grid-template-rows:1fr;transition:grid-template-rows .6s var(--ease)}
-.js .hx-steps li:not(.on) .tx{grid-template-rows:0fr}
-.hx-steps .tx > span{min-height:0;overflow:hidden}
-.hx-steps .tx > span > span{display:block;padding-top:7px;font-size:15.5px;line-height:1.55;color:var(--muted);max-width:38ch}
+.hx-steps .tx{display:block;margin-top:7px;font-size:15.5px;line-height:1.55;color:var(--muted);max-width:38ch}
 .hx-cta{margin-top:30px}
 .dial{position:relative;width:min(84%,400px);margin-inline:auto;padding-bottom:36px;cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
 .dial-ph{position:relative;aspect-ratio:1;margin:6.4%;border-radius:50%}
@@ -632,11 +630,11 @@ body.menu-open{overflow:hidden}
     </div>
     <div class="hx-body r">
       <ol class="hx-steps" id="hxSteps">
-        <li class="on"><button type="button" aria-pressed="true"><span class="sn">I</span><span><b>Você chega</b><span class="tx"><span><span>O celular fica na bolsa. Um shot funcional de boas-vindas acorda o corpo por dentro.</span></span></span></span></button></li>
-        <li><button type="button" aria-pressed="false"><span class="sn">II</span><span><b>O preparo</b><span class="tx"><span><span>Esfoliação, argila, ducha ou um mix de chás. Muda conforme o que o seu corpo pede hoje.</span></span></span></span></button></li>
-        <li><button type="button" aria-pressed="false"><span class="sn">III</span><span><b>O toque</b><span class="tx"><span><span>Luz baixa, vela acesa, óleos essenciais. É aqui que acontece a massagem do seu protocolo.</span></span></span></span></button></li>
-        <li><button type="button" aria-pressed="false"><span class="sn">IV</span><span><b>À mesa</b><span class="tx"><span><span>De volta ao salão, a sua Nutrição VIV: shake funcional ou bowl de salada. Você escolhe.</span></span></span></span></button></li>
-        <li><button type="button" aria-pressed="false"><span class="sn">V</span><span><b>De volta ao dia</b><span class="tx"><span><span>Corpo leve, cabeça quieta, refeição feita. E o resto do dia fica mais leve também.</span></span></span></span></button></li>
+        <li class="on"><button type="button" aria-pressed="true"><span class="sn">I</span><b>Você chega</b><span class="tx">O celular fica na bolsa. Um shot funcional de boas-vindas acorda o corpo por dentro.</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">II</span><b>O preparo</b><span class="tx">Esfoliação, argila, ducha ou um mix de chás. Muda conforme o que o seu corpo pede hoje.</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">III</span><b>O toque</b><span class="tx">Luz baixa, vela acesa, óleos essenciais. É aqui que acontece a massagem do seu protocolo.</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">IV</span><b>À mesa</b><span class="tx">De volta ao salão, a sua Nutrição VIV: shake funcional ou bowl de salada. Você escolhe.</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">V</span><b>De volta ao dia</b><span class="tx">Corpo leve, cabeça quieta, refeição feita. E o resto do dia fica mais leve também.</span></button></li>
       </ol>
       <a class="btn hx-cta" data-wa="geral">Quero viver essa hora</a>
     </div>
