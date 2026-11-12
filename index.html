@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-preview>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -7,7 +7,7 @@
 <meta name="description" content="Prévia de proposta de site para a VIV. Smart Living.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="theme-color" content="#F4EEE6">
+<meta name="theme-color" content="#F2EBE0">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -16,479 +16,488 @@
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300..500&family=Instrument+Sans:wght@400..600&family=Playfair:ital,opsz,wght@0,5..1200,300..600;1,5..1200,300..600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
+/* A casa VIV: parede creme iluminada, letreiro escuro com luz por trás, letras estreitas da parede. */
 :root{
-  --linen:#F4EEE6;
-  --paper:#FBF8F3;
-  --sand:#E9DED2;
-  --clay:#D8C7B6;
-  --cafe:#2E211B;
-  --ink:#3D2F28;
-  --muted:#76665C;
-  --taupe:#8C7467;
-  --sage:#7E8B6A;
-  --sage-deep:#5E6A4D;
-  --coral:#C9553F;
-  --cream:#F1E8DC;
-  --line:rgba(46,33,27,.13);
-  --line-strong:rgba(46,33,27,.3);
-  --serif:"Cormorant Garamond","Times New Roman",serif;
-  --sans:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"DM Mono",ui-monospace,Menlo,monospace;
-  --pad:clamp(20px,4.4vw,72px);
-  --max:1380px;
-  --ease:cubic-bezier(.2,.7,.1,1);
-  --arch:999px 999px 6px 6px;
+  --wall:#F2EBE0;
+  --paper:#FAF6EF;
+  --stone:#E7E0D5;
+  --ink:#2A201B;
+  --text:#4B3E36;
+  --muted:#7D6E63;
+  --taupe:#8A6E5E;
+  --glow:#F6DDB0;
+  --leaf:#5C7A3B;
+  --night:#2B221D;
+  --cream:#EFE5D7;
+  --line:rgba(42,32,27,.14);
+  --line-2:rgba(42,32,27,.34);
+  --serif:"Playfair","Playfair Display",Georgia,"Times New Roman",serif;
+  --cond:"Antonio","Oswald","Arial Narrow",sans-serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pad:clamp(20px,4vw,64px);
+  --max:1320px;
+  --ease:cubic-bezier(.22,.7,.12,1);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
-body{background:var(--linen);color:var(--ink);font:300 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;text-rendering:optimizeLegibility}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.5;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .18 0 0 0 0 .13 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:108px}
+body{background:var(--wall);color:var(--text);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;text-rendering:optimizeLegibility;font-variant-numeric:lining-nums}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ul,ol{list-style:none}
-::selection{background:var(--sage);color:var(--paper)}
-:focus-visible{outline:1.5px solid var(--sage-deep);outline-offset:4px;border-radius:4px}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:4px;border-radius:2px}
+[hidden]{display:none!important}
+.only-preview{display:none}
+[data-preview] .only-preview{display:block}
 
-.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
-.sec{padding-block:clamp(96px,12vw,184px)}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+.sec{padding-block:clamp(88px,11vw,168px)}
+.paper{--bg:var(--paper);background:var(--paper)}
 
-/* ---------- type ---------- */
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font:500 11px/1.2 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--taupe)}
-.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
-.display{font-family:var(--serif);font-weight:300;line-height:.98;letter-spacing:-.012em;color:var(--cafe)}
-.display em{font-style:italic;color:var(--taupe)}
-h2.display{font-size:clamp(42px,5.6vw,86px)}
-.lead{font-size:clamp(17px,1.3vw,19.5px);line-height:1.7;color:var(--muted);max-width:50ch}
-.tiny{font-size:13px;line-height:1.55;color:var(--muted)}
-.mono{font-family:var(--mono);font-weight:400}
+/* ---------- tipografia ---------- */
+.label{font:400 12.5px/1.3 var(--cond);letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
+.h1,.h2{font-family:var(--serif);font-weight:300;color:var(--ink);text-wrap:balance}
+.h1{font-size:clamp(42px,6.5vw,94px);line-height:1.02;letter-spacing:-.012em}
+.h2{font-size:clamp(33px,4.3vw,60px);line-height:1.07;letter-spacing:-.008em}
+.h1 em,.h2 em{font-style:italic;color:var(--taupe)}
+.caps{font-weight:400;font-size:clamp(29px,3.5vw,50px);line-height:1.1;letter-spacing:.04em;text-transform:uppercase}
+.lead{font-size:clamp(16.5px,1.25vw,18.5px);line-height:1.68;color:var(--muted);max-width:52ch;text-wrap:pretty}
+.tiny{font-size:13.5px;line-height:1.55;color:var(--muted)}
+.cap{margin-top:12px;font:400 11.5px/1.5 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.cap b{font-weight:500;color:var(--ink);margin-right:.9em}
 
-/* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;height:56px;padding:0 30px;border-radius:999px;font:500 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease),transform .45s var(--ease)}
-.btn .arr{display:inline-block;transition:transform .45s var(--ease)}
-.btn:hover .arr{transform:translateX(5px)}
-.btn-dark{background:var(--cafe);color:var(--paper)}
-.btn-dark:hover{background:var(--sage-deep)}
-.btn-line{border:1px solid var(--line-strong);color:var(--cafe)}
-.btn-line:hover{border-color:var(--cafe);background:var(--cafe);color:var(--paper)}
-.btn-cream{background:var(--cream);color:var(--cafe)}
-.btn-cream:hover{background:var(--sage);color:var(--paper)}
-.btn-ghost{border:1px solid rgba(241,232,220,.35);color:var(--cream)}
-.btn-ghost:hover{background:var(--cream);color:var(--cafe)}
-.btn-sm{height:44px;padding:0 22px;font-size:10.5px}
-.link-arrow{display:inline-flex;align-items:center;gap:12px;padding-bottom:7px;border-bottom:1px solid currentColor;font:500 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--cafe);transition:gap .45s var(--ease),color .3s}
-.link-arrow:hover{gap:18px;color:var(--sage-deep)}
+/* ---------- botões e links ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 30px;border-radius:999px;background:var(--ink);color:var(--paper);font:500 13.5px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;transition:background .4s var(--ease),color .4s var(--ease)}
+.btn:hover{background:var(--taupe)}
+.btn-sm{height:40px;padding:0 20px;font-size:12.5px}
+.btn-cream{background:var(--cream);color:var(--ink)}
+.btn-cream:hover{background:var(--glow);color:var(--ink)}
+.lnk{display:inline-block;padding-bottom:6px;font:500 13px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:background-size .5s var(--ease),color .3s}
+.lnk:hover{background-size:38% 1px;color:var(--taupe)}
 
-/* ---------- reveal ---------- */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
-.reveal.in{opacity:1;transform:none}
-.img-zoom img{transform:scale(1.08);transition:transform 2.2s var(--ease)}
-.img-zoom.in img{transform:scale(1)}
+/* ---------- entrada ao rolar ---------- */
+.js .r{opacity:0;transform:translateY(18px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.js .r.in{opacity:1;transform:none}
+.ph{position:relative;overflow:hidden;border-radius:2px;background:var(--stone)}
+.ph img{width:100%;height:100%;object-fit:cover}
+/* Uma cortina da cor do fundo sobe e mostra a foto. A foto em si não é recortada:
+   imagem recortada não conta como visível, e aí nem o observador nem o carregamento tardio disparam. */
+.js .ri::after{content:"";position:absolute;inset:-1px;background:var(--bg,var(--wall));transform-origin:50% 100%;transition:transform 1.3s var(--ease);transition-delay:var(--d,0s)}
+.js .ri.in::after{transform:scaleY(0)}
+.js .ri img{transform:scale(1.12);transition:transform 1.9s var(--ease);transition-delay:var(--d,0s)}
+.js .ri.in img{transform:none}
 
-/* ---------- header ---------- */
-.hdr{position:fixed;inset:0 0 auto;z-index:60;transition:background .5s var(--ease),box-shadow .5s var(--ease)}
-.hdr-in{height:88px;display:flex;align-items:center;gap:clamp(20px,3vw,40px);transition:height .5s var(--ease)}
-.hdr.scrolled{background:rgba(244,238,230,.84);-webkit-backdrop-filter:saturate(1.3) blur(16px);backdrop-filter:saturate(1.3) blur(16px);box-shadow:0 1px 0 var(--line)}
-.hdr.scrolled .hdr-in{height:70px}
-.logo{display:inline-flex;flex-direction:column;align-items:center;gap:6px;line-height:1;margin-right:auto}
-.logo-viv{font:500 31px/.78 var(--serif);letter-spacing:.07em;color:var(--cafe)}
-.logo-viv i{font-style:normal;color:var(--sage)}
-.logo-sub{font:400 8px/1 var(--sans);letter-spacing:.5em;text-transform:uppercase;color:var(--cafe);margin-right:-.5em}
-.nav{display:none;gap:clamp(22px,2.4vw,38px);font:400 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--cafe)}
-.nav a{position:relative;padding:8px 0}
-.nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}
-.nav a:hover::after{transform:scaleX(1);transform-origin:left}
-.burger{width:44px;height:44px;display:grid;place-content:center;gap:6px;border:1px solid var(--line-strong);border-radius:50%}
-.burger span{display:block;width:16px;height:1px;background:var(--cafe);transition:transform .5s var(--ease)}
-.menu-open .burger span:first-child{transform:translateY(3.5px) rotate(45deg)}
-.menu-open .burger span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
-@media (min-width:1100px){.nav{display:flex}.burger{display:none}}
-@media (max-width:560px){.hdr .btn-sm{display:none}}
+/* ---------- cabeçalho ---------- */
+.hdr{position:fixed;inset:0 0 auto;z-index:60;transition:background .45s var(--ease),box-shadow .45s var(--ease)}
+.hdr.scrolled,.menu-open .hdr{background:rgba(242,235,224,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.hdr.scrolled{box-shadow:0 1px 0 var(--line)}
+.pv{height:26px;line-height:26px;text-align:center;background:var(--ink);color:var(--cream);font:400 11px/26px var(--cond);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
+.pv .long{display:none}
+.ledger{display:flex;align-items:center;justify-content:center;gap:24px;height:34px;border-bottom:1px solid var(--line);font:400 11.5px/1 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);overflow:hidden;transition:height .45s var(--ease),opacity .3s,border-color .3s}
+.ledger .where{display:none}
+.hdr.scrolled .ledger{height:0;opacity:0;border-color:transparent}
+.status{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+.status.open i{background:var(--leaf);box-shadow:0 0 0 4px rgba(92,122,59,.16)}
+.hdr-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;transition:height .45s var(--ease)}
+.hdr.scrolled .hdr-in{height:62px}
+.hdr-l,.hdr-r{display:flex;align-items:center;gap:clamp(20px,2.4vw,36px)}
+.hdr-r{justify-content:flex-end}
+.logo{display:inline-flex;flex-direction:column;align-items:center;gap:5px;line-height:1}
+.logo-viv{font:500 29px/.8 var(--serif);letter-spacing:.06em;color:var(--ink)}
+.logo-sub{font:500 7.5px/1 var(--sans);letter-spacing:.46em;margin-right:-.46em;text-transform:uppercase;color:var(--ink)}
+.nav{display:none;gap:clamp(20px,2.4vw,36px);font:400 13px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.nav a{padding:8px 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .5s var(--ease)}
+.nav a:hover{background-size:100% 1px}
+.menu-btn{display:inline-flex;align-items:center;gap:12px;height:44px;font:400 13px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.mb-ic{display:grid;gap:6px;width:22px}
+.mb-ic i{display:block;height:1px;background:currentColor;transition:transform .45s var(--ease)}
+.menu-open .mb-ic i:first-child{transform:translateY(3.5px) rotate(45deg)}
+.menu-open .mb-ic i:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+@media (max-width:359px){.mb-t{display:none}}
+@media (min-width:700px){.pv .long{display:inline}.ledger{justify-content:space-between}.ledger .where{display:inline}}
+@media (min-width:1080px){.nav{display:flex}.menu-btn{display:none}.hdr-in{height:84px}}
 
-.drawer{position:fixed;inset:0;z-index:55;background:var(--linen);padding:120px var(--pad) calc(36px + env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:space-between;opacity:0;visibility:hidden;transition:opacity .55s var(--ease),visibility .55s}
+.drawer{position:fixed;inset:0;z-index:55;background:var(--wall);padding:calc(var(--hdr,132px) + 28px) var(--pad) calc(32px + env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:space-between;gap:32px;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
 .menu-open .drawer{opacity:1;visibility:visible}
 .drawer nav{display:flex;flex-direction:column}
-.drawer nav a{display:flex;align-items:baseline;gap:18px;padding:10px 0;border-bottom:1px solid var(--line);font:300 clamp(34px,9vw,52px)/1.1 var(--serif);color:var(--cafe);opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.drawer nav a span{font:400 11px var(--mono);color:var(--taupe)}
+.drawer nav a{display:flex;align-items:baseline;gap:18px;padding:11px 0;border-bottom:1px solid var(--line);font:300 clamp(31px,8.6vw,46px)/1.12 var(--serif);color:var(--ink);opacity:0;transform:translateY(12px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.drawer nav a span{font:400 12px var(--cond);letter-spacing:.16em;color:var(--taupe)}
 .menu-open .drawer nav a{opacity:1;transform:none}
 .menu-open .drawer nav a:nth-child(2){transition-delay:.04s}.menu-open .drawer nav a:nth-child(3){transition-delay:.08s}.menu-open .drawer nav a:nth-child(4){transition-delay:.12s}.menu-open .drawer nav a:nth-child(5){transition-delay:.16s}.menu-open .drawer nav a:nth-child(6){transition-delay:.2s}
-.drawer-foot{display:grid;gap:14px;font-size:14px;color:var(--muted)}
-.menu-open{overflow:hidden}
+.drawer-foot{display:grid;gap:14px;justify-items:start;font-size:14.5px;color:var(--muted)}
+.drawer-foot .status{font:400 12px/1 var(--cond);letter-spacing:.22em;text-transform:uppercase}
+body.menu-open{overflow:hidden}
 
-/* ---------- hero ---------- */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:clamp(108px,min(13vw,17svh),168px);padding-bottom:28px}
-.hero > .wrap{width:100%}
-.hero-grid{display:grid;gap:64px;align-items:center}
-@media (min-width:980px){.hero-grid{grid-template-columns:1.12fr .88fr;gap:clamp(40px,6vw,120px)}}
-.hero-title{font-size:clamp(50px,min(8.2vw,13svh),130px);line-height:.9;margin:clamp(20px,3vh,30px) 0 clamp(22px,3.4vh,34px)}
-.hero-title .dot{color:var(--sage);font-style:normal}
-.hero .lead{margin-bottom:42px}
-.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:26px 34px}
-.hero-art{position:relative;width:min(100%,500px);margin-inline:auto;padding:0 0 46px 46px}
-@media (min-width:980px){.hero-art{width:min(100%,500px,calc(66svh + 46px))}.hero .lead{margin-bottom:clamp(26px,4vh,42px)}}
-.arch{position:relative;aspect-ratio:4/5.25;border-radius:var(--arch);overflow:hidden;background:var(--sand)}
-.arch img,.orb img{width:100%;height:100%;object-fit:cover}
-.orb{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--linen);background:var(--sand)}
-.badge{position:absolute;right:-22px;top:14%;width:138px;height:138px;border-radius:50%;background:var(--paper);box-shadow:0 22px 50px -26px rgba(46,33,27,.45)}
-.badge svg{width:100%;height:100%;animation:spin 30s linear infinite}
-.badge text{font:500 14px var(--sans);text-transform:uppercase;fill:var(--cafe)}
-.badge-dot{position:absolute;inset:0;margin:auto;width:14px;height:14px;border-radius:50%;background:var(--sage)}
-.caption{position:absolute;right:0;bottom:8px;font:400 11px/1.4 var(--mono);color:var(--muted);text-align:right}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font:400 10.5px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.hero-meta a{display:inline-flex;gap:10px;align-items:center}
-.hero-meta a span{display:inline-block;animation:nudge 2.4s var(--ease) infinite}
-@keyframes nudge{50%{transform:translateY(4px)}}
-@media (max-width:640px){.hero-meta a{display:none}.badge{width:112px;height:112px;right:-8px}}
-
-/* ---------- wall marquee ---------- */
-.wall{overflow:hidden;padding:28px 0;border-block:1px solid var(--line);background:var(--paper)}
-.wall-track{display:flex;align-items:center;width:max-content;animation:marq 52s linear infinite}
-.wall-track span{padding:0 clamp(22px,3vw,44px);font:300 clamp(20px,2.4vw,34px)/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--cafe);white-space:nowrap}
-.wall-track i{width:7px;height:7px;border-radius:50%;background:var(--sage);flex:none}
-@keyframes marq{to{transform:translateX(-50%)}}
-
-/* ---------- about ---------- */
-.about-top{display:grid;gap:36px;align-items:end}
-@media (min-width:980px){.about-top{grid-template-columns:1.35fr .65fr;gap:80px}}
-.about-title{font-size:clamp(38px,5.2vw,80px);margin-top:28px;max-width:17ch}
-.pillars{display:grid;gap:64px;margin-top:clamp(72px,9vw,132px)}
+/* ---------- abertura ---------- */
+.hero{position:relative;padding-top:calc(var(--hdr,132px) + clamp(36px,6vw,84px));padding-bottom:clamp(64px,8vw,120px);background:radial-gradient(90% 46% at 50% 0%,rgba(246,221,176,.6),rgba(246,221,176,0) 72%)}
+.hero-top{display:grid;justify-items:center;text-align:center}
+.hero .h1{margin:clamp(20px,2.4vw,30px) 0 clamp(20px,2.2vw,28px)}
+.hero .lead{max-width:50ch}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px 34px;margin-top:clamp(28px,3vw,40px)}
+.now{display:inline-flex;align-items:center;gap:12px;margin-top:26px;font:400 12px/1.5 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:left}
+.now i{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+.now.open i{background:var(--leaf);box-shadow:0 0 0 4px rgba(92,122,59,.16)}
+.strip{display:flex;gap:12px;margin-top:clamp(52px,6vw,88px);padding-inline:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.hs{flex:0 0 66%;scroll-snap-align:start;will-change:transform}
+.hs .ph{aspect-ratio:4/5}
+@media (min-width:560px) and (max-width:859px){.hs{flex-basis:40%}}
 @media (min-width:860px){
-  .pillars{grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,52px)}
-  .pillar:nth-child(2){margin-top:110px}
-  .pillar:nth-child(3){margin-top:220px}
+  .strip{display:grid;grid-template-columns:1fr 1.26fr 1fr .82fr;align-items:start;gap:clamp(16px,2.2vw,34px);max-width:var(--max);margin-inline:auto;overflow:visible}
+  .hs-1{margin-top:76px}.hs-3{margin-top:132px}.hs-4{margin-top:36px}
+  .hs-2 .ph{aspect-ratio:4/5.15}.hs-3 .ph,.hs-4 .ph{aspect-ratio:3/4}
 }
-.pillar figure{aspect-ratio:4/5;border-radius:var(--arch);overflow:hidden;margin-bottom:30px;background:var(--sand)}
-.pillar figure img{width:100%;height:100%;object-fit:cover}
-.pillar .num{font:400 12px var(--mono);color:var(--taupe);letter-spacing:.06em}
-.pillar h3{font:400 clamp(30px,2.5vw,38px)/1.05 var(--serif);color:var(--cafe);margin:10px 0 12px}
-.pillar p{color:var(--muted);max-width:34ch}
 
-/* ---------- hour ---------- */
-.hour{background:var(--paper)}
-.hour-head{display:grid;gap:28px;align-items:end}
-@media (min-width:980px){.hour-head{grid-template-columns:1fr 1fr;gap:80px}}
-.hour-head h2{margin-top:26px}
-.steps{position:relative;display:grid;margin-top:clamp(64px,7vw,104px);padding-left:30px;border-left:1px solid var(--line)}
-.steps::after{content:"";position:absolute;left:-1px;top:0;width:1px;height:0;background:var(--cafe);transition:height 2.4s var(--ease)}
-.steps.in::after{height:100%}
-.steps li{position:relative;padding-bottom:40px}
-.steps li:last-child{padding-bottom:0}
-.steps li::before{content:"";position:absolute;left:-35.5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:1px solid var(--cafe)}
-.steps li:last-child::before{background:var(--sage);border-color:var(--sage)}
-.step-n{font:400 12px var(--mono);color:var(--taupe)}
-.steps h3{font:400 clamp(28px,2.4vw,34px)/1.05 var(--serif);color:var(--cafe);margin:10px 0 8px}
-.steps p{font-size:15.5px;color:var(--muted);max-width:28ch}
+/* ---------- a parede ---------- */
+.wall-grid{display:grid;gap:56px}
+.wall-copy .h2{margin:22px 0 24px;max-width:15ch}
+.wall-photo{margin-top:44px;max-width:440px}
+.wall-photo .ph{aspect-ratio:4/5}
+.words{border-top:1px solid var(--line)}
+.words li{display:grid;grid-template-columns:34px 1fr;align-items:baseline;gap:6px 0;padding:clamp(20px,2.2vw,30px) 0;border-bottom:1px solid var(--line)}
+.words .n{font:400 12px/1 var(--cond);letter-spacing:.16em;color:var(--taupe)}
+.words .w{font:300 clamp(36px,5.3vw,80px)/1.02 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);transition:color .5s var(--ease)}
+.words .d{grid-column:2;max-width:44ch;font-size:15.5px;color:var(--muted)}
+/* As palavras acendem como o letreiro: uma por vez, quando passam pelo meio da tela. */
+.js .words .w{color:rgba(138,110,94,.42);transition:color .7s var(--ease),text-shadow .7s var(--ease)}
+.js .words .d{opacity:.55;transition:opacity .7s var(--ease)}
+.words li.lit .w,.words li:hover .w{color:var(--ink);text-shadow:0 0 26px rgba(244,196,120,.8),0 0 70px rgba(244,196,120,.5)}
+.words li.lit .d,.words li:hover .d{opacity:1}
 @media (min-width:980px){
-  .steps{grid-template-columns:repeat(5,1fr);gap:28px;padding-left:0;padding-top:40px;border-left:0;border-top:1px solid var(--line)}
-  .steps::after{left:0;top:-1px;height:1px;width:0;transition:width 2.4s var(--ease)}
-  .steps.in::after{width:100%;height:1px}
-  .steps li{padding-bottom:0}
-  .steps li::before{left:0;top:-45.5px}
+  .wall-grid{grid-template-columns:.8fr 1.2fr;gap:clamp(56px,7vw,128px);align-items:start}
+  .wall-copy{position:sticky;top:112px}
+  .words li{grid-template-columns:52px 1fr}
 }
-.hour-q{margin:clamp(80px,9vw,128px) auto 0;max-width:20ch;text-align:center;font:300 italic clamp(30px,3.8vw,56px)/1.12 var(--serif);color:var(--cafe)}
-.hour-q cite{display:block;margin-top:22px;font:500 10.5px var(--sans);font-style:normal;letter-spacing:.3em;text-transform:uppercase;color:var(--taupe)}
 
-/* ---------- section head ---------- */
-.sec-head{display:grid;gap:26px;margin-bottom:clamp(52px,6vw,96px)}
-.sec-head h2{margin-top:2px}
+/* ---------- uma hora ---------- */
+/* A hora passa conforme a pessoa rola: o anel fecha e a foto muda a cada etapa. */
+.hx-sticky{padding-block:clamp(88px,11vw,168px)}
+.js .hx{height:460vh}
+.js .hx-sticky{position:sticky;top:0;height:100vh;height:100svh;display:grid;align-items:center;padding-block:78px 20px;overflow:hidden}
+.hx-grid{display:grid;gap:clamp(18px,3svh,30px);width:100%}
+.hx-copy .h2{margin:16px 0 0;font-size:clamp(27px,3.7vw,52px);max-width:17ch}
+.hx-steps{margin-top:clamp(18px,3svh,44px);border-top:1px solid var(--line)}
+.hx-steps li{display:grid;grid-template-columns:44px 1fr;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.hx-steps .sn{font:300 italic 24px/1 var(--serif);color:var(--taupe)}
+.hx-steps h3{font:500 14px/1.3 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.hx-steps p{grid-column:2;margin-top:6px;font-size:15.5px;line-height:1.5;color:var(--muted);max-width:36ch}
+.js .hx-steps li{display:none}
+.js .hx-steps li.on{display:grid}
+.hx-hint{display:none;margin-top:18px;font:400 11.5px/1 var(--cond);letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
+.js .hx-hint{display:block}
+.dial{position:relative;order:-1;width:min(64vw,36svh,460px);margin-inline:auto;padding-bottom:34px}
+.dial-ph{position:relative;aspect-ratio:1;margin:6.4%;border-radius:50%}
+.dial-ph img{position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
+.dial-ph img.on{opacity:1;transform:none}
+.dial svg{position:absolute;left:0;top:0;width:100%;aspect-ratio:1;transform:rotate(-90deg);overflow:visible}
+.dial circle{fill:none}
+.d-ticks{stroke:var(--line-2);stroke-width:1.3;stroke-dasharray:.07 .93}
+.d-track{stroke:var(--line);stroke-width:.35}
+.d-prog{stroke:var(--ink);stroke-width:.75;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100}
+.dial-cap{position:absolute;left:0;right:0;bottom:0;margin:0;text-align:center;white-space:nowrap}
+@media (min-width:980px){
+  .js .hx-sticky{padding-block:96px 32px}
+  .hx-grid{grid-template-columns:1fr 1fr;gap:clamp(56px,7vw,120px);align-items:center}
+  .dial{order:0;width:min(100%,62svh,500px)}
+  .js .hx-steps li{display:grid;opacity:.34;transition:opacity .5s var(--ease)}
+  .js .hx-steps li.on{opacity:1}
+  .js .hx-steps p{display:none}
+  .js .hx-steps li.on p{display:block}
+}
+
+/* ---------- experiências ---------- */
+.sec-head{display:grid;gap:22px;margin-bottom:clamp(48px,6vw,88px)}
+.sec-head .h2{margin-top:20px}
 @media (min-width:980px){.sec-head.split{grid-template-columns:1.1fr .9fr;align-items:end;gap:80px}}
-
-/* ---------- rituals ---------- */
-.rit-grid{display:grid;gap:48px}
-@media (min-width:980px){.rit-grid{grid-template-columns:1.12fr .88fr;gap:clamp(48px,6vw,120px);align-items:start}}
+/* A pergunta é o título: a resposta escolhida abre a experiência na carta. */
+.pede{margin-bottom:clamp(44px,5.5vw,84px)}
+.pede-q,.pede-opts{font:300 clamp(31px,4.5vw,64px)/1.16 var(--serif);letter-spacing:-.008em}
+.pede-q{margin-top:22px;color:var(--ink)}
+.pede-opts{display:flex;flex-wrap:wrap;font-style:italic;max-width:21em}
+.pede-opts button{font:inherit;font-style:italic;letter-spacing:inherit;text-align:left;color:rgba(138,110,94,.5);transition:color .45s var(--ease)}
+.pede-opts button span{background:linear-gradient(currentColor,currentColor) 0 92%/0 1px no-repeat;transition:background-size .6s var(--ease)}
+.pede-opts button::after{content:"/";margin:0 .34em;font-style:normal;color:var(--line-2)}
+.pede-opts button:last-child::after{content:none}
+.pede-opts button:hover{color:var(--taupe)}
+.pede-opts button[aria-pressed="true"]{color:var(--ink)}
+.pede-opts button[aria-pressed="true"] span{background-size:100% 1px}
+.pede-hint{margin-top:22px}
+.extra.hl{border-top-color:var(--ink)}
+.extra{transition:border-color .6s var(--ease)}
+.exp-grid{display:grid;gap:44px}
+@media (min-width:980px){.exp-grid{grid-template-columns:1.14fr .86fr;gap:clamp(48px,6vw,112px);align-items:start}}
 .rit{border-top:1px solid var(--line)}
 .rit:last-child{border-bottom:1px solid var(--line)}
-.rit-head{width:100%;display:flex;align-items:baseline;gap:clamp(12px,2vw,22px);padding:28px 0;text-align:left}
-.rit-n{flex:none;width:34px;font:400 12.5px var(--mono);color:var(--taupe)}
-.rit-name{font:300 clamp(30px,3.5vw,52px)/1 var(--serif);color:var(--cafe);transition:color .4s var(--ease)}
-.rit-head:hover .rit-name{color:var(--sage-deep)}
-.rit-lead{flex:1;min-width:16px;border-bottom:1px dotted var(--line-strong);transform:translateY(-7px)}
-.rit-price{flex:none;font:400 14.5px var(--mono);color:var(--cafe);white-space:nowrap}
-.rit.is-open .rit-name{font-style:italic}
-.rit-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .75s var(--ease)}
+.rit-head{width:100%;display:grid;grid-template-columns:34px 1fr auto 18px;align-items:baseline;gap:0 clamp(10px,1.6vw,20px);padding:clamp(22px,2.4vw,30px) 0;text-align:left}
+.rit-n{font:400 12.5px/1 var(--cond);letter-spacing:.16em;color:var(--taupe)}
+.rit-name{font:400 clamp(19px,2.3vw,31px)/1.14 var(--serif);letter-spacing:.045em;text-transform:uppercase;color:var(--ink);transition:color .4s var(--ease)}
+.rit-head:hover .rit-name{color:var(--taupe)}
+.rit-price{font:400 clamp(17px,1.6vw,22px)/1 var(--serif);color:var(--ink);white-space:nowrap;font-variant-numeric:lining-nums}
+.rit-ic{position:relative;align-self:center;width:13px;height:13px;justify-self:end}
+.rit-ic::before,.rit-ic::after{content:"";position:absolute;left:0;top:6px;width:13px;height:1px;background:var(--ink);transition:transform .5s var(--ease)}
+.rit-ic::after{transform:rotate(90deg)}
+.rit.is-open .rit-ic::after{transform:rotate(0)}
+.rit-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
 .rit.is-open .rit-body{grid-template-rows:1fr}
-.rit-body-in{overflow:hidden;padding-left:calc(34px + clamp(12px,2vw,22px))}
-.rit-thumb{aspect-ratio:16/10;border-radius:4px;overflow:hidden;margin-bottom:22px;background:var(--sand)}
-.rit-thumb img{width:100%;height:100%;object-fit:cover}
-.rit-for{font:400 italic clamp(21px,1.8vw,25px)/1.35 var(--serif);color:var(--ink);margin-bottom:20px}
-.rit-steps{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.rit-steps li{padding:9px 15px;border:1px solid var(--line-strong);border-radius:999px;font:400 13px/1 var(--sans);color:var(--ink)}
-.rit-steps li.sig{background:var(--cafe);border-color:var(--cafe);color:var(--paper)}
-.rit-body-in .link-arrow{margin-bottom:34px}
-.rit-visual{display:none}
+.rit-in{overflow:hidden}
+.rit-pad{padding:0 0 34px}
+.rit-thumb{aspect-ratio:16/10;margin-bottom:22px}
+.rit-for{font:300 italic clamp(21px,1.9vw,26px)/1.32 var(--serif);color:var(--ink);max-width:30ch;margin-bottom:22px}
+.rit-steps{counter-reset:s;display:grid;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.rit-steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;align-items:baseline;padding:10px 0;border-top:1px solid var(--line);font-size:15px;color:var(--text)}
+.rit-steps li::before{content:counter(s);font:400 12px/1 var(--cond);letter-spacing:.1em;color:var(--taupe)}
+.exp-visual{display:none}
+@media (min-width:560px){.rit-steps{grid-template-columns:1fr 1fr;column-gap:28px}}
 @media (min-width:980px){
+  .rit-pad{padding-left:calc(34px + clamp(10px,1.6vw,20px))}
   .rit-thumb{display:none}
-  .rit-visual{display:block;position:sticky;top:110px;aspect-ratio:4/5;border-radius:var(--arch);overflow:hidden;background:var(--sand)}
-  .rit-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s var(--ease),transform 1.8s var(--ease)}
-  .rit-visual img.on{opacity:1;transform:scale(1)}
-  .rit-visual figcaption{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);padding:11px 20px;border-radius:999px;background:rgba(251,248,243,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font:500 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--cafe);white-space:nowrap}
+  .exp-visual{display:block;position:sticky;top:104px}
+  .exp-visual .ph{position:relative;aspect-ratio:4/5}
+  .exp-visual .ph img{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease),transform 1.9s var(--ease)}
+  .exp-visual .ph img.on{opacity:1}
 }
-.rit-note{margin-top:30px;max-width:62ch}
+.exp-note{margin-top:28px;max-width:66ch}
+.extras{display:grid;gap:56px;margin-top:clamp(72px,8vw,120px)}
+.extra{display:grid;gap:26px;padding-top:28px;border-top:1px solid var(--line-2)}
+.extra .ph{aspect-ratio:4/5;max-width:340px}
+.extra h3{margin:14px 0 18px}
+.extra p{color:var(--muted);max-width:42ch;margin-bottom:24px}
+.massages{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;margin-bottom:26px;border-top:1px solid var(--line)}
+.massages li{padding:11px 0;border-bottom:1px solid var(--line);font:400 clamp(17.5px,1.5vw,20px)/1.25 var(--serif);color:var(--ink)}
+@media (min-width:620px){.extra{grid-template-columns:.8fr 1.2fr;gap:clamp(24px,3vw,44px);align-items:start}}
+@media (min-width:1080px){.extras{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,88px)}}
 
-.granite{background-color:#EEE7DD;background-image:
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .27 0 0 0 0 .2 0 0 0 0 .16 13 0 0 0 -8.7'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.38'/%3E%3C/svg%3E"),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='1' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 12 0 0 0 -7.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)' opacity='.7'/%3E%3C/svg%3E")}
+/* ---------- cronograma (noite) ---------- */
+.night{--bg:var(--night);position:relative;background:var(--night);color:#C7B8A7;overflow:hidden}
+.night::before{content:"";position:absolute;right:-12%;top:-22%;width:64%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(246,221,176,.17),rgba(246,221,176,0));pointer-events:none}
+.night > *{position:relative}
+.night .label{color:#BFA88F}
+.night .h2{color:#F5EDE1}
+.night .h2 em{color:#DCC6A6}
+.night .lead{color:#C7B8A7}
+.night .lnk{color:#F5EDE1}
+.night .lnk:hover{color:var(--glow)}
+.plan-grid{display:grid;gap:60px}
+@media (min-width:1040px){.plan-grid{grid-template-columns:1fr 1fr;gap:clamp(60px,7vw,120px);align-items:start}}
+.plan .h2{margin:22px 0 26px;max-width:14ch}
+.plan-pillars{margin-top:44px;border-top:1px solid rgba(239,229,215,.16)}
+.plan-pillars li{display:grid;grid-template-columns:44px 1fr;align-items:baseline;padding:19px 0;border-bottom:1px solid rgba(239,229,215,.16);font:300 clamp(20px,1.8vw,25px)/1.3 var(--serif);color:#F5EDE1}
+.plan-pillars span{font:400 12px var(--cond);letter-spacing:.16em;color:#BFA88F}
+.plan-flow{margin-top:28px;font-size:15px}
+.plan-flow b{font-weight:500;color:#F5EDE1}
+.plan-img{aspect-ratio:5/4;background:#3A2F28}
+.plans{margin-top:8px}
+.plan-row{display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px 24px;padding:28px 0;border-bottom:1px solid rgba(239,229,215,.16)}
+.pl-k{font:300 clamp(34px,3.4vw,46px)/1 var(--serif);color:#F5EDE1}
+.pl-k small{margin-left:12px;font:400 12px var(--cond);letter-spacing:.22em;text-transform:uppercase;color:#BFA88F}
+.pl-m{margin-top:8px;font-size:15px}
+.pl-p{text-align:right;font:400 clamp(21px,2vw,26px)/1.1 var(--serif);color:#F5EDE1;white-space:nowrap}
+.pl-p small{font:400 13px var(--sans);color:#C7B8A7}
+.plan-row .lnk{grid-column:1/-1;justify-self:start}
+.plan-foot{margin-top:22px;font-size:13.5px;color:#A89886}
 
-.extras{display:grid;gap:16px;margin-top:clamp(72px,8vw,120px)}
-@media (min-width:900px){.extras{grid-template-columns:1fr 1fr}}
-.extra{display:flex;flex-direction:column;overflow:hidden;border-radius:6px}
-.extra figure{aspect-ratio:16/11;overflow:hidden;background:var(--sand)}
-.extra figure img{width:100%;height:100%;object-fit:cover}
-.extra-copy{display:flex;flex-direction:column;gap:16px;flex:1;padding:clamp(28px,3.4vw,48px)}
-.extra-copy h3{font:300 clamp(38px,3.8vw,58px)/.98 var(--serif);color:var(--cafe)}
-.extra-copy h3 em{color:var(--taupe)}
-.extra-copy p{color:var(--muted);max-width:44ch}
-.extra-copy .link-arrow{align-self:flex-start;margin-top:auto}
-.massages{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;margin-bottom:12px;border-top:1px solid var(--line)}
-.massages li{padding:11px 0;border-bottom:1px solid var(--line);font:400 clamp(19px,1.6vw,22px)/1.2 var(--serif);color:var(--cafe)}
-
-/* ---------- plan (dark) ---------- */
-.plan{background:var(--cafe);color:var(--cream)}
-.plan .eyebrow{color:#B9A592}
-.plan .display{color:#F6EFE6}
-.plan .display em{color:#CDB9A4}
-.plan .lead{color:#C9BBAC}
-.plan-grid{display:grid;gap:64px}
-@media (min-width:1040px){.plan-grid{grid-template-columns:1fr 1fr;gap:clamp(60px,7vw,120px);align-items:center}}
-.plan h2{margin:26px 0 30px;max-width:13ch}
-.plan-pillars{margin-top:46px;border-top:1px solid rgba(241,232,220,.14)}
-.plan-pillars li{display:flex;align-items:baseline;gap:22px;padding:20px 0;border-bottom:1px solid rgba(241,232,220,.14);font:300 clamp(21px,1.9vw,27px)/1.3 var(--serif);color:#F6EFE6}
-.plan-pillars span{flex:none;font:400 12px var(--mono);color:#B9A592}
-.plan-flow{margin-top:30px;font-size:15px;color:#B9A592}
-.plan-flow b{font-weight:400;color:var(--cream)}
-.plan-side{display:grid;gap:18px}
-.plan-img{aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:#3B2C24}
-.plan-img img{width:100%;height:100%;object-fit:cover}
-.pcards{display:grid;gap:18px}
-@media (min-width:620px){.pcards{grid-template-columns:1fr 1fr}}
-.pcard{position:relative;display:flex;flex-direction:column;padding:30px 28px 28px;border:1px solid rgba(241,232,220,.18);border-radius:6px}
-.pcard.featured{background:rgba(241,232,220,.06);border-color:rgba(205,185,164,.55)}
-.pc-k{font:500 10.5px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#B9A592}
-.pc-big{margin-top:10px;font:300 68px/1 var(--serif);color:#F6EFE6}
-.pc-big small{margin-left:10px;font:400 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#C9BBAC}
-.pc-meta{margin-top:6px;font-size:15px;color:#C9BBAC}
-.pc-price{margin:20px 0 24px;padding-top:20px;border-top:1px solid rgba(241,232,220,.14);font:400 30px/1 var(--serif);color:#F6EFE6}
-.pc-price small{font:300 14px var(--sans);color:#C9BBAC}
-.pcard .btn{margin-top:auto;height:50px}
-.tag{position:absolute;top:-11px;right:20px;padding:6px 12px;border-radius:999px;background:var(--sage);color:var(--paper);font:500 9.5px var(--sans);letter-spacing:.24em;text-transform:uppercase}
-
-/* ---------- menu ---------- */
-.bento{display:grid;gap:16px}
-@media (min-width:760px){.bento{grid-template-columns:1fr 1fr}.b-combo,.b-more{grid-column:1/-1}}
-@media (min-width:1100px){.bento{grid-template-columns:1.15fr 1fr 1fr}.b-combo{grid-column:auto;grid-row:span 2}}
-.b-combo{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-height:540px;padding:clamp(30px,3.4vw,52px);border-radius:6px;background:var(--sage);color:var(--paper)}
-.combo-img{width:min(62%,260px);aspect-ratio:1;border-radius:50%;overflow:hidden;align-self:flex-end;margin:-6px -6px 0 0;box-shadow:0 0 0 8px rgba(255,255,255,.12)}
-.combo-img img{width:100%;height:100%;object-fit:cover}
-.b-combo::before{content:"";position:absolute;right:-28%;bottom:-24%;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.14),rgba(255,255,255,0) 62%);border:1px solid rgba(255,255,255,.16)}
-.b-combo::after{content:"";position:absolute;right:-6%;bottom:-2%;width:40%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.14)}
-.b-combo > *{position:relative;z-index:1}
-.b-combo .eyebrow{color:#E6E9DC}
-.b-combo h3{margin:22px 0 28px;font:300 clamp(46px,4.6vw,72px)/.95 var(--serif)}
-.b-combo h3 em{font-style:italic;color:#E6E9DC}
-.combo-list{display:grid;gap:14px;max-width:34ch}
-.combo-list li{display:grid;grid-template-columns:24px 1fr;font-size:16px;line-height:1.45;color:#F3F4EC}
-.combo-list li::before{content:"+";font:400 14px var(--mono);color:#D3D9C4}
-.combo-price{font:300 clamp(60px,6vw,92px)/.9 var(--serif)}
-.combo-price small{display:block;margin-bottom:10px;font:500 10.5px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#E6E9DC}
-.combo-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
-.combo-foot .link-arrow{color:var(--paper)}
-.b-dish{display:flex;flex-direction:column;overflow:hidden;border-radius:6px;background:var(--paper)}
-.b-dish figure{aspect-ratio:4/3;overflow:hidden;background:var(--sand)}
-.b-dish figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
-.b-dish:hover figure img{transform:scale(1.05)}
-.b-dish div{padding:24px 26px 28px}
-.b-dish h3{margin-bottom:6px;font:400 29px/1.05 var(--serif);color:var(--cafe)}
-.b-dish p{font-size:15px;color:var(--muted)}
-.b-more{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding:26px 28px;border-radius:6px}
-.b-more ul{display:flex;flex-wrap:wrap;gap:6px 0}
-.b-more li{font:400 clamp(19px,1.6vw,22px)/1.3 var(--serif);color:var(--cafe)}
-.b-more li:not(:last-child)::after{content:"·";margin:0 14px;color:var(--taupe)}
+/* ---------- cardápio ---------- */
+.menu-head{max-width:760px}
+.menu-head .h2{margin:20px 0 22px}
+.combo{display:grid;gap:34px;margin-top:clamp(48px,6vw,84px);padding-top:clamp(28px,3vw,44px);border-top:1px solid var(--line-2)}
+.combo-img{aspect-ratio:4/5}
+.combo-copy h3{margin:16px 0 26px}
+.combo-list{border-top:1px solid var(--line)}
+.combo-list li{display:grid;grid-template-columns:30px 1fr;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line);font:400 clamp(18.5px,1.6vw,22px)/1.3 var(--serif);color:var(--ink)}
+.combo-list li::before{content:"+";font:400 15px var(--cond);color:var(--taupe)}
+.combo-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:22px 28px;margin-top:34px}
+.combo-price{font:300 clamp(52px,5.4vw,78px)/.95 var(--serif);color:var(--ink);font-variant-numeric:lining-nums}
+.combo-price small{display:block;margin-bottom:12px;font:400 12.5px var(--cond);letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
+@media (min-width:900px){.combo{grid-template-columns:.82fr 1.18fr;gap:clamp(44px,6vw,104px);align-items:center}.combo-copy{max-width:560px}}
+.dishes{display:grid;grid-template-columns:1fr 1fr;gap:36px 14px;margin-top:clamp(64px,7vw,112px)}
+.dish .ph{aspect-ratio:4/5;margin-bottom:16px}
+.dish h3{font:400 clamp(19px,1.7vw,24px)/1.2 var(--serif);color:var(--ink);margin-bottom:5px}
+.dish p{font-size:14.5px;line-height:1.55;color:var(--muted);max-width:30ch}
+@media (min-width:900px){
+  .dishes{grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.2vw,34px)}
+  .dish:nth-child(even){margin-top:64px}
+}
+.also{display:grid;gap:14px;margin-top:clamp(56px,6vw,88px);padding-top:26px;border-top:1px solid var(--line)}
+.also .list{font:300 italic clamp(21px,2.2vw,30px)/1.4 var(--serif);color:var(--ink);max-width:40ch}
+.also .list span{font-style:normal;color:var(--taupe);margin:0 .28em}
+@media (min-width:900px){.also{grid-template-columns:220px 1fr;align-items:baseline}}
 
 /* ---------- bar ---------- */
-.bar{background:var(--paper)}
-.cp{display:grid;gap:44px;align-items:center;margin-bottom:clamp(72px,8vw,128px)}
-@media (min-width:980px){.cp{grid-template-columns:.85fr 1.15fr;gap:clamp(56px,7vw,120px)}}
-.cp-img{aspect-ratio:4/5;border-radius:var(--arch);overflow:hidden;background:var(--sand)}
-.cp-img img{width:100%;height:100%;object-fit:cover}
-.cp-list > .eyebrow{margin-bottom:26px}
-.juices{border-top:1px solid var(--line)}
-.juice{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(18px,2.4vw,30px);padding:28px 0;border-bottom:1px solid var(--line)}
-.bottle{position:relative;width:38px;height:64px;border-radius:9px 9px 7px 7px;background:var(--c);box-shadow:inset 0 -12px 0 rgba(0,0,0,.07),inset 7px 0 0 rgba(255,255,255,.18)}
-.bottle::before{content:"";position:absolute;left:50%;top:-11px;width:20px;height:11px;transform:translateX(-50%);border-radius:3px 3px 1px 1px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line-strong)}
-.bottle::after{content:"";position:absolute;left:6px;right:6px;top:20px;height:22px;border-radius:2px;background:rgba(251,248,243,.88)}
-.juice h3{font:400 clamp(30px,2.8vw,42px)/1 var(--serif);color:var(--cafe)}
-.juice .notes{margin-top:8px;font:400 12.5px/1.7 var(--mono);color:var(--muted);letter-spacing:.02em}
-.juice .vol{font:400 11px var(--mono);color:var(--taupe)}
-.cp-foot{margin-top:22px}
-.drinks{display:grid;gap:52px}
-@media (min-width:860px){.drinks{grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px)}}
-.drink figure{aspect-ratio:4/5;margin-bottom:26px;border-radius:var(--arch);overflow:hidden;background:var(--sand)}
-.drink figure img{width:100%;height:100%;object-fit:cover}
-.drink h3{margin:14px 0 10px;font:300 clamp(32px,2.8vw,40px)/1.02 var(--serif);color:var(--cafe)}
-.drink h3 em{color:var(--taupe)}
-.drink > p{color:var(--muted);max-width:36ch}
-.drink.energy .eyebrow,.drink.energy h3 em{color:var(--coral)}
-.flavors{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.flavors li{padding:8px 13px;border-radius:999px;background:rgba(201,85,63,.09);font:400 12.5px/1 var(--sans);color:#9C3F2E}
-
-/* ---------- quote ---------- */
-.quote{background:var(--sand)}
-.quote-in{display:grid;justify-items:center;gap:44px;text-align:center}
-.q-img{width:148px;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 8px rgba(251,248,243,.6)}
-.q-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.75);transform-origin:74% 38%}
-.quote blockquote p{max-width:25ch;font:300 clamp(30px,3.9vw,60px)/1.14 var(--serif);color:var(--cafe)}
-.quote blockquote em{color:var(--taupe)}
-.quote cite{display:block;margin-top:34px;font:500 10.5px var(--sans);font-style:normal;letter-spacing:.32em;text-transform:uppercase;color:var(--taupe)}
-
-/* ---------- meet ---------- */
-.meet-grid{display:grid;gap:16px}
-@media (min-width:900px){.meet-grid{grid-template-columns:1fr 1fr}}
-.meet-card{display:flex;flex-direction:column;overflow:hidden;border-radius:6px;background:var(--paper)}
-.meet-card figure{aspect-ratio:16/11;overflow:hidden;background:var(--sand)}
-.meet-card figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
-.meet-card:hover figure img{transform:scale(1.04)}
-.meet-card > div{display:flex;flex-direction:column;gap:14px;padding:clamp(28px,3.2vw,44px)}
-.meet-card h3{font:300 clamp(34px,3.2vw,48px)/1 var(--serif);color:var(--cafe)}
-.meet-card h3 em{color:var(--taupe)}
-.meet-card p{color:var(--muted);max-width:44ch}
-.meet-card .link-arrow{align-self:flex-start;margin-top:10px}
-
-/* ---------- gift ---------- */
-.gift{background:var(--paper);overflow:hidden}
-.gift-grid{display:grid;gap:56px;align-items:center}
-@media (min-width:980px){.gift-grid{grid-template-columns:1fr 1fr;gap:clamp(56px,7vw,120px)}}
-.gift-stage{position:relative;display:grid;place-items:center;aspect-ratio:1.12;perspective:1400px}
-.gift-stage::before{content:"";position:absolute;inset:6% 4%;border-radius:50%;background:radial-gradient(closest-side,rgba(126,139,106,.16),rgba(126,139,106,0))}
-.genv{position:absolute;width:74%;aspect-ratio:1.55;border-radius:6px;background:linear-gradient(160deg,#E7DACB,#DCCBB9);transform:rotate(-9deg) translate(-7%,13%);box-shadow:0 40px 60px -40px rgba(46,33,27,.45)}
-.genv::before{content:"";position:absolute;inset:0;border-radius:6px;background:linear-gradient(160deg,#EFE4D7,#E2D3C3);clip-path:polygon(0 0,100% 0,50% 58%)}
-.gcard{position:relative;width:70%;aspect-ratio:1.6;display:grid;place-items:center;text-align:center;border-radius:14px;background:linear-gradient(140deg,#FEFCF8 0%,#F5EFE6 60%,#EEE5DA 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 50px 80px -46px rgba(46,33,27,.55),0 14px 28px -16px rgba(46,33,27,.25);transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,-12deg)) rotate(3deg);transform-style:preserve-3d;transition:transform .7s var(--ease)}
-.gcard::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;background:radial-gradient(circle at var(--mx,30%) var(--my,20%),rgba(255,255,255,.75),rgba(255,255,255,0) 46%);mix-blend-mode:soft-light}
-.gcard-in{display:grid;justify-items:center}
-.g-logo{font:400 clamp(34px,4vw,50px)/1 var(--serif);letter-spacing:.42em;margin-right:-.42em;color:#9C8676;text-shadow:0 1px 0 #fff,0 -1px 0 rgba(46,33,27,.14)}
-.g-sub{margin-top:10px;font:400 8.5px var(--sans);letter-spacing:.5em;margin-right:-.5em;text-transform:uppercase;color:#9C8676}
-.g-rule{width:30px;height:1px;margin:18px 0;background:#BBA796}
-.g-label{font:400 10.5px var(--sans);letter-spacing:.44em;margin-right:-.44em;text-transform:uppercase;color:#8C7467}
-.g-num{position:absolute;right:18px;bottom:14px;font:400 10px var(--mono);color:#B4A090}
-.gift-list{display:grid;gap:2px;margin:30px 0 40px;font:300 italic clamp(22px,2vw,28px)/1.35 var(--serif);color:var(--cafe)}
-
-/* ---------- voices ---------- */
-.voices-track{display:grid;grid-auto-flow:column;grid-auto-columns:min(84%,360px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding-bottom:6px;scrollbar-width:none}
-.voices-track::-webkit-scrollbar{display:none}
-@media (min-width:1040px){.voices-track{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible}}
-.voice{scroll-snap-align:start;display:flex;flex-direction:column;justify-content:space-between;gap:44px;min-height:330px;padding:34px 30px 30px;border-radius:6px}
-.voice p{font:300 clamp(24px,1.9vw,28px)/1.24 var(--serif);color:var(--cafe)}
-.voice p::before{content:"“";display:block;margin-bottom:10px;font:300 72px/.55 var(--serif);color:var(--taupe)}
-.voice footer{font:500 10.5px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--taupe)}
-.voice footer span{display:block;margin-top:6px;font:400 13.5px var(--sans);letter-spacing:0;text-transform:none;color:var(--muted)}
-
-/* ---------- visit ---------- */
-.visit-grid{display:grid;gap:64px;align-items:center}
-@media (min-width:980px){.visit-grid{grid-template-columns:.9fr 1.1fr;gap:clamp(56px,7vw,120px)}}
-.visit-art{position:relative;padding:0 46px 46px 0;max-width:520px;width:100%;margin-inline:auto}
-.visit-img{aspect-ratio:4/5;border-radius:var(--arch);overflow:hidden;background:var(--sand)}
-.visit-img img,.visit-orb img{width:100%;height:100%;object-fit:cover}
-.visit-orb{position:absolute;right:0;bottom:0;width:40%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--linen);background:var(--sand)}
-.visit h2{margin:26px 0 8px;max-width:14ch}
-.info{margin:40px 0 44px;border-top:1px solid var(--line)}
-.info > div{display:grid;gap:6px;padding:22px 0;border-bottom:1px solid var(--line)}
-@media (min-width:560px){.info > div{grid-template-columns:140px 1fr;gap:24px}}
-.info dt{padding-top:6px;font:500 10.5px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--taupe)}
-.info dd{font:400 clamp(20px,1.7vw,23px)/1.4 var(--serif);color:var(--cafe)}
-.info dd a{border-bottom:1px solid var(--line-strong);transition:border-color .3s}
-.info dd a:hover{border-color:var(--cafe)}
-.visit-cta{display:flex;flex-wrap:wrap;gap:12px}
-
-/* ---------- footer ---------- */
-.ftr{overflow:hidden;padding-top:clamp(80px,9vw,128px);background:var(--cafe);color:#C9BBAC}
-.ftr-top{display:grid;gap:44px}
-@media (min-width:900px){.ftr-top{grid-template-columns:1fr auto;align-items:end}}
-.ftr-sign{max-width:15ch;font:300 clamp(34px,3.8vw,58px)/1.06 var(--serif);color:#F6EFE6}
-.ftr-sign em{color:#CDB9A4}
-.ftr nav{display:grid;grid-template-columns:repeat(2,auto);gap:14px 56px;font:400 11px var(--sans);letter-spacing:.22em;text-transform:uppercase}
-.ftr nav a:hover{color:var(--cream)}
-.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:64px;padding-top:24px;border-top:1px solid rgba(241,232,220,.12);font-size:12.5px}
-.ftr-mark{margin:clamp(24px,4vw,48px) 0 -.17em;text-align:center;white-space:nowrap;user-select:none;font:300 clamp(150px,34vw,560px)/.8 var(--serif);letter-spacing:.02em;color:#3A2B23}
-.ftr-mark i{font-style:normal;color:var(--sage-deep)}
-
-/* ---------- dock ---------- */
-.dock{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;display:grid;grid-template-columns:1.25fr 1fr;gap:6px;padding:6px;border:1px solid var(--line);border-radius:999px;background:rgba(251,248,243,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 20px 44px -20px rgba(46,33,27,.4);transform:translateY(160%);transition:transform .7s var(--ease)}
-.show-dock .dock{transform:none}
-.dock a{display:flex;align-items:center;justify-content:center;gap:10px;height:50px;border-radius:999px;font:500 10.5px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--cafe)}
-.dock a:first-child{background:var(--cafe);color:var(--paper)}
-.dock svg{width:16px;height:16px;flex:none}
-@media (min-width:980px){
-  .dock{left:auto;right:28px;bottom:28px;grid-template-columns:auto}
-  .dock a:last-child{display:none}
-  .dock a:first-child{padding:0 26px}
+.cp{display:grid;gap:40px;align-items:center;margin-bottom:clamp(72px,8vw,128px)}
+@media (min-width:980px){.cp{grid-template-columns:.8fr 1.2fr;gap:clamp(56px,7vw,120px)}}
+.cp-img{aspect-ratio:4/5;max-width:520px}
+.juices{margin-top:24px;border-top:1px solid var(--line)}
+.juice{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:6px 24px;padding:clamp(22px,2.4vw,30px) 0;border-bottom:1px solid var(--line)}
+.juice h3{font:300 clamp(31px,3.3vw,46px)/1.02 var(--serif);color:var(--ink)}
+.juice h3 i{font-style:normal;color:var(--c)}
+.juice .vol{font:400 12px var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);white-space:nowrap}
+.juice .notes{grid-column:1/-1;font-size:15px;color:var(--muted)}
+.cp-foot{margin-top:20px}
+.drinks{display:flex;gap:14px;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);scrollbar-width:none}
+.drinks::-webkit-scrollbar{display:none}
+.drink{flex:0 0 74%;scroll-snap-align:start}
+@media (min-width:560px) and (max-width:859px){.drink{flex-basis:42%}}
+.drink .ph{aspect-ratio:4/5;margin-bottom:22px}
+.drink h3{margin:12px 0 10px;font:300 clamp(27px,2.5vw,36px)/1.08 var(--serif);color:var(--ink)}
+.drink h3 em{font-style:italic;color:var(--taupe)}
+.drink p{font-size:15.5px;color:var(--muted);max-width:36ch}
+.drink .tiny{margin-top:12px}
+@media (min-width:860px){
+  .drinks{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,48px);margin-inline:0;padding-inline:0;overflow:visible}
+  .drink:nth-child(2){margin-top:72px}
 }
-.menu-open .dock{transform:translateY(160%)}
 
+/* ---------- carta da fundadora ---------- */
+.letter{--bg:var(--stone);background:var(--stone)}
+.letter-grid{display:grid;gap:44px;align-items:center}
+@media (min-width:980px){.letter-grid{grid-template-columns:.86fr 1.14fr;gap:clamp(56px,7vw,128px)}}
+.letter-img{aspect-ratio:1100/1244}
+.letter blockquote{margin-top:26px}
+.letter blockquote p{font:300 clamp(22px,2.35vw,33px)/1.34 var(--serif);color:var(--ink);max-width:27ch;text-wrap:pretty}
+.letter blockquote p + p{margin-top:.8em}
+.letter blockquote em{font-style:italic;color:var(--taupe)}
+.letter cite{display:block;margin-top:34px;font:400 12.5px/1.6 var(--cond);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe)}
 
-/* ---------- prévia (artifact) ---------- */
-html{scroll-padding-top:108px}
-.hdr{top:env(safe-area-inset-top,0px)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:61;background:var(--cafe)}
-.preview-bar{display:flex;align-items:center;justify-content:center;gap:.6em;height:28px;padding-inline:max(16px,env(safe-area-inset-left,0px));background:var(--cafe);color:var(--cream);font:500 9.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
-.preview-bar i{font-style:normal;color:#B9A592}
-@media (max-width:620px){.preview-bar .long{display:none}}
-.hero{min-height:0;padding-top:calc(28px + clamp(108px,min(13vw,17svh),168px))}
-.drawer{padding-top:140px}
-.reveal{opacity:1}
-.dock{left:calc(12px + env(safe-area-inset-left,0px));right:calc(12px + env(safe-area-inset-right,0px))}
-@media (min-width:980px){.dock{left:auto;right:calc(28px + env(safe-area-inset-right,0px))}}
-[hidden]{display:none!important}
-.demo{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px));background:rgba(46,33,27,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.demo-card{width:min(100%,430px);display:grid;gap:18px;padding:32px 28px 28px;border-radius:18px;background:var(--paper);box-shadow:0 40px 80px -40px rgba(46,33,27,.6);animation:pop .45s var(--ease)}
-@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}}
-.demo-card h3{font:300 clamp(26px,6vw,32px)/1.08 var(--serif);color:var(--cafe);text-wrap:balance}
-.demo-card h3 em{color:var(--sage-deep)}
-.bubble{display:grid;gap:8px;padding:14px 16px 10px;border-radius:16px 16px 16px 4px;background:#E4EBDA;color:var(--cafe)}
-.bubble-to{font:400 10.5px var(--mono);color:var(--sage-deep)}
-.bubble p{font:400 15.5px/1.5 var(--sans)}
-.bubble-time{justify-self:end;font:400 11px var(--sans);color:var(--muted)}
+/* ---------- encontros ---------- */
+.meet-head{display:grid;justify-items:center;text-align:center;margin-bottom:clamp(48px,6vw,88px)}
+.meet-head .h2{margin:22px 0 22px;max-width:16ch}
+.meet-grid{display:grid;gap:56px}
+@media (min-width:860px){.meet-grid{grid-template-columns:1fr 1fr;gap:clamp(24px,3.4vw,56px)}.meet:nth-child(2){margin-top:96px}}
+.meet .ph{aspect-ratio:5/4;margin-bottom:26px}
+.meet h3{margin:12px 0 12px;font:300 clamp(29px,2.9vw,42px)/1.06 var(--serif);color:var(--ink)}
+.meet h3 em{font-style:italic;color:var(--taupe)}
+.meet p{color:var(--muted);max-width:44ch}
+.meet .tiny{margin-top:8px}
+.meet .lnk{margin-top:22px}
+
+/* ---------- vale-presente ---------- */
+.gift-grid{display:grid;gap:44px;align-items:center}
+@media (min-width:980px){.gift-grid{grid-template-columns:1.16fr .84fr;gap:clamp(56px,7vw,112px)}}
+.gift-img{aspect-ratio:1200/798;box-shadow:0 40px 70px -50px rgba(42,32,27,.5)}
+.gift .h2{margin:22px 0 24px;max-width:14ch}
+.gift-list{margin:28px 0 14px;border-top:1px solid var(--line)}
+.gift-list li{padding:12px 0;border-bottom:1px solid var(--line);font:300 italic clamp(20px,1.8vw,24px)/1.3 var(--serif);color:var(--ink)}
+.gift .btn{margin-top:26px}
+
+/* ---------- vozes ---------- */
+.voices-head{margin-bottom:clamp(40px,5vw,72px)}
+.voices-head .h2{margin-top:20px;max-width:18ch}
+.voices{display:grid;border-top:1px solid var(--line-2)}
+.voice{display:grid;align-content:space-between;gap:30px;padding:clamp(28px,3vw,44px) 0;border-bottom:1px solid var(--line)}
+.voice p{font:300 clamp(23px,2.2vw,31px)/1.26 var(--serif);color:var(--ink);max-width:24ch;text-wrap:pretty}
+.voice p::before{content:"“";color:var(--taupe)}
+.voice p::after{content:"”";color:var(--taupe)}
+.voice footer{font:500 12.5px/1.5 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.voice footer span{margin-left:.9em;font-weight:400;color:var(--taupe)}
+@media (min-width:760px){
+  .voices{grid-template-columns:1fr 1fr}
+  .voice{padding-inline:clamp(24px,3vw,48px)}
+  .voice:nth-child(odd){padding-left:0;border-right:1px solid var(--line)}
+  .voice:nth-child(even){padding-right:0}
+}
+
+/* ---------- visite ---------- */
+.visit-grid{display:grid;gap:48px;align-items:center}
+@media (min-width:980px){.visit-grid{grid-template-columns:.92fr 1.08fr;gap:clamp(56px,7vw,120px)}}
+.visit-img{aspect-ratio:1238/1400}
+.visit .h2{margin:22px 0 0;max-width:14ch}
+.visit .status{margin-top:26px;font:400 12.5px/1 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.info{margin:34px 0 40px;border-top:1px solid var(--line)}
+.info > div{display:grid;gap:6px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media (min-width:560px){.info > div{grid-template-columns:130px 1fr;gap:24px;align-items:baseline}}
+.info dt{font:400 12px var(--cond);letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
+.info dd{font:400 clamp(18.5px,1.6vw,21.5px)/1.42 var(--serif);color:var(--ink)}
+.info dd a{background:linear-gradient(var(--line-2),var(--line-2)) 0 100%/100% 1px no-repeat;transition:color .3s}
+.info dd a:hover{color:var(--taupe)}
+.visit-cta{display:flex;flex-wrap:wrap;align-items:center;gap:20px 30px}
+
+/* ---------- rodapé: o letreiro à noite ---------- */
+.ftr{position:relative;overflow:hidden;background:#3C332D;color:#C7B8A7}
+.sign{display:grid;justify-items:center;gap:clamp(10px,1.6vw,22px);padding:clamp(72px,10vw,150px) var(--pad) clamp(56px,7vw,104px);text-align:center;user-select:none;background:radial-gradient(60% 70% at 50% 46%,rgba(246,221,176,.12),rgba(246,221,176,0) 70%)}
+.sign{--halo:0 0 18px rgba(250,228,188,.55),0 0 60px rgba(247,214,160,.5),0 0 140px rgba(244,200,136,.34);--halo-s:0 0 12px rgba(250,228,188,.5),0 0 34px rgba(247,214,160,.42)}
+.sign-viv{font:500 clamp(104px,25vw,360px)/.84 var(--serif);letter-spacing:.05em;margin-right:-.05em;color:#1B1411;text-shadow:var(--halo)}
+.sign-sub{font:500 clamp(11px,1.9vw,25px)/1 var(--sans);letter-spacing:.62em;margin-right:-.62em;text-transform:uppercase;color:#1B1411;text-shadow:var(--halo-s)}
+/* O letreiro só acende quando a pessoa chega ao fim da página. */
+.js .sign:not(.on) .sign-viv,.js .sign:not(.on) .sign-sub{text-shadow:none}
+.js .sign:not(.on){background:none}
+.sign.on .sign-viv{animation:acende 1.5s linear both}
+.sign.on .sign-sub{animation:acende-s 1.5s linear .15s both}
+@keyframes acende{0%,9%,15%,24%{text-shadow:none}6%,12%,20%,34%,100%{text-shadow:var(--halo)}}
+@keyframes acende-s{0%,9%,15%,24%{text-shadow:none}6%,12%,20%,34%,100%{text-shadow:var(--halo-s)}}
+.ftr-in{padding-bottom:calc(34px + env(safe-area-inset-bottom))}
+.ftr-top{display:grid;gap:36px;padding-top:36px;border-top:1px solid rgba(239,229,215,.16)}
+.ftr-line{font:300 italic clamp(24px,2.6vw,36px)/1.2 var(--serif);color:#F5EDE1;max-width:18ch}
+.ftr nav{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:14px 56px;font:400 12.5px var(--cond);letter-spacing:.22em;text-transform:uppercase}
+.ftr nav a{transition:color .3s}
+.ftr nav a:hover{color:var(--glow)}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:52px;font-size:12.5px;color:#A89886}
+.ftr-note{margin-top:8px;font-size:12px;color:#8F8072}
+@media (min-width:900px){.ftr-top{grid-template-columns:1fr auto;align-items:end}}
+
+/* ---------- prévia: janela do WhatsApp ---------- */
+.demo{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px));background:rgba(42,32,27,.52);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.demo-card{width:min(100%,430px);display:grid;gap:18px;padding:32px 28px 28px;border-radius:6px;background:var(--paper);box-shadow:0 40px 80px -40px rgba(42,32,27,.6);animation:pop .45s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}}
+.demo-card h3{font:300 clamp(24px,5.6vw,29px)/1.14 var(--serif);color:var(--ink);text-wrap:balance}
+.demo-card h3 em{font-style:italic;color:var(--taupe)}
+.bubble{display:grid;gap:8px;padding:14px 16px 10px;border-radius:14px 14px 14px 3px;background:#E3EAD8;color:var(--ink)}
+.bubble-to{font:400 11.5px var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--leaf)}
+.bubble p{font-size:15.5px;line-height:1.5}
+.bubble-time{justify-self:end;font-size:11px;color:var(--muted)}
 .demo-card .btn{justify-self:start}
-.ftr-note{margin-top:10px;font-size:12px;color:#9C8C80}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
-  .img-zoom img{transform:none}
+  .js .r{opacity:1;transform:none}
+  .js .ri::after{display:none}
+  .js .ri img{transform:none}
 }
 </style>
 </head>
 <body>
-<a class="sr-skip" href="#viv" style="position:absolute;left:-9999px">Pular para o conteúdo</a>
+<a href="#viv" style="position:absolute;left:-9999px">Pular para o conteúdo</a>
 
-<!-- ============ HEADER ============ -->
+<!-- ============ CABEÇALHO ============ -->
 <header class="hdr" id="hdr">
-  <div class="preview-bar">Prévia <i>·</i> proposta de site<span class="long"> para a VIV. Smart Living</span></div>
+  <div class="pv only-preview">Prévia · proposta de site<span class="long"> para a VIV. Smart Living</span></div>
+  <div class="ledger wrap">
+    <span class="where">Shopping Praia Sul · Loja 10 · Aracaju</span>
+    <span class="status" data-status><i></i><b style="font-weight:400">Seg a sáb 10h–22h · Dom 12h–20h</b></span>
+  </div>
   <div class="hdr-in wrap">
+    <div class="hdr-l">
+      <button class="menu-btn" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span class="mb-ic" aria-hidden="true"><i></i><i></i></span><span class="mb-t">Menu</span></button>
+      <nav class="nav" aria-label="Principal">
+        <a href="#experiencias">Experiências</a>
+        <a href="#cronograma">Cronograma</a>
+        <a href="#cardapio">Cardápio</a>
+      </nav>
+    </div>
     <a class="logo" href="#top" aria-label="VIV. Smart Living, voltar ao início">
-      <span class="logo-viv">VIV<i>.</i></span>
+      <span class="logo-viv">VIV.</span>
       <span class="logo-sub">Smart Living</span>
     </a>
-    <nav class="nav" aria-label="Principal">
-      <a href="#rituais">Rituais</a>
-      <a href="#cronograma">Cronograma</a>
-      <a href="#cardapio">Cardápio</a>
-      <a href="#bar">Bebidas</a>
-      <a href="#presente">Presentear</a>
-      <a href="#visite">Visite</a>
-    </nav>
-    <a class="btn btn-dark btn-sm" data-wa="geral">Agendar</a>
-    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+    <div class="hdr-r">
+      <nav class="nav" aria-label="Secundário">
+        <a href="#bar">Bebidas</a>
+        <a href="#presente">Presentear</a>
+        <a href="#visite">Visite</a>
+      </nav>
+      <a class="btn btn-sm" data-wa="geral">Agendar</a>
+    </div>
   </div>
 </header>
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <nav aria-label="Menu">
-    <a href="#rituais"><span>01</span>Rituais</a>
+    <a href="#experiencias"><span>01</span>Experiências</a>
     <a href="#cronograma"><span>02</span>Cronograma</a>
     <a href="#cardapio"><span>03</span>Cardápio</a>
     <a href="#bar"><span>04</span>Bebidas</a>
@@ -496,476 +505,440 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <a href="#visite"><span>06</span>Visite</a>
   </nav>
   <div class="drawer-foot">
+    <span class="status" data-status><i></i><b style="font-weight:400">Seg a sáb 10h–22h · Dom 12h–20h</b></span>
     <p>Shopping Praia Sul · Loja 10 · Aracaju</p>
-    <p>Seg a sáb, 10h às 22h · Dom, 12h às 20h</p>
-    <a class="btn btn-dark" data-wa="geral">Agendar pelo WhatsApp</a>
+    <a class="btn" data-wa="geral">Agendar pelo WhatsApp</a>
   </div>
 </div>
 
 <main id="top">
 
-<!-- ============ HERO ============ -->
+<!-- ============ ABERTURA ============ -->
 <section class="hero" aria-labelledby="hero-title">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow reveal">Bem-estar em Aracaju</p>
-      <h1 class="display hero-title reveal" id="hero-title" style="--d:.08s">Viver bem<br>é uma <em>escolha</em><br>inteligente<span class="dot">.</span></h1>
-      <p class="lead reveal" style="--d:.16s">Nutrição funcional, massagens e rituais de pausa no Shopping Praia Sul. Um lugar para desacelerar, se cuidar e sair mais leve, tudo no mesmo momento.</p>
-      <div class="hero-cta reveal" style="--d:.24s">
-        <a class="btn btn-dark" data-wa="geral">Agendar minha experiência <span class="arr">→</span></a>
-        <a class="link-arrow" href="#rituais">Conhecer os rituais</a>
-      </div>
+  <div class="wrap hero-top">
+    <p class="label r">Um endereço só · Aracaju</p>
+    <h1 class="h1 r" id="hero-title" style="--d:.06s">A massagem que<br>termina <em>à mesa.</em></h1>
+    <p class="lead r" style="--d:.12s">Na VIV, toda experiência começa com um shot funcional, passa pelo toque e termina com um prato feito na casa. Uma hora só sua, no Shopping Praia Sul.</p>
+    <div class="hero-cta r" style="--d:.18s">
+      <a class="btn" data-wa="geral">Agendar a minha hora</a>
+      <a class="lnk" href="#experiencias">Descobrir a minha experiência</a>
     </div>
-
-    <div class="hero-art reveal" style="--d:.2s">
-      <figure class="arch img-zoom reveal">
-        <img src="img/hero-cha-gelado.jpg" alt="Chá gelado com laranja e canela no copo VIV. Smart Living" fetchpriority="high">
-      </figure>
-      <figure class="orb">
-        <img src="img/hero-oleo-maos.jpg" alt="Terapeuta da VIV colocando óleo nas mãos antes da massagem">
-      </figure>
-      <div class="badge" aria-hidden="true">
-        <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><text><textPath href="#circ" textLength="458" lengthAdjust="spacing">uma hora só sua • escolhas inteligentes •</textPath></text></svg>
-        <span class="badge-dot"></span>
-      </div>
-      <p class="caption">Fig. 01<br>Chá gelado VIV</p>
-    </div>
+    <p class="now r" style="--d:.24s" data-now hidden><i></i><span></span></p>
   </div>
 
-  <div class="wrap">
-    <div class="hero-meta">
-      <span>Seg–Sáb 10h–22h · Dom 12h–20h</span>
-      <span>Loja 10 · Shopping Praia Sul</span>
-      <a href="#viv">Role <span>↓</span></a>
-    </div>
+  <div class="strip" aria-label="A VIV em quatro imagens">
+    <figure class="hs hs-1">
+      <div class="ph ri"><img src="img/fachada.jpg" alt="Fachada iluminada da VIV. Smart Living no Shopping Praia Sul" fetchpriority="high"></div>
+      <figcaption class="cap"><b>A casa</b>Loja 10, Shopping Praia Sul</figcaption>
+    </figure>
+    <figure class="hs hs-2">
+      <div class="ph ri" style="--d:.1s"><img src="img/hero-cha-gelado.jpg" alt="Chá gelado com laranja e canela no copo VIV, sobre o balcão de granito" fetchpriority="high"></div>
+      <figcaption class="cap"><b>À mesa</b>Chá gelado de laranja e canela</figcaption>
+    </figure>
+    <figure class="hs hs-3">
+      <div class="ph ri" style="--d:.2s"><img src="img/oleo-maos.jpg" alt="Terapeuta da VIV colocando óleo nas mãos antes da massagem"></div>
+      <figcaption class="cap"><b>O toque</b>Óleos antes da massagem</figcaption>
+    </figure>
+    <figure class="hs hs-4">
+      <div class="ph ri" style="--d:.3s"><img src="img/parede-luz.jpg" alt="Parede iluminada da loja com as palavras conexão, nutrição, equilíbrio, massagens e escolhas inteligentes"></div>
+      <figcaption class="cap"><b>A parede</b>O que a gente acredita</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ============ WALL ============ -->
-<div class="wall" role="img" aria-label="Conexão, nutrição, equilíbrio, massagens, escolhas inteligentes">
-  <div class="wall-track" aria-hidden="true">
-    <span>Conexão</span><i></i><span>Nutrição</span><i></i><span>Equilíbrio</span><i></i><span>Massagens</span><i></i><span>Escolhas inteligentes</span><i></i>
-    <span>Conexão</span><i></i><span>Nutrição</span><i></i><span>Equilíbrio</span><i></i><span>Massagens</span><i></i><span>Escolhas inteligentes</span><i></i>
-  </div>
-</div>
-
-<!-- ============ ABOUT ============ -->
-<section class="sec about" id="viv" aria-labelledby="about-title">
-  <div class="wrap">
-    <div class="about-top">
-      <div>
-        <p class="eyebrow reveal">O que é a VIV</p>
-        <h2 class="display about-title reveal" id="about-title">Um espaço onde <em>alimentação</em>, <em>bem-estar</em> e <em>autocuidado</em> se encontram.</h2>
-      </div>
-      <p class="lead reveal" style="--d:.1s">Criamos uma experiência completa para quem quer viver com mais equilíbrio, energia e qualidade de vida. Sem cobrança, sem excessos, no ritmo da rotina real.</p>
+<!-- ============ A PAREDE ============ -->
+<section class="sec" id="viv" aria-labelledby="wall-title">
+  <div class="wrap wall-grid">
+    <div class="wall-copy">
+      <p class="label r">Está escrito na nossa parede</p>
+      <h2 class="h2 r" id="wall-title">Cinco palavras. <em>Uma casa.</em></h2>
+      <p class="lead r">Um espaço onde alimentação, bem-estar e autocuidado se encontram. Criamos uma experiência completa para quem quer viver com mais equilíbrio, energia e qualidade de vida.</p>
+      <figure class="wall-photo">
+        <div class="ph ri"><img loading="lazy" src="img/pilar-encontro.jpg" alt="Amigas brindando com bebidas VIV, com as palavras da parede ao fundo"></div>
+        <figcaption class="cap"><b>Na loja</b>As palavras ficam acima das mesas</figcaption>
+      </figure>
     </div>
-
-    <div class="pillars">
-      <article class="pillar reveal">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/pilar-cold-pressed.jpg" alt="Garrafas de cold pressed VIV verde, laranja e amarela no balcão"></figure>
-        <span class="num">01</span>
-        <h3>Nutrição inteligente</h3>
-        <p>Pratos e bebidas funcionais de produção própria, feitos com ingredientes de verdade e pensados para nutrir sem abrir mão do sabor.</p>
-      </article>
-      <article class="pillar reveal" style="--d:.1s">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/pilar-massagem.jpg" alt="Terapeuta de uniforme VIV fazendo massagem no abdômen"></figure>
-        <span class="num">02</span>
-        <h3>Rituais de cuidado</h3>
-        <p>Protocolos corporais que unem massagem, terapias e nutrição funcional. Muito mais do que uma massagem: um cuidado por dentro e por fora.</p>
-      </article>
-      <article class="pillar reveal" style="--d:.2s">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/pilar-encontro.jpg" alt="Amigas brindando com bebidas VIV nas mesas da loja"></figure>
-        <span class="num">03</span>
-        <h3>Pausa &amp; encontro</h3>
-        <p>Um ambiente feito para desacelerar: uma pausa só sua, uma tarde com quem você gosta ou um brunch com o seu grupo.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HOUR ============ -->
-<section class="sec hour" aria-labelledby="hour-title">
-  <div class="wrap">
-    <div class="hour-head">
-      <div>
-        <p class="eyebrow reveal">A experiência</p>
-        <h2 class="display reveal" id="hour-title">Uma hora <em>só sua</em>.</h2>
-      </div>
-      <p class="lead reveal" style="--d:.1s">Toda experiência VIV segue um ritual: começa por dentro, passa pelo toque e termina à mesa. Você só precisa chegar.</p>
-    </div>
-
-    <ol class="steps reveal">
-      <li><span class="step-n">I</span><h3>Boas-vindas</h3><p>Um shot funcional para despertar o corpo.</p></li>
-      <li><span class="step-n">II</span><h3>Preparo</h3><p>Esfoliação, argila, ducha ou chás, conforme o seu objetivo.</p></li>
-      <li><span class="step-n">III</span><h3>O toque</h3><p>Massagem drenante, modeladora, ativadora ou esportiva.</p></li>
-      <li><span class="step-n">IV</span><h3>Nutrição VIV</h3><p>Shake funcional ou bowl de salada, à sua escolha.</p></li>
-      <li><span class="step-n">V</span><h3>De volta ao dia</h3><p>Mais leve, com energia e presença.</p></li>
+    <ol class="words">
+      <li class="r"><span class="n">01</span><span class="w">Conexão</span><p class="d">Um lugar para encontrar quem você gosta, ou só você mesma, sem pressa.</p></li>
+      <li class="r"><span class="n">02</span><span class="w">Nutrição</span><p class="d">Pratos e bebidas funcionais de produção própria, feitos com ingredientes de verdade.</p></li>
+      <li class="r"><span class="n">03</span><span class="w">Equilíbrio</span><p class="d">Cuidado que cabe na rotina real, sem cobrança e sem excessos.</p></li>
+      <li class="r"><span class="n">04</span><span class="w">Massagens</span><p class="d">Protocolos corporais que unem toque, terapias e nutrição funcional.</p></li>
+      <li class="r"><span class="n">05</span><span class="w">Escolhas inteligentes</span><p class="d">Viver bem é a soma das pequenas decisões de todos os dias.</p></li>
     </ol>
-
-    <blockquote class="hour-q reveal">Você trocaria uma hora no celular por uma hora de descanso?<cite>A pergunta que a gente adora ouvir “sim”</cite></blockquote>
   </div>
 </section>
 
-<!-- ============ RITUALS ============ -->
-<section class="sec rituals" id="rituais" aria-labelledby="rit-title">
-  <div class="wrap">
-    <header class="sec-head split">
-      <div>
-        <p class="eyebrow reveal">Experiências VIV · todas incluem massagem</p>
-        <h2 class="display reveal" id="rit-title">Menu de <em>rituais</em></h2>
+<!-- ============ UMA HORA ============ -->
+<section class="hx paper" id="hora" aria-labelledby="hour-title">
+  <div class="hx-sticky">
+    <div class="wrap hx-grid">
+      <div class="hx-copy">
+        <p class="label">Uma hora só sua</p>
+        <h2 class="h2" id="hour-title">Você trocaria uma hora no celular por uma hora de <em>descanso?</em></h2>
+        <ol class="hx-steps">
+          <li class="on"><span class="sn">I</span><h3>Boas-vindas</h3><p>Um shot funcional para despertar o corpo.</p></li>
+          <li><span class="sn">II</span><h3>Preparo</h3><p>Esfoliação, argila, ducha ou chás, conforme o seu objetivo.</p></li>
+          <li><span class="sn">III</span><h3>O toque</h3><p>Massagem drenante, modeladora, ativadora ou esportiva.</p></li>
+          <li><span class="sn">IV</span><h3>À mesa</h3><p>Shake funcional ou bowl de salada, à sua escolha.</p></li>
+          <li><span class="sn">V</span><h3>De volta ao dia</h3><p>Mais leve, com energia e presença.</p></li>
+        </ol>
+        <p class="hx-hint" aria-hidden="true">Role para viver a hora</p>
       </div>
-      <p class="lead reveal" style="--d:.1s">Cada protocolo foi desenhado para uma necessidade do seu corpo, unindo terapias corporais, nutrição funcional e bem-estar. Escolha o seu.</p>
+      <div class="dial" aria-hidden="true">
+        <div class="ph dial-ph">
+          <img class="on" loading="lazy" src="img/bar-cold-pressed.jpg" alt="">
+          <img loading="lazy" src="img/ritual-firmeza.jpg" alt="">
+          <img loading="lazy" src="img/ritual-leveza.jpg" alt="">
+          <img loading="lazy" src="img/prato-smoothie-bowl.jpg" alt="">
+          <img loading="lazy" src="img/de-volta.jpg" alt="">
+        </div>
+        <svg viewBox="0 0 100 100">
+          <circle class="d-ticks" cx="50" cy="50" r="46.6" pathLength="60"/>
+          <circle class="d-track" cx="50" cy="50" r="49"/>
+          <circle class="d-prog" id="dProg" cx="50" cy="50" r="49" pathLength="100"/>
+        </svg>
+        <p class="cap dial-cap"><b id="dialN">I de V</b><span id="dialT">Boas-vindas</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIÊNCIAS ============ -->
+<section class="sec" id="experiencias" aria-labelledby="exp-title">
+  <div class="wrap">
+    <header class="pede">
+      <p class="label r" id="exp-title">Experiências VIV · a carta</p>
+      <h2 class="pede-q r">Hoje o meu corpo pede</h2>
+      <div class="pede-opts r" id="pede" role="group" aria-label="O que o seu corpo pede hoje" style="--d:.08s">
+        <button type="button" data-pick="0" aria-pressed="true"><span>desinchar</span></button>
+        <button type="button" data-pick="1" aria-pressed="false"><span>definir as curvas</span></button>
+        <button type="button" data-pick="2" aria-pressed="false"><span>firmar a pele</span></button>
+        <button type="button" data-pick="3" aria-pressed="false"><span>recuperar do treino</span></button>
+        <button type="button" data-pick="avulsa" aria-pressed="false"><span>só relaxar</span></button>
+        <button type="button" data-pick="pes" aria-pressed="false"><span>celebrar</span></button>
+      </div>
+      <p class="pede-hint tiny r" style="--d:.14s">Toque numa resposta e a carta mostra a experiência certa. Todas incluem massagem.</p>
     </header>
 
-    <div class="rit-grid">
-      <div class="rit-list reveal" id="ritList">
+    <div class="exp-grid">
+      <div class="r" id="ritList">
 
         <article class="rit is-open" data-i="0">
           <button class="rit-head" aria-expanded="true">
-            <span class="rit-n">I.</span><span class="rit-name">Leveza</span><span class="rit-lead"></span><span class="rit-price">R$ 179</span>
+            <span class="rit-n">01</span><span class="rit-name">Leveza</span><span class="rit-price">R$ 179</span><span class="rit-ic" aria-hidden="true"></span>
           </button>
-          <div class="rit-body"><div class="rit-body-in">
-            <figure class="rit-thumb"><img loading="lazy" src="img/ritual-leveza.jpg" alt=""></figure>
+          <div class="rit-body"><div class="rit-in"><div class="rit-pad">
+            <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-leveza.jpg" alt=""></figure>
             <p class="rit-for">Para desinchar e devolver ao corpo a sensação de leveza.</p>
-            <ul class="rit-steps"><li>Shot funcional</li><li>Massagem drenante</li><li>Mix de chás leveza</li><li class="sig">Nutrição VIV</li></ul>
-            <a class="link-arrow" data-wa="ritual" data-name="Leveza">Agendar Leveza <span>→</span></a>
-          </div></div>
+            <ol class="rit-steps"><li>Shot funcional</li><li>Massagem drenante</li><li>Mix de chás leveza</li><li>Nutrição VIV</li></ol>
+            <a class="lnk" data-wa="ritual" data-name="Leveza">Agendar Leveza</a>
+          </div></div></div>
         </article>
 
         <article class="rit" data-i="1">
           <button class="rit-head" aria-expanded="false">
-            <span class="rit-n">II.</span><span class="rit-name">Contorno &amp; Definição</span><span class="rit-lead"></span><span class="rit-price">R$ 219</span>
+            <span class="rit-n">02</span><span class="rit-name">Contorno &amp; Definição</span><span class="rit-price">R$ 219</span><span class="rit-ic" aria-hidden="true"></span>
           </button>
-          <div class="rit-body"><div class="rit-body-in">
-            <figure class="rit-thumb"><img loading="lazy" src="img/ritual-contorno.jpg" alt=""></figure>
+          <div class="rit-body"><div class="rit-in"><div class="rit-pad">
+            <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-contorno.jpg" alt=""></figure>
             <p class="rit-for">Para modelar e desenhar as curvas do corpo.</p>
-            <ul class="rit-steps"><li>Shot funcional</li><li>Esfoliação</li><li>Ducha</li><li>Massagem modeladora</li><li>Suco verde</li><li class="sig">Nutrição VIV</li></ul>
-            <a class="link-arrow" data-wa="ritual" data-name="Contorno &amp; Definição">Agendar Contorno <span>→</span></a>
-          </div></div>
+            <ol class="rit-steps"><li>Shot funcional</li><li>Esfoliação</li><li>Ducha</li><li>Massagem modeladora</li><li>Suco verde</li><li>Nutrição VIV</li></ol>
+            <a class="lnk" data-wa="ritual" data-name="Contorno &amp; Definição">Agendar Contorno</a>
+          </div></div></div>
         </article>
 
         <article class="rit" data-i="2">
           <button class="rit-head" aria-expanded="false">
-            <span class="rit-n">III.</span><span class="rit-name">Firmeza &amp; Tonificação</span><span class="rit-lead"></span><span class="rit-price">R$ 219</span>
+            <span class="rit-n">03</span><span class="rit-name">Firmeza &amp; Tonificação</span><span class="rit-price">R$ 219</span><span class="rit-ic" aria-hidden="true"></span>
           </button>
-          <div class="rit-body"><div class="rit-body-in">
-            <figure class="rit-thumb"><img loading="lazy" src="img/ritual-firmeza.jpg" alt=""></figure>
+          <div class="rit-body"><div class="rit-in"><div class="rit-pad">
+            <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-firmeza.jpg" alt=""></figure>
             <p class="rit-for">Para uma pele mais firme, viva e tonificada.</p>
-            <ul class="rit-steps"><li>Shot funcional</li><li>Esfoliação</li><li>Aplicação de argila</li><li>Ducha</li><li>Massagem ativadora</li><li>Suco verde com colágeno</li><li class="sig">Nutrição VIV</li></ul>
-            <a class="link-arrow" data-wa="ritual" data-name="Firmeza &amp; Tonificação">Agendar Firmeza <span>→</span></a>
-          </div></div>
+            <ol class="rit-steps"><li>Shot funcional</li><li>Esfoliação</li><li>Aplicação de argila</li><li>Ducha</li><li>Massagem ativadora</li><li>Suco verde com colágeno</li><li>Nutrição VIV</li></ol>
+            <a class="lnk" data-wa="ritual" data-name="Firmeza &amp; Tonificação">Agendar Firmeza</a>
+          </div></div></div>
         </article>
 
         <article class="rit" data-i="3">
           <button class="rit-head" aria-expanded="false">
-            <span class="rit-n">IV.</span><span class="rit-name">Energia &amp; Performance</span><span class="rit-lead"></span><span class="rit-price">R$ 179</span>
+            <span class="rit-n">04</span><span class="rit-name">Energia &amp; Performance</span><span class="rit-price">R$ 179</span><span class="rit-ic" aria-hidden="true"></span>
           </button>
-          <div class="rit-body"><div class="rit-body-in">
-            <figure class="rit-thumb"><img loading="lazy" src="img/ritual-energia.jpg" alt=""></figure>
+          <div class="rit-body"><div class="rit-in"><div class="rit-pad">
+            <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-energia.jpg" alt=""></figure>
             <p class="rit-for">Para quem treina e quer recuperar o corpo com energia.</p>
-            <ul class="rit-steps"><li>Shot funcional</li><li>Bebida funcional com cafeína</li><li>Massagem esportiva</li><li class="sig">Nutrição VIV</li></ul>
-            <a class="link-arrow" data-wa="ritual" data-name="Energia &amp; Performance">Agendar Energia <span>→</span></a>
-          </div></div>
+            <ol class="rit-steps"><li>Shot funcional</li><li>Bebida funcional com cafeína</li><li>Massagem esportiva</li><li>Nutrição VIV</li></ol>
+            <a class="lnk" data-wa="ritual" data-name="Energia &amp; Performance">Agendar Energia</a>
+          </div></div></div>
         </article>
 
       </div>
 
-      <figure class="rit-visual reveal" id="ritVisual" style="--d:.1s">
-        <img class="on" loading="lazy" src="img/ritual-leveza.jpg" alt="Massagem drenante no abdômen com toalha bordada VIV">
-        <img loading="lazy" src="img/ritual-contorno.jpg" alt="Terapeuta VIV fazendo alongamento e massagem na perna">
-        <img loading="lazy" src="img/ritual-firmeza.jpg" alt="Aplicação de argila no abdômen com espátula de madeira">
-        <img loading="lazy" src="img/ritual-energia.jpg" alt="Energy drinks VIV amarelo e vermelho no balcão">
-        <figcaption id="ritCap">I. Leveza</figcaption>
+      <figure class="exp-visual" id="ritVisual">
+        <div class="ph ri">
+          <img class="on" loading="lazy" src="img/ritual-leveza.jpg" alt="Massagem drenante no abdômen com toalha bordada VIV">
+          <img loading="lazy" src="img/ritual-contorno.jpg" alt="Terapeuta VIV fazendo alongamento e massagem na perna">
+          <img loading="lazy" src="img/ritual-firmeza.jpg" alt="Aplicação de argila no abdômen com espátula de madeira">
+          <img loading="lazy" src="img/ritual-energia.jpg" alt="Energy drinks VIV amarelo e vermelho no balcão">
+        </div>
+        <figcaption class="cap"><b id="ritCapN">01</b><span id="ritCap">Leveza</span></figcaption>
       </figure>
     </div>
 
-    <p class="rit-note tiny reveal">Todos os protocolos terminam com a Nutrição VIV: shake funcional ou bowl de salada, à sua escolha. Ou montamos uma experiência personalizada, do jeito que você desejar. Valores de referência; confirme a disponibilidade pelo WhatsApp.</p>
+    <p class="exp-note tiny r">Todos os protocolos terminam com a Nutrição VIV: shake funcional ou bowl de salada, à sua escolha. Ou montamos uma experiência personalizada, do jeito que você desejar. Valores de referência; confirme a disponibilidade pelo WhatsApp.</p>
 
     <div class="extras">
-      <article class="extra granite reveal">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/massagens-avulsas.jpg" alt="Mãos de terapeuta massageando as costas, com toalha bordada VIV"></figure>
-        <div class="extra-copy">
-          <p class="eyebrow">Só o toque</p>
-          <h3>Massagens <em>avulsas</em></h3>
+      <article class="extra r" id="x-avulsa">
+        <figure class="ph ri"><img loading="lazy" src="img/massagens-avulsas.jpg" alt="Mãos de terapeuta massageando as costas, com toalha bordada VIV"></figure>
+        <div>
+          <p class="label">Só o toque</p>
+          <h3 class="h2 caps" style="font-size:clamp(25px,2.5vw,34px)">Massagens avulsas</h3>
           <ul class="massages">
             <li>Drenagem</li><li>Esportiva</li>
             <li>Modeladora</li><li>Relaxante</li>
             <li>Ativadora</li><li>Liberação miofascial</li>
           </ul>
-          <a class="link-arrow" data-wa="avulsa">Agendar uma massagem <span>→</span></a>
+          <a class="lnk" data-wa="avulsa">Agendar uma massagem</a>
         </div>
       </article>
-      <article class="extra granite reveal" style="--d:.1s">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/ritual-pes.jpg" alt="Cliente comendo na VIV enquanto recebe o escalda-pés"></figure>
-        <div class="extra-copy">
-          <p class="eyebrow">Para celebrar</p>
-          <h3>Ritual <em>dos Pés</em></h3>
-          <p>Escalda-pés com ervas, flores e sais, servido com chá. O jeito VIV de comemorar um aniversário, reunir as amigas ou dar uma pausa aos pés que sustentam a sua rotina.</p>
-          <a class="link-arrow" data-wa="pes">Agendar o ritual <span>→</span></a>
+      <article class="extra r" id="x-pes" style="--d:.08s">
+        <figure class="ph ri"><img loading="lazy" src="img/cha-ervas.jpg" alt="Bule de porcelana florido e potes de ervas do Ritual dos Pés"></figure>
+        <div>
+          <p class="label">Para celebrar</p>
+          <h3 class="h2 caps" style="font-size:clamp(25px,2.5vw,34px)">Ritual dos Pés</h3>
+          <p>Aniversário com escalda-pés? Aqui, sim. Ervas, flores e sais na bacia, chá servido no bule de porcelana. Para comemorar, reunir as amigas ou dar uma pausa aos pés que sustentam a sua rotina.</p>
+          <a class="lnk" data-wa="pes">Agendar o ritual</a>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ PLAN ============ -->
-<section class="sec plan" id="cronograma" aria-labelledby="plan-title">
+<!-- ============ CRONOGRAMA ============ -->
+<section class="sec plan night" id="cronograma" aria-labelledby="plan-title">
   <div class="wrap plan-grid">
     <div>
-      <p class="eyebrow reveal">Cronograma Corporal VIV</p>
-      <h2 class="display reveal" id="plan-title">Seu bem-estar merece um <em>plano</em>, não uma tentativa.</h2>
-      <p class="lead reveal">Uma jornada personalizada que acompanha a sua evolução, desenvolvida em parceria com a nutricionista @nutri.amandaperiim para a sua rotina e os seus objetivos.</p>
-      <ul class="plan-pillars reveal">
+      <p class="label r">Cronograma Corporal VIV</p>
+      <h2 class="h2 r" id="plan-title">Seu bem-estar merece um <em>plano,</em> não uma tentativa.</h2>
+      <p class="lead r">Uma jornada personalizada que acompanha a sua evolução, desenvolvida em parceria com a nutricionista @nutri.amandaperiim para a sua rotina e os seus objetivos.</p>
+      <ul class="plan-pillars r">
         <li><span>01</span>Acompanhamento nutricional individual</li>
         <li><span>02</span>Protocolos corporais estratégicos</li>
         <li><span>03</span>Suplementação e nutrição funcional</li>
       </ul>
-      <p class="plan-flow reveal">Em cada encontro: <b>shot funcional de entrada</b> → <b>sessão corporal estratégica do dia</b>.</p>
+      <p class="plan-flow r">Em cada encontro: <b>shot funcional de entrada</b>, depois a <b>sessão corporal estratégica do dia</b>.</p>
     </div>
 
-    <div class="plan-side">
-      <figure class="plan-img img-zoom reveal"><img loading="lazy" src="img/cronograma.jpg" alt="Cliente lendo o folder do Cronograma Corporal VIV na loja"></figure>
-      <div class="pcards">
-        <article class="pcard reveal">
-          <p class="pc-k">Plano</p>
-          <p class="pc-big">2×<small>por semana</small></p>
-          <p class="pc-meta">8 encontros por mês</p>
-          <p class="pc-price">R$ 1.097 <small>/ mês</small></p>
-          <a class="btn btn-ghost" data-wa="plano" data-name="2x por semana">Quero este plano</a>
-        </article>
-        <article class="pcard featured reveal" style="--d:.1s">
-          <span class="tag">Mais escolhido</span>
-          <p class="pc-k">Plano</p>
-          <p class="pc-big">3×<small>por semana</small></p>
-          <p class="pc-meta">12 encontros por mês</p>
-          <p class="pc-price">Sob consulta</p>
-          <a class="btn btn-cream" data-wa="plano" data-name="3x por semana">Quero este plano</a>
-        </article>
+    <div>
+      <figure class="ph ri plan-img"><img loading="lazy" src="img/cronograma.jpg" alt="Cliente lendo o folder do Cronograma Corporal VIV na loja"></figure>
+      <div class="plans">
+        <div class="plan-row r">
+          <div><p class="pl-k">2×<small>por semana</small></p><p class="pl-m">8 encontros por mês</p></div>
+          <p class="pl-p">R$ 1.097 <small>/ mês</small></p>
+          <a class="lnk" data-wa="plano" data-name="2x por semana">Quero este plano</a>
+        </div>
+        <div class="plan-row r" style="--d:.08s">
+          <div><p class="pl-k">3×<small>por semana</small></p><p class="pl-m">12 encontros por mês</p></div>
+          <p class="pl-p">Sob consulta</p>
+          <a class="lnk" data-wa="plano" data-name="3x por semana">Quero este plano</a>
+        </div>
       </div>
+      <p class="plan-foot">Valores de referência. A VIV confirma o plano ideal pelo WhatsApp.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ MENU ============ -->
-<section class="sec menu" id="cardapio" aria-labelledby="menu-title">
+<!-- ============ CARDÁPIO ============ -->
+<section class="sec" id="cardapio" aria-labelledby="menu-title">
   <div class="wrap">
-    <header class="sec-head split">
-      <div>
-        <p class="eyebrow reveal">Cardápio</p>
-        <h2 class="display reveal" id="menu-title">Nutrição <em>inteligente</em></h2>
-      </div>
-      <p class="lead reveal" style="--d:.1s">Comer bem não precisa ser complicado. Opções práticas, saborosas e funcionais, pensadas para nutrir o corpo sem abrir mão do prazer de comer.</p>
+    <header class="menu-head">
+      <p class="label r">Cardápio</p>
+      <h2 class="h2 r" id="menu-title">O pão é verde. <em>De propósito.</em></h2>
+      <p class="lead r">Espinafre e chlorella na massa, frango no recheio. Na cozinha da VIV, comer bem não precisa ser complicado: é prático, saboroso e feito para nutrir sem abrir mão do prazer de comer.</p>
     </header>
 
-    <div class="bento">
-      <article class="b-combo reveal">
-        <figure class="combo-img"><img loading="lazy" src="img/combo-pita.jpg" alt="Pães pita verdes de espinafre e chlorella recheados com frango, em potes VIV"></figure>
-        <div>
-          <p class="eyebrow">Assinatura da casa</p>
-          <h3>Combo <em>VIV</em></h3>
-          <ul class="combo-list">
-            <li>Pão pita de espinafre e chlorella com frango</li>
-            <li>Smoothie de frutas vermelhas com pudim de chia</li>
-            <li>Cold pressed juice à sua escolha</li>
-          </ul>
-        </div>
+    <article class="combo">
+      <figure class="ph ri combo-img"><img loading="lazy" src="img/combo-pita.jpg" alt="Pães pita verdes de espinafre e chlorella recheados com frango, em potes VIV"></figure>
+      <div class="combo-copy r">
+        <p class="label">Assinatura da casa</p>
+        <h3 class="h2 caps">Combo VIV</h3>
+        <ul class="combo-list">
+          <li>Pão pita de espinafre e chlorella com frango</li>
+          <li>Smoothie de frutas vermelhas com pudim de chia</li>
+          <li>Cold pressed juice à sua escolha</li>
+        </ul>
         <div class="combo-foot">
           <p class="combo-price"><small>Tudo por</small>R$ 69,90</p>
-          <a class="link-arrow" data-wa="combo">Pedir o combo <span>→</span></a>
+          <a class="btn" data-wa="combo">Pedir o combo</a>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <article class="b-dish reveal" style="--d:.06s">
-        <figure><img loading="lazy" src="img/prato-crudo-salmao.jpg" alt="Crudo de salmão com rúcula, rabanete e beterraba sobre pão"></figure>
-        <div><h3>Crudo de salmão</h3><p>Frescor, proteína e sabor: salmão, rúcula, rabanete e beterraba.</p></div>
+    <div class="dishes">
+      <article class="dish">
+        <figure class="ph ri"><img loading="lazy" src="img/prato-crudo-salmao.jpg" alt="Crudo de salmão com rúcula, rabanete e beterraba sobre pão"></figure>
+        <h3>Crudo de salmão</h3><p>Salmão, rúcula, rabanete e beterraba. Frescor, proteína e sabor.</p>
       </article>
+      <article class="dish">
+        <figure class="ph ri" style="--d:.08s"><img loading="lazy" src="img/prato-tartar-atum.jpg" alt="Tartar de atum sobre abacate com torradas de gergelim"></figure>
+        <h3>Tartar de atum</h3><p>Atum fresco sobre cubos de abacate, com torradas de gergelim.</p>
+      </article>
+      <article class="dish">
+        <figure class="ph ri" style="--d:.16s"><img loading="lazy" src="img/prato-panqueca.jpg" alt="Panqueca de carne gratinada em prato de cerâmica"></figure>
+        <h3>Panqueca de carne</h3><p>Leve e saborosa, para transformar uma refeição simples num momento VIV.</p>
+      </article>
+      <article class="dish">
+        <figure class="ph ri" style="--d:.24s"><img loading="lazy" src="img/prato-smoothie-bowl.jpg" alt="Smoothie bowl de frutas vermelhas com chia em pote VIV"></figure>
+        <h3>Smoothie bowl</h3><p>Frutas vermelhas, frutas frescas e chia. Leve, nutritivo e delicioso.</p>
+      </article>
+    </div>
 
-      <article class="b-dish reveal" style="--d:.12s">
-        <figure><img loading="lazy" src="img/prato-tartar-atum.jpg" alt="Tartar de atum sobre abacate com torradas de gergelim"></figure>
-        <div><h3>Tartar de atum</h3><p>Atum fresco sobre cubos de abacate, com torradas de gergelim.</p></div>
-      </article>
-
-      <article class="b-dish reveal" style="--d:.06s">
-        <figure><img loading="lazy" src="img/prato-panqueca.jpg" alt="Panqueca de carne gratinada em prato de cerâmica"></figure>
-        <div><h3>Panqueca de carne</h3><p>Leve e saborosa, para transformar uma refeição simples num momento VIV.</p></div>
-      </article>
-
-      <article class="b-dish reveal" style="--d:.12s">
-        <figure><img loading="lazy" src="img/prato-smoothie-bowl.jpg" alt="Smoothie bowl de frutas vermelhas com chia em pote VIV"></figure>
-        <div><h3>Smoothie bowl</h3><p>Frutas vermelhas, frutas frescas e chia. Leve, nutritivo e delicioso.</p></div>
-      </article>
-
-      <article class="b-more granite reveal">
-        <p class="eyebrow">Também à mesa</p>
-        <ul>
-          <li>Ceviche com batata-doce</li>
-          <li>Omelete de vegetais</li>
-          <li>Berinjela à parmegiana</li>
-          <li>Pão de queijo com manteiga de ervas</li>
-          <li>Sopa de legumes</li>
-        </ul>
-      </article>
+    <div class="also r">
+      <p class="label">Também à mesa</p>
+      <p class="list">Ceviche com batata-doce<span>·</span>Omelete de vegetais<span>·</span>Berinjela à parmegiana<span>·</span>Pão de queijo com manteiga de ervas<span>·</span>Sopa de legumes</p>
     </div>
   </div>
 </section>
 
 <!-- ============ BAR ============ -->
-<section class="sec bar" id="bar" aria-labelledby="bar-title">
+<section class="sec paper" id="bar" aria-labelledby="bar-title">
   <div class="wrap">
     <header class="sec-head split">
       <div>
-        <p class="eyebrow reveal">Bebidas autorais</p>
-        <h2 class="display reveal" id="bar-title">O bar <em>funcional</em></h2>
+        <p class="label r">Bebidas autorais</p>
+        <h2 class="h2 r" id="bar-title">Cada bebida tem uma <em>intenção.</em></h2>
       </div>
-      <p class="lead reveal" style="--d:.1s">Produção própria, ingredientes naturais e frutas de verdade. Cada bebida tem uma intenção, e todas têm muito sabor.</p>
+      <p class="lead r" style="--d:.08s">Produção própria, ingredientes naturais e frutas de verdade. E todas têm muito sabor.</p>
     </header>
 
     <div class="cp">
-      <figure class="cp-img img-zoom reveal"><img loading="lazy" src="img/bar-cold-pressed.jpg" alt="Garrafa de cold pressed verde com rótulo VIV em destaque"></figure>
-      <div class="cp-list">
-        <p class="eyebrow reveal">Cold pressed · prensados a frio</p>
+      <figure class="ph ri cp-img"><img loading="lazy" src="img/pilar-cold-pressed.jpg" alt="Garrafas de cold pressed VIV verde, laranja e amarela no balcão de granito"></figure>
+      <div>
+        <p class="label r">Cold pressed · prensados a frio</p>
         <div class="juices">
-          <article class="juice reveal">
-            <span class="bottle" style="--c:#6E8A3C" aria-hidden="true"></span>
-            <div><h3>VIV Reset</h3><p class="notes">chlorella · espinafre · maçã verde · limão</p></div>
-            <span class="vol">300 ml</span>
+          <article class="juice r" style="--c:#6E8A3C">
+            <h3>VIV Reset<i>.</i></h3><span class="vol">300 ml</span>
+            <p class="notes">Chlorella, espinafre, maçã verde e limão.</p>
           </article>
-          <article class="juice reveal" style="--d:.08s">
-            <span class="bottle" style="--c:#E07B33" aria-hidden="true"></span>
-            <div><h3>My Skin Glow</h3><p class="notes">acerola · gengibre · cenoura · laranja · água de coco</p></div>
-            <span class="vol">300 ml</span>
+          <article class="juice r" style="--c:#DD7A2F;--d:.06s">
+            <h3>My Skin Glow<i>.</i></h3><span class="vol">300 ml</span>
+            <p class="notes">Acerola, gengibre, cenoura, laranja e água de coco.</p>
           </article>
-          <article class="juice reveal" style="--d:.16s">
-            <span class="bottle" style="--c:#A9A447" aria-hidden="true"></span>
-            <div><h3>VIV Zen</h3><p class="notes">gotu kola · maçã verde · maracujá · chia · hortelã</p></div>
-            <span class="vol">300 ml</span>
+          <article class="juice r" style="--c:#B5A53A;--d:.12s">
+            <h3>VIV Zen<i>.</i></h3><span class="vol">300 ml</span>
+            <p class="notes">Gotu kola, maçã verde, maracujá, chia e hortelã.</p>
           </article>
         </div>
-        <p class="cp-foot tiny reveal">Cada garrafa traz no rótulo validade, proteínas e calorias.</p>
+        <p class="cp-foot tiny r">Cada garrafa traz no rótulo validade, proteínas e calorias.</p>
       </div>
     </div>
 
     <div class="drinks">
-      <article class="drink energy reveal">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/bar-energy.jpg" alt="Cliente segurando a jarra do Energy Drink VIV"></figure>
-        <p class="eyebrow">Energy Drink Autoral</p>
+      <article class="drink">
+        <figure class="ph ri"><img loading="lazy" src="img/bar-energy.jpg" alt="Cliente segurando a jarra do Energy Drink VIV"></figure>
+        <p class="label">Energy Drink autoral</p>
         <h3>Bem-estar <em>move</em> você.</h3>
-        <p>Refrescante, funcional e feito por nós, com ingredientes naturais e frutas de verdade, para acompanhar os dias mais ativos.</p>
-        <ul class="flavors"><li>Novo: Pineapple Energy</li></ul>
+        <p>Refrescante, funcional e feito por nós, com ingredientes naturais e frutas de verdade. Novo sabor: Pineapple Energy.</p>
         <p class="tiny">Contém cafeína. Pessoas sensíveis a estimulantes devem consumir com atenção.</p>
       </article>
-      <article class="drink reveal" style="--d:.1s">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/bar-matcha.jpg" alt="Matcha com frutas vermelhas no copo VIV, em frente ao letreiro da loja"></figure>
-        <p class="eyebrow">Matcha</p>
+      <article class="drink">
+        <figure class="ph ri" style="--d:.08s"><img loading="lazy" src="img/bar-matcha.jpg" alt="Matcha com frutas vermelhas no copo VIV, em frente ao letreiro da loja"></figure>
+        <p class="label">Matcha</p>
         <h3>Do <em>jeito</em> VIV.</h3>
         <p>Matcha latte, gelado em camadas ou com frutas vermelhas. Energia limpa, sem pressa.</p>
       </article>
-      <article class="drink reveal" style="--d:.2s">
-        <figure class="img-zoom reveal"><img loading="lazy" src="img/bar-whey-coffee.jpg" alt="Whey Coffee gelado no copo VIV"></figure>
-        <p class="eyebrow">Café &amp; proteína</p>
-        <h3>Energia que <em>nutre</em>.</h3>
+      <article class="drink">
+        <figure class="ph ri" style="--d:.16s"><img loading="lazy" src="img/bar-whey-coffee.jpg" alt="Whey Coffee gelado no copo VIV"></figure>
+        <p class="label">Café &amp; proteína</p>
+        <h3>Energia que <em>nutre.</em></h3>
         <p>Whey Coffee, whey de frutas vermelhas, drip coffee e chás funcionais para qualquer hora do dia.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ QUOTE ============ -->
-<section class="sec quote" aria-label="Palavra da fundadora">
-  <div class="wrap quote-in">
-    <figure class="q-img reveal"><img loading="lazy" src="img/fundadora.jpg" alt="Fundadora da VIV arrumando flores na loja"></figure>
-    <blockquote class="reveal" style="--d:.1s">
-      <p>“Eu acredito no cuidado que cabe na rotina, na comida que faz bem e em encontrar equilíbrio sem transformar isso em <em>cobrança</em>.”</p>
-      <cite>Fundadora da VIV</cite>
-    </blockquote>
+<!-- ============ CARTA DA FUNDADORA ============ -->
+<section class="sec letter" aria-label="Carta da fundadora">
+  <div class="wrap letter-grid">
+    <figure class="ph ri letter-img"><img loading="lazy" src="img/fundadora-parede.jpg" alt="Fundadora da VIV arrumando flores em frente à parede com as palavras da marca"></figure>
+    <div>
+      <p class="label r">Carta da fundadora</p>
+      <blockquote class="r" style="--d:.08s">
+        <p>“A VIV nasceu de algo que sempre fez muito sentido: a forma como escolhemos viver.</p>
+        <p>Eu acredito no cuidado que cabe na rotina, na comida que faz bem, em um ambiente gostoso, em desacelerar quando é preciso e em encontrar equilíbrio sem transformar isso em <em>cobrança.</em></p>
+        <p>Não sobre viver uma vida perfeita. Mas sobre fazer escolhas que façam sentido.”</p>
+        <cite>@vivianesd__ · Fundadora da VIV</cite>
+      </blockquote>
+    </div>
   </div>
 </section>
 
-<!-- ============ MEET ============ -->
-<section class="sec meet" id="encontros" aria-labelledby="meet-title">
+<!-- ============ ENCONTROS ============ -->
+<section class="sec" id="encontros" aria-labelledby="meet-title">
   <div class="wrap">
-    <header class="sec-head split">
-      <div>
-        <p class="eyebrow reveal">Para grupos e eventos</p>
-        <h2 class="display reveal" id="meet-title">Leve a VIV para o seu <em>encontro</em>.</h2>
-      </div>
-      <p class="lead reveal" style="--d:.1s">A gente cuida dos detalhes para deixar cada encontro mais leve, bonito e gostoso.</p>
+    <header class="meet-head">
+      <p class="label r">Para grupos e eventos</p>
+      <h2 class="h2 r" id="meet-title">Leve a VIV para o seu <em>encontro.</em></h2>
+      <p class="lead r">A gente cuida dos detalhes para deixar cada encontro mais leve, bonito e gostoso.</p>
     </header>
     <div class="meet-grid">
-      <article class="meet-card reveal">
-        <figure><img loading="lazy" src="img/brunch.jpg" alt="Potes VIV com salada de frutas montados para um brunch"></figure>
-        <div>
-          <p class="eyebrow">Smart Brunch VIV</p>
-          <h3>Um brunch <em>do seu jeito</em>.</h3>
-          <p>Montamos uma experiência personalizada para o seu grupo, com opções leves, frescas e especiais para compartilhar.</p>
-          <p class="tiny">Valor conforme a quantidade de pessoas e os itens escolhidos.</p>
-          <a class="link-arrow" data-wa="brunch">Montar meu brunch <span>→</span></a>
-        </div>
+      <article class="meet">
+        <figure class="ph ri"><img loading="lazy" src="img/brunch.jpg" alt="Potes VIV com salada de frutas montados para um brunch"></figure>
+        <p class="label">Smart Brunch VIV</p>
+        <h3>Um brunch <em>do seu jeito.</em></h3>
+        <p>Montamos uma experiência personalizada para o seu grupo, com opções leves, frescas e especiais para compartilhar.</p>
+        <p class="tiny">Valor conforme a quantidade de pessoas e os itens escolhidos.</p>
+        <a class="lnk" data-wa="brunch">Montar meu brunch</a>
       </article>
-      <article class="meet-card reveal" style="--d:.1s">
-        <figure><img loading="lazy" src="img/evento.jpg" alt="Energy Drink VIV com display de acrílico em evento ao ar livre"></figure>
-        <div>
-          <p class="eyebrow">VIV no seu evento</p>
-          <h3>A experiência <em>vai até você</em>.</h3>
-          <p>Energy drink autoral, hype drinks e shots servidos com a identidade VIV em lançamentos, aulões e encontros.</p>
-          <a class="link-arrow" data-wa="evento">Levar a VIV <span>→</span></a>
-        </div>
+      <article class="meet">
+        <figure class="ph ri" style="--d:.1s"><img loading="lazy" src="img/evento.jpg" alt="Energy Drink VIV com display de acrílico em evento ao ar livre"></figure>
+        <p class="label">VIV no seu evento</p>
+        <h3>A experiência <em>vai até você.</em></h3>
+        <p>Energy drink autoral, hype drinks e shots servidos com a identidade VIV em lançamentos, aulões e encontros.</p>
+        <a class="lnk" data-wa="evento">Levar a VIV</a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ GIFT ============ -->
-<section class="sec gift" id="presente" aria-labelledby="gift-title">
+<!-- ============ VALE-PRESENTE ============ -->
+<section class="sec paper gift" id="presente" aria-labelledby="gift-title">
   <div class="wrap gift-grid">
-    <div class="gift-stage reveal" id="giftStage" aria-hidden="true">
-      <div class="genv"></div>
-      <div class="gcard" id="gcard">
-        <div class="gcard-in">
-          <span class="g-logo">VIV</span>
-          <span class="g-sub">Smart Living</span>
-          <span class="g-rule"></span>
-          <span class="g-label">Vale-presente</span>
-        </div>
-        <span class="g-num">Nº 0001</span>
-      </div>
-    </div>
+    <figure class="ph ri gift-img"><img loading="lazy" src="img/vale-presente.jpg" alt="Vale-presente VIV. Smart Living com envelope, sobre o balcão de granito"></figure>
     <div>
-      <p class="eyebrow reveal">Vale-presente</p>
-      <h2 class="display reveal" id="gift-title" style="margin-top:26px">Presenteie com uma <em>pausa</em>.</h2>
-      <p class="lead reveal" style="margin-top:28px">Tem presente que ocupa espaço. E tem presente que proporciona uma pausa, um cuidado e um momento só para a pessoa.</p>
-      <ul class="gift-list reveal">
-        <li>Presenteie com uma pausa.</li>
-        <li>Presenteie com cuidado.</li>
-        <li>Presenteie com um Momento VIV.</li>
+      <p class="label r">Vale-presente</p>
+      <h2 class="h2 r" id="gift-title">Presenteie quem você ama com um <em>Momento VIV.</em></h2>
+      <p class="lead r">Tem presente que ocupa espaço. E tem presente que proporciona uma pausa, um cuidado e um momento só para a pessoa.</p>
+      <ul class="gift-list r">
+        <li>Experiências VIV</li>
+        <li>Massagens avulsas</li>
+        <li>Ritual dos Pés</li>
       </ul>
-      <p class="tiny reveal" style="margin:-16px 0 32px">Vale para as Experiências VIV, massagens avulsas e o Ritual dos Pés.</p>
-      <a class="btn btn-dark reveal" data-wa="presente">Presentear agora <span class="arr">→</span></a>
+      <a class="btn r" data-wa="presente">Presentear agora</a>
     </div>
   </div>
 </section>
 
-<!-- ============ VOICES ============ -->
-<section class="sec voices" aria-labelledby="voices-title">
+<!-- ============ VOZES ============ -->
+<section class="sec" aria-labelledby="voices-title">
   <div class="wrap">
-    <header class="sec-head">
-      <p class="eyebrow reveal">Quem já viveu</p>
-      <h2 class="display reveal" id="voices-title">Palavras de quem <em>passou</em> por aqui.</h2>
+    <header class="voices-head">
+      <p class="label r">Quem já viveu</p>
+      <h2 class="h2 r" id="voices-title">Palavras de quem <em>passou</em> por aqui.</h2>
     </header>
-    <div class="voices-track">
-      <blockquote class="voice granite reveal">
+    <div class="voices">
+      <blockquote class="voice r">
         <p>Escolhi o protocolo Leveza. Uma experiência voltada ao bem-estar do início ao fim.</p>
         <footer>Dezza<span>Cliente</span></footer>
       </blockquote>
-      <blockquote class="voice granite reveal" style="--d:.08s">
+      <blockquote class="voice r" style="--d:.06s">
         <p>Finalizei o meu dia com a melhor escolha inteligente da cidade: massagem relaxante e uma salada deliciosa.</p>
         <footer>Andrea<span>Fisioterapeuta</span></footer>
       </blockquote>
-      <blockquote class="voice granite reveal" style="--d:.16s">
+      <blockquote class="voice r">
         <p>Lanche saudável, maravilhoso.</p>
         <footer>Iza<span>Pediatra</span></footer>
       </blockquote>
-      <blockquote class="voice granite reveal" style="--d:.24s">
+      <blockquote class="voice r" style="--d:.06s">
         <p>Tenho um novo spot preferido na cidade.</p>
         <footer>Thamires<span>Cliente</span></footer>
       </blockquote>
@@ -973,24 +946,22 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
-<!-- ============ VISIT ============ -->
-<section class="sec visit" id="visite" aria-labelledby="visit-title">
+<!-- ============ VISITE ============ -->
+<section class="sec paper visit" id="visite" aria-labelledby="visit-title">
   <div class="wrap visit-grid">
-    <div class="visit-art reveal">
-      <figure class="visit-img img-zoom reveal"><img loading="lazy" src="img/fachada.jpg" alt="Fachada iluminada da VIV. Smart Living no Shopping Praia Sul"></figure>
-      <figure class="visit-orb"><img loading="lazy" src="img/parede.jpg" alt="Parede da loja com as palavras conexão, nutrição, equilíbrio e massagens"></figure>
-    </div>
+    <figure class="ph ri visit-img"><img loading="lazy" src="img/fachada.jpg" alt="Fachada iluminada da VIV. Smart Living no Shopping Praia Sul"></figure>
     <div>
-      <p class="eyebrow reveal">Visite</p>
-      <h2 class="display reveal" id="visit-title">Sua pausa fica no <em>Shopping Praia Sul</em>.</h2>
-      <dl class="info reveal">
+      <p class="label r">Visite</p>
+      <h2 class="h2 r" id="visit-title">Sua pausa tem <em>um endereço só.</em></h2>
+      <p class="status r" data-status><i></i><b style="font-weight:400">Seg a sáb 10h–22h · Dom 12h–20h</b></p>
+      <dl class="info r">
         <div><dt>Endereço</dt><dd>Av. Melício Machado, 4880 · Loja 10<br>Aruana, Aracaju · SE</dd></div>
         <div><dt>Horários</dt><dd>Segunda a sábado, 10h às 22h<br>Domingo, 12h às 20h</dd></div>
         <div><dt>Contato</dt><dd><a data-wa="geral">(79) 98161-5004</a><br><a href="https://www.instagram.com/vivsmartliving/" target="_blank" rel="noopener">@vivsmartliving</a></dd></div>
       </dl>
-      <div class="visit-cta reveal">
-        <a class="btn btn-dark" data-wa="geral">Agendar pelo WhatsApp <span class="arr">→</span></a>
-        <a class="btn btn-line" href="https://maps.app.goo.gl/CA63zyDGSom9JX5W7" target="_blank" rel="noopener">Como chegar</a>
+      <div class="visit-cta r">
+        <a class="btn" data-wa="geral">Agendar pelo WhatsApp</a>
+        <a class="lnk" href="https://maps.app.goo.gl/CA63zyDGSom9JX5W7" target="_blank" rel="noopener">Como chegar</a>
       </div>
     </div>
   </div>
@@ -998,13 +969,17 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 </main>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ RODAPÉ ============ -->
 <footer class="ftr">
-  <div class="wrap">
+  <div class="sign" id="sign" aria-hidden="true">
+    <span class="sign-viv">VIV.</span>
+    <span class="sign-sub">Smart Living</span>
+  </div>
+  <div class="wrap ftr-in">
     <div class="ftr-top">
-      <p class="ftr-sign">Viver bem é uma escolha <em>inteligente</em>.</p>
+      <p class="ftr-line">Viver bem é uma escolha inteligente.</p>
       <nav aria-label="Rodapé">
-        <a href="#rituais">Rituais</a><a href="#cardapio">Cardápio</a>
+        <a href="#experiencias">Experiências</a><a href="#cardapio">Cardápio</a>
         <a href="#cronograma">Cronograma</a><a href="#bar">Bebidas</a>
         <a href="#encontros">Eventos</a><a href="#presente">Vale-presente</a>
         <a href="https://www.instagram.com/vivsmartliving/" target="_blank" rel="noopener">Instagram</a><a data-wa="geral">WhatsApp</a>
@@ -1014,24 +989,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <span>© <span id="yr">2026</span> VIV. Smart Living · Aracaju, SE</span>
       <span>Nutrição funcional · Massagens · Bem-estar</span>
     </div>
-    <div class="ftr-note">Prévia de proposta de site. Não é o site oficial da VIV. Smart Living.
-    </div>
+    <p class="ftr-note only-preview">Prévia de proposta de site. Não é o site oficial da VIV. Smart Living.</p>
   </div>
-  <div class="ftr-mark" aria-hidden="true">VIV<i>.</i></div>
 </footer>
-
-<!-- ============ DOCK ============ -->
-<div class="dock" id="dock">
-  <a data-wa="geral">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
-    Agendar
-  </a>
-  <a href="https://maps.app.goo.gl/CA63zyDGSom9JX5W7" target="_blank" rel="noopener">Como chegar</a>
-</div>
 
 <div class="demo" id="demo" hidden role="dialog" aria-modal="true" aria-labelledby="demoT">
   <div class="demo-card">
-    <p class="eyebrow">Modo prévia</p>
+    <p class="label">Modo prévia</p>
     <h3 id="demoT">No site publicado, este botão abre o <em>WhatsApp</em> da VIV com a mensagem pronta.</h3>
     <div class="bubble">
       <span class="bubble-to">Para: VIV. Smart Living · (79) 98161-5004</span>
@@ -1039,13 +1003,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <span class="bubble-time">agora</span>
     </div>
     <p class="tiny">A cliente só toca em enviar. Nesta prévia nenhuma mensagem é enviada.</p>
-    <button class="btn btn-dark" type="button" data-close>Entendi</button>
+    <button class="btn" type="button" data-close>Entendi</button>
   </div>
 </div>
 
 <script>
 (() => {
-    const MSG = {
+  const root = document.documentElement;
+  const PREVIEW = root.hasAttribute('data-preview');
+  const WA = '5579981615004';
+  const MSG = {
     geral: () => 'Olá, VIV! Vim pelo site e gostaria de agendar uma experiência.',
     ritual: n => `Olá, VIV! Vim pelo site e quero agendar o protocolo ${n}.`,
     pes: () => 'Olá, VIV! Vim pelo site e quero agendar o Ritual dos Pés.',
@@ -1056,88 +1023,189 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     evento: () => 'Olá, VIV! Vim pelo site e quero levar as bebidas VIV para o meu evento.',
     presente: () => 'Olá, VIV! Vim pelo site e quero presentear alguém com um Vale-Presente VIV.'
   };
+
+  // whatsapp: na prévia, mostra a mensagem em vez de enviar
   const demo = document.getElementById('demo');
   const demoMsg = document.getElementById('demoMsg');
   const closeDemo = () => { demo.hidden = true; };
   document.querySelectorAll('[data-wa]').forEach(a => {
-    const fn = MSG[a.dataset.wa] || MSG.geral;
+    const text = (MSG[a.dataset.wa] || MSG.geral)(a.dataset.name || '');
+    if (!PREVIEW) {
+      a.href = `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      return;
+    }
     a.href = '#agendar';
     a.addEventListener('click', e => {
       e.preventDefault();
-      demoMsg.textContent = fn(a.dataset.name || '');
+      demoMsg.textContent = text;
       demo.hidden = false;
       demo.querySelector('[data-close]').focus();
     });
   });
   demo.addEventListener('click', e => { if (e.target === demo || e.target.closest('[data-close]')) closeDemo(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !demo.hidden) closeDemo(); });
 
-  // header + dock
-  const root = document.documentElement;
-  const hdr = document.getElementById('hdr');
-  const hero = document.querySelector('.hero');
-  const onScroll = () => {
-    const y = window.scrollY;
-    hdr.classList.toggle('scrolled', y > 24);
-    document.body.classList.toggle('show-dock', y > Math.min(hero.offsetHeight * 0.6, window.innerHeight * 0.7));
+  // aberto agora? (horário de Aracaju)
+  const HOURS = { 0: [12, 20], 1: [10, 22], 2: [10, 22], 3: [10, 22], 4: [10, 22], 5: [10, 22], 6: [10, 22] };
+  const setStatus = () => {
+    try {
+      const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Maceio', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
+      const get = t => parts.find(p => p.type === t).value;
+      const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+      const now = (+get('hour') % 24) + (+get('minute')) / 60;
+      const [open, close] = HOURS[day];
+      const isOpen = now >= open && now < close;
+      const text = isOpen ? `Aberto agora · até ${close}h`
+        : now < open ? `Fechado agora · abre às ${open}h`
+        : `Fechado agora · abre amanhã às ${HOURS[(day + 1) % 7][0]}h`;
+      document.querySelectorAll('[data-status]').forEach(el => {
+        el.classList.toggle('open', isOpen);
+        el.querySelector('b').textContent = text;
+      });
+      // sugestão da hora, só com o que a casa serve
+      const tip = !isOpen ? 'A casa está fechada agora. Guarde a sua hora pelo WhatsApp.'
+        : now < 11.5 ? 'Boa hora para um Whey Coffee.'
+        : now < 14.5 ? 'Boa hora para um almoço leve: Combo VIV.'
+        : now < 17 ? 'Boa hora para um matcha gelado.'
+        : now < 20 ? 'Boa hora para uma massagem antes de voltar para casa.'
+        : 'Ainda dá tempo de uma sopa de legumes e um chá.';
+      const hh = Math.floor(now), mm = String(Math.round((now - hh) * 60)).padStart(2, '0');
+      document.querySelectorAll('[data-now]').forEach(el => {
+        el.classList.toggle('open', isOpen);
+        el.querySelector('span').textContent = `${hh}h${mm} em Aracaju · ${tip}`;
+        el.hidden = false;
+      });
+    } catch (e) { /* mantém o horário fixo escrito no HTML */ }
   };
+  setStatus();
+  setInterval(setStatus, 60000);
+
+  // cabeçalho
+  const hdr = document.getElementById('hdr');
+  root.style.setProperty('--hdr', hdr.offsetHeight + 'px');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 24);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // mobile menu
+  // menu
   const burger = document.getElementById('burger');
   const drawer = document.getElementById('drawer');
   const setMenu = open => {
     document.body.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    burger.querySelector('.mb-t').textContent = open ? 'Fechar' : 'Menu';
     drawer.setAttribute('aria-hidden', String(!open));
   };
   burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
   drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    if (!demo.hidden) closeDemo(); else setMenu(false);
+  });
 
-  // reveal on scroll
+  // entrada ao rolar
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+  document.querySelectorAll('.r, .ri').forEach(el => io.observe(el));
 
-  // rituals accordion + visual
+  // experiências: lista + imagem
   const rits = [...document.querySelectorAll('.rit')];
   const visImgs = [...document.querySelectorAll('#ritVisual img')];
+  const capN = document.getElementById('ritCapN');
   const cap = document.getElementById('ritCap');
-  rits.forEach(r => r.querySelector('.rit-head').addEventListener('click', () => {
-    const i = +r.dataset.i;
+  const picks = [...document.querySelectorAll('#pede button')];
+  const setPick = key => picks.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pick === String(key))));
+  const openRit = (i, keepOpen) => {
+    const r = rits[i];
     const wasOpen = r.classList.contains('is-open');
     rits.forEach(x => { x.classList.remove('is-open'); x.querySelector('.rit-head').setAttribute('aria-expanded', 'false'); });
-    if (!wasOpen || window.innerWidth >= 980) {
+    if (!wasOpen || keepOpen || window.innerWidth >= 980) {
       r.classList.add('is-open');
       r.querySelector('.rit-head').setAttribute('aria-expanded', 'true');
     }
     visImgs.forEach((img, k) => img.classList.toggle('on', k === i));
-    cap.textContent = r.querySelector('.rit-n').textContent + ' ' + r.querySelector('.rit-name').textContent;
+    capN.textContent = r.querySelector('.rit-n').textContent;
+    cap.textContent = r.querySelector('.rit-name').textContent;
+    setPick(i);
+  };
+  rits.forEach((r, i) => r.querySelector('.rit-head').addEventListener('click', () => openRit(i, false)));
+
+  // "hoje o meu corpo pede": a resposta leva à experiência certa
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const glide = (el, block) => el.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block });
+  picks.forEach(b => b.addEventListener('click', () => {
+    const key = b.dataset.pick;
+    if (/^\d$/.test(key)) {
+      openRit(+key, true);
+      // espera a lista terminar de abrir e fechar antes de medir
+      setTimeout(() => glide(rits[+key], window.innerWidth >= 980 ? 'nearest' : 'start'), 420);
+      return;
+    }
+    setPick(key);
+    const card = document.getElementById('x-' + key);
+    // o cartão pode ainda não ter entrado na tela: mostra antes de rolar até ele
+    [card, ...card.querySelectorAll('.ri')].forEach(el => el.classList.add('in'));
+    glide(card, 'center');
+    card.classList.add('hl');
+    setTimeout(() => card.classList.remove('hl'), 2600);
   }));
 
-  // gift card tilt
-  const stage = document.getElementById('giftStage');
-  const card = document.getElementById('gcard');
+  // a parede: cada palavra acende ao passar pelo meio da tela
+  const lit = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle('lit', e.isIntersecting));
+  }, { rootMargin: '-46% 0px -53% 0px' });
+  document.querySelectorAll('.words li').forEach(li => lit.observe(li));
+
+  // o letreiro do rodapé acende quando aparece
+  const sign = document.getElementById('sign');
+  const signIo = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { sign.classList.add('on'); signIo.disconnect(); }
+  }, { threshold: 0.45 });
+  signIo.observe(sign);
+
+  // rolagem: a hora passa no relógio e as fotos da abertura andam em ritmos diferentes
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (fine && !still) {
-    stage.addEventListener('pointermove', e => {
-      const b = stage.getBoundingClientRect();
-      const x = (e.clientX - b.left) / b.width - 0.5;
-      const y = (e.clientY - b.top) / b.height - 0.5;
-      card.style.setProperty('--ry', (x * 22).toFixed(2) + 'deg');
-      card.style.setProperty('--rx', (-y * 18).toFixed(2) + 'deg');
-      card.style.setProperty('--mx', ((x + 0.5) * 100).toFixed(1) + '%');
-      card.style.setProperty('--my', ((y + 0.5) * 100).toFixed(1) + '%');
-    });
-    stage.addEventListener('pointerleave', () => {
-      ['--rx', '--ry', '--mx', '--my'].forEach(p => card.style.removeProperty(p));
-    });
-  }
+  const strip = [...document.querySelectorAll('.hs')];
+  const drift = [0.05, -0.035, 0.09, 0.02];
+  const hx = document.getElementById('hora');
+  const hxSteps = [...hx.querySelectorAll('.hx-steps li')];
+  const hxImgs = [...hx.querySelectorAll('.dial-ph img')];
+  const prog = document.getElementById('dProg');
+  const dialN = document.getElementById('dialN');
+  const dialT = document.getElementById('dialT');
+  const hint = hx.querySelector('.hx-hint');
+  let step = 0;
+  const frame = () => {
+    const y = window.scrollY;
+    if (fine && !still && window.innerWidth >= 860 && y < window.innerHeight * 1.8) {
+      strip.forEach((el, i) => { el.style.transform = `translate3d(0,${(-y * drift[i]).toFixed(1)}px,0)`; });
+    }
+    const box = hx.getBoundingClientRect();
+    const span = box.height - window.innerHeight;
+    if (span <= 0 || box.bottom < 0 || box.top > window.innerHeight) return;
+    const p = Math.min(1, Math.max(0, -box.top / span));
+    prog.style.strokeDashoffset = (100 - p * 100).toFixed(2);
+    hint.style.opacity = p > 0.04 ? '0' : '';
+    const i = Math.min(hxSteps.length - 1, Math.floor(p * hxSteps.length));
+    if (i === step) return;
+    step = i;
+    hxSteps.forEach((li, k) => li.classList.toggle('on', k === i));
+    hxImgs.forEach((img, k) => img.classList.toggle('on', k === i));
+    dialN.textContent = hxSteps[i].querySelector('.sn').textContent + ' de V';
+    dialT.textContent = hxSteps[i].querySelector('h3').textContent;
+  };
+  let queued = false;
+  const onMove = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; frame(); });
+  };
+  window.addEventListener('scroll', onMove, { passive: true });
+  window.addEventListener('resize', onMove);
+  frame();
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 })();
