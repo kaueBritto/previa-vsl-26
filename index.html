@@ -441,6 +441,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .reveal{opacity:1}
 .dock{left:calc(12px + env(safe-area-inset-left,0px));right:calc(12px + env(safe-area-inset-right,0px))}
 @media (min-width:980px){.dock{left:auto;right:calc(28px + env(safe-area-inset-right,0px))}}
+[hidden]{display:none!important}
 .demo{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px));background:rgba(46,33,27,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .demo-card{width:min(100%,430px);display:grid;gap:18px;padding:32px 28px 28px;border-radius:18px;background:var(--paper);box-shadow:0 40px 80px -40px rgba(46,33,27,.6);animation:pop .45s var(--ease)}
 @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}}
