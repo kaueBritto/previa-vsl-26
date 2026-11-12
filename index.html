@@ -83,6 +83,9 @@ ul,ol{list-style:none}
 /* ---------- entrada ao rolar ---------- */
 .js .r{opacity:0;transform:translateY(18px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
 .js .r.in{opacity:1;transform:none}
+/* O texto da abertura entra sozinho, sem esperar o observador de rolagem. */
+.js .hero-top .r{opacity:1;transform:none;transition:none;animation:rise 1s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
 .ph{position:relative;overflow:hidden;border-radius:2px;background:var(--stone)}
 .ph img{width:100%;height:100%;object-fit:cover}
 /* Uma cortina da cor do fundo sobe e mostra a foto. A foto em si não é recortada:
