@@ -105,8 +105,8 @@ ul,ol{list-style:none}
 .ledger .where{display:none}
 .hdr.scrolled .ledger{height:0;opacity:0;border-color:transparent}
 .status{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
-.status i{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
-.status.open i{background:var(--leaf);box-shadow:0 0 0 4px rgba(92,122,59,.16)}
+.status i{display:none;width:7px;height:7px;border-radius:50%;flex:none}
+.status.open i{display:block;background:var(--leaf);box-shadow:0 0 0 4px rgba(92,122,59,.16)}
 .hdr-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;transition:height .45s var(--ease)}
 .hdr.scrolled .hdr-in{height:62px}
 .hdr-l,.hdr-r{display:flex;align-items:center;gap:clamp(20px,2.4vw,36px)}
@@ -141,19 +141,21 @@ body.menu-open{overflow:hidden}
 .hero{position:relative;padding-top:calc(var(--hdr,132px) + clamp(36px,6vw,84px));padding-bottom:clamp(64px,8vw,120px);background:radial-gradient(90% 46% at 50% 0%,rgba(246,221,176,.6),rgba(246,221,176,0) 72%)}
 .hero-top{display:grid;justify-items:center;text-align:center}
 .hero .h1{margin:clamp(20px,2.4vw,30px) 0 clamp(20px,2.2vw,28px)}
-.hero .lead{max-width:50ch}
+.hero .h1{max-width:13.6em}
+.hero .lead{max-width:52ch}
+.hero-from{margin-top:24px;font:400 12px/1.4 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--taupe)}
 .hero-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px 34px;margin-top:clamp(28px,3vw,40px)}
-.now{display:inline-flex;align-items:center;gap:12px;margin-top:26px;font:400 12px/1.5 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:left}
-.now i{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
-.now.open i{background:var(--leaf);box-shadow:0 0 0 4px rgba(92,122,59,.16)}
-.strip{display:flex;gap:12px;margin-top:clamp(52px,6vw,88px);padding-inline:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);scrollbar-width:none}
-.strip::-webkit-scrollbar{display:none}
-.hs{flex:0 0 66%;scroll-snap-align:start;will-change:transform}
+/* No celular as quatro fotos formam uma colagem parada, em duas colunas desencontradas. */
+.strip{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:28px 12px;margin-top:clamp(48px,6vw,88px);padding-inline:var(--pad)}
+.hs{will-change:transform}
 .hs .ph{aspect-ratio:4/5}
-@media (min-width:560px) and (max-width:859px){.hs{flex-basis:40%}}
+.hs:nth-child(even){margin-top:44px}
+.hs .cap b{display:block;margin:0 0 2px}
+@media (min-width:560px){.strip{gap:32px 20px}.hs .cap b{display:inline;margin:0 .9em 0 0}}
 @media (min-width:860px){
-  .strip{display:grid;grid-template-columns:1fr 1.26fr 1fr .82fr;align-items:start;gap:clamp(16px,2.2vw,34px);max-width:var(--max);margin-inline:auto;overflow:visible}
-  .hs-1{margin-top:76px}.hs-3{margin-top:132px}.hs-4{margin-top:36px}
+  .strip{grid-template-columns:1fr 1.26fr 1fr .82fr;gap:clamp(16px,2.2vw,34px);max-width:var(--max);margin-inline:auto}
+  .hs:nth-child(even){margin-top:0}
+  .hs-1{margin-top:76px}.hs-3{margin-top:132px}.hs.hs-4{margin-top:36px}
   .hs-2 .ph{aspect-ratio:4/5.15}.hs-3 .ph,.hs-4 .ph{aspect-ratio:3/4}
 }
 
@@ -178,23 +180,35 @@ body.menu-open{overflow:hidden}
   .words li{grid-template-columns:52px 1fr}
 }
 
+/* ---------- por que só na VIV ---------- */
+.why{padding-top:clamp(24px,4vw,56px)}
+.why-head{max-width:860px}
+.why-head .h2{margin:20px 0 22px}
+.why-list{display:grid;margin-top:clamp(40px,5vw,72px);border-top:1px solid var(--line-2)}
+.why-list li{padding:26px 0;border-bottom:1px solid var(--line)}
+.why-list .n{font:400 12px/1 var(--cond);letter-spacing:.16em;color:var(--taupe)}
+.why-list h3{margin:14px 0 10px;font:400 clamp(22px,1.9vw,27px)/1.16 var(--serif);color:var(--ink)}
+.why-list p{font-size:15.5px;color:var(--muted);max-width:36ch}
+@media (min-width:700px){.why-list{grid-template-columns:1fr 1fr;column-gap:40px}}
+@media (min-width:1080px){.why-list{grid-template-columns:repeat(4,1fr);column-gap:clamp(24px,3vw,48px)}.why-list li{padding-bottom:0;border-bottom:0}}
+
 /* ---------- uma hora ---------- */
-/* A hora passa conforme a pessoa rola: o anel fecha e a foto muda a cada etapa. */
-.hx-sticky{padding-block:clamp(88px,11vw,168px)}
-.js .hx{height:460vh}
-.js .hx-sticky{position:sticky;top:0;height:100vh;height:100svh;display:grid;align-items:center;padding-block:78px 20px;overflow:hidden}
-.hx-grid{display:grid;gap:clamp(18px,3svh,30px);width:100%}
-.hx-copy .h2{margin:16px 0 0;font-size:clamp(27px,3.7vw,52px);max-width:17ch}
-.hx-steps{margin-top:clamp(18px,3svh,44px);border-top:1px solid var(--line)}
-.hx-steps li{display:grid;grid-template-columns:44px 1fr;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+/* O relógio anda sozinho e a página rola normalmente. Tocar numa etapa, ou no relógio, troca a foto. */
+.hx-grid{display:grid;gap:clamp(30px,4vw,44px)}
+.hx-head .h2{margin-top:20px;max-width:14ch}
+.hx-steps{border-top:1px solid var(--line)}
+.hx-steps li{border-bottom:1px solid var(--line)}
+.hx-steps button{display:grid;grid-template-columns:44px 1fr;align-items:baseline;width:100%;padding:17px 0;text-align:left;transition:opacity .5s var(--ease)}
+.js .hx-steps li:not(.on) button{opacity:.42}
+.js .hx-steps li:not(.on) button:hover{opacity:.8}
 .hx-steps .sn{font:300 italic 24px/1 var(--serif);color:var(--taupe)}
-.hx-steps h3{font:500 14px/1.3 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
-.hx-steps p{grid-column:2;margin-top:6px;font-size:15.5px;line-height:1.5;color:var(--muted);max-width:36ch}
-.js .hx-steps li{display:none}
-.js .hx-steps li.on{display:grid}
-.hx-hint{display:none;margin-top:18px;font:400 11.5px/1 var(--cond);letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
-.js .hx-hint{display:block}
-.dial{position:relative;order:-1;width:min(64vw,36svh,460px);margin-inline:auto;padding-bottom:34px}
+.hx-steps b{display:block;font:500 14px/1.3 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.hx-steps .tx{display:grid;grid-template-rows:1fr;transition:grid-template-rows .6s var(--ease)}
+.js .hx-steps li:not(.on) .tx{grid-template-rows:0fr}
+.hx-steps .tx > span{min-height:0;overflow:hidden}
+.hx-steps .tx > span > span{display:block;padding-top:7px;font-size:15.5px;line-height:1.55;color:var(--muted);max-width:38ch}
+.hx-cta{margin-top:30px}
+.dial{position:relative;width:min(84%,400px);margin-inline:auto;padding-bottom:36px;cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
 .dial-ph{position:relative;aspect-ratio:1;margin:6.4%;border-radius:50%}
 .dial-ph img{position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
 .dial-ph img.on{opacity:1;transform:none}
@@ -205,13 +219,10 @@ body.menu-open{overflow:hidden}
 .d-prog{stroke:var(--ink);stroke-width:.75;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100}
 .dial-cap{position:absolute;left:0;right:0;bottom:0;margin:0;text-align:center;white-space:nowrap}
 @media (min-width:980px){
-  .js .hx-sticky{padding-block:96px 32px}
-  .hx-grid{grid-template-columns:1fr 1fr;gap:clamp(56px,7vw,120px);align-items:center}
-  .dial{order:0;width:min(100%,62svh,500px)}
-  .js .hx-steps li{display:grid;opacity:.34;transition:opacity .5s var(--ease)}
-  .js .hx-steps li.on{opacity:1}
-  .js .hx-steps p{display:none}
-  .js .hx-steps li.on p{display:block}
+  .hx-grid{grid-template-columns:1fr 1fr;grid-template-areas:"head dial" "body dial";column-gap:clamp(56px,7vw,120px);row-gap:clamp(28px,3vw,44px);align-items:start}
+  .hx-head{grid-area:head;align-self:end}
+  .hx-body{grid-area:body}
+  .dial{grid-area:dial;align-self:center;width:min(100%,500px)}
 }
 
 /* ---------- experiências ---------- */
@@ -230,7 +241,8 @@ body.menu-open{overflow:hidden}
 .pede-opts button:hover{color:var(--taupe)}
 .pede-opts button[aria-pressed="true"]{color:var(--ink)}
 .pede-opts button[aria-pressed="true"] span{background-size:100% 1px}
-.pede-hint{margin-top:22px}
+.pede-hint{margin-top:24px;max-width:64ch;font-size:15.5px;line-height:1.6;color:var(--muted)}
+.pede-hint b{font-weight:500;color:var(--ink)}
 .extra.hl{border-top-color:var(--ink)}
 .extra{transition:border-color .6s var(--ease)}
 .exp-grid{display:grid;gap:44px}
@@ -251,6 +263,10 @@ body.menu-open{overflow:hidden}
 .rit-in{overflow:hidden}
 .rit-pad{padding:0 0 34px}
 .rit-thumb{aspect-ratio:16/10;margin-bottom:22px}
+.rit-tag{display:inline-block;margin-bottom:16px;padding:7px 11px;border:1px solid var(--line-2);border-radius:999px;font:400 11px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.rit-inc{margin-bottom:10px}
+.rit-quote{margin:0 0 26px;padding-left:16px;border-left:1px solid var(--line-2);font:300 italic 17.5px/1.45 var(--serif);color:var(--text);max-width:40ch}
+.rit-quote span{display:block;margin-top:8px;font:400 11.5px/1.3 var(--cond);font-style:normal;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
 .rit-for{font:300 italic clamp(21px,1.9vw,26px)/1.32 var(--serif);color:var(--ink);max-width:30ch;margin-bottom:22px}
 .rit-steps{counter-reset:s;display:grid;margin-bottom:28px;border-bottom:1px solid var(--line)}
 .rit-steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;align-items:baseline;padding:10px 0;border-top:1px solid var(--line);font-size:15px;color:var(--text)}
@@ -274,7 +290,8 @@ body.menu-open{overflow:hidden}
 .massages{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;margin-bottom:26px;border-top:1px solid var(--line)}
 .massages li{padding:11px 0;border-bottom:1px solid var(--line);font:400 clamp(17.5px,1.5vw,20px)/1.25 var(--serif);color:var(--ink)}
 @media (min-width:620px){.extra{grid-template-columns:.8fr 1.2fr;gap:clamp(24px,3vw,44px);align-items:start}}
-@media (min-width:1080px){.extras{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,88px)}}
+@media (min-width:1080px){.extras{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,88px)}.extras.one{grid-template-columns:1fr}}
+@media (min-width:900px){.extras.one .extra{grid-template-columns:.38fr 1fr}.extras.one .massages{grid-template-columns:repeat(3,1fr)}}
 
 /* ---------- cronograma (noite) ---------- */
 .night{--bg:var(--night);position:relative;background:var(--night);color:#C7B8A7;overflow:hidden}
@@ -302,6 +319,7 @@ body.menu-open{overflow:hidden}
 .pl-m{margin-top:8px;font-size:15px}
 .pl-p{text-align:right;font:400 clamp(21px,2vw,26px)/1.1 var(--serif);color:#F5EDE1;white-space:nowrap}
 .pl-p small{font:400 13px var(--sans);color:#C7B8A7}
+.pl-p .per{display:block;margin-top:8px;font-size:12.5px;color:#A89886}
 .plan-row .lnk{grid-column:1/-1;justify-self:start}
 .plan-foot{margin-top:22px;font-size:13.5px;color:#A89886}
 
@@ -316,6 +334,8 @@ body.menu-open{overflow:hidden}
 .combo-list li::before{content:"+";font:400 15px var(--cond);color:var(--taupe)}
 .combo-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:22px 28px;margin-top:34px}
 .combo-price{font:300 clamp(52px,5.4vw,78px)/.95 var(--serif);color:var(--ink);font-variant-numeric:lining-nums}
+.aside{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:300 italic 19px/1.4 var(--serif);color:var(--text)}
+.aside span{margin-left:.7em;font:400 11.5px/1.3 var(--cond);font-style:normal;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
 .combo-price small{display:block;margin-bottom:12px;font:400 12.5px var(--cond);letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
 @media (min-width:900px){.combo{grid-template-columns:.82fr 1.18fr;gap:clamp(44px,6vw,104px);align-items:center}.combo-copy{max-width:560px}}
 .dishes{display:grid;grid-template-columns:1fr 1fr;gap:36px 14px;margin-top:clamp(64px,7vw,112px)}
@@ -342,17 +362,20 @@ body.menu-open{overflow:hidden}
 .juice .vol{font:400 12px var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);white-space:nowrap}
 .juice .notes{grid-column:1/-1;font-size:15px;color:var(--muted)}
 .cp-foot{margin-top:20px}
-.drinks{display:flex;gap:14px;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);scrollbar-width:none}
-.drinks::-webkit-scrollbar{display:none}
-.drink{flex:0 0 74%;scroll-snap-align:start}
-@media (min-width:560px) and (max-width:859px){.drink{flex-basis:42%}}
+.drinks{display:grid;gap:36px}
+/* No celular cada bebida é uma linha: foto à esquerda, texto à direita. Nada rola para o lado. */
+@media (max-width:859px){
+  .drink{display:grid;grid-template-columns:38% 1fr;column-gap:18px;align-content:start}
+  .drink .ph{grid-row:1 / span 5;margin-bottom:0!important}
+  .drink > :not(.ph){grid-column:2}
+}
 .drink .ph{aspect-ratio:4/5;margin-bottom:22px}
 .drink h3{margin:12px 0 10px;font:300 clamp(27px,2.5vw,36px)/1.08 var(--serif);color:var(--ink)}
 .drink h3 em{font-style:italic;color:var(--taupe)}
 .drink p{font-size:15.5px;color:var(--muted);max-width:36ch}
 .drink .tiny{margin-top:12px}
 @media (min-width:860px){
-  .drinks{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,48px);margin-inline:0;padding-inline:0;overflow:visible}
+  .drinks{grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,48px)}
   .drink:nth-child(2){margin-top:72px}
 }
 
@@ -367,9 +390,15 @@ body.menu-open{overflow:hidden}
 .letter blockquote em{font-style:italic;color:var(--taupe)}
 .letter cite{display:block;margin-top:34px;font:400 12.5px/1.6 var(--cond);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe)}
 
-/* ---------- encontros ---------- */
-.meet-head{display:grid;justify-items:center;text-align:center;margin-bottom:clamp(48px,6vw,88px)}
-.meet-head .h2{margin:22px 0 22px;max-width:16ch}
+/* ---------- celebrar ---------- */
+.pes{display:grid;gap:44px;align-items:center;margin-bottom:clamp(72px,8vw,128px)}
+.pes-art{position:relative;padding-bottom:14%}
+.pes-art .a{aspect-ratio:4/5;width:76%}
+.pes-art .b{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:4/5;box-shadow:0 0 0 8px var(--wall)}
+.pes .h2{margin:22px 0 24px;max-width:13ch}
+.pes .btn{margin-top:30px}
+@media (min-width:980px){.pes{grid-template-columns:1fr 1fr;gap:clamp(56px,7vw,120px)}}
+.groups-label{margin-bottom:28px;padding-top:26px;border-top:1px solid var(--line-2)}
 .meet-grid{display:grid;gap:56px}
 @media (min-width:860px){.meet-grid{grid-template-columns:1fr 1fr;gap:clamp(24px,3.4vw,56px)}.meet:nth-child(2){margin-top:96px}}
 .meet .ph{aspect-ratio:5/4;margin-bottom:26px}
@@ -384,13 +413,20 @@ body.menu-open{overflow:hidden}
 @media (min-width:980px){.gift-grid{grid-template-columns:1.16fr .84fr;gap:clamp(56px,7vw,112px)}}
 .gift-img{aspect-ratio:1200/798;box-shadow:0 40px 70px -50px rgba(42,32,27,.5)}
 .gift .h2{margin:22px 0 24px;max-width:14ch}
-.gift-list{margin:28px 0 14px;border-top:1px solid var(--line)}
+.gift-sub{margin-top:26px;font-size:15.5px;color:var(--muted);max-width:44ch}
+.gift-list{margin:14px 0 14px;border-top:1px solid var(--line)}
 .gift-list li{padding:12px 0;border-bottom:1px solid var(--line);font:300 italic clamp(20px,1.8vw,24px)/1.3 var(--serif);color:var(--ink)}
 .gift .btn{margin-top:26px}
 
 /* ---------- vozes ---------- */
 .voices-head{margin-bottom:clamp(40px,5vw,72px)}
 .voices-head .h2{margin-top:20px;max-width:18ch}
+.voice-top{margin-bottom:clamp(40px,5vw,72px)}
+.voice-top p{font:300 italic clamp(27px,3.7vw,52px)/1.18 var(--serif);color:var(--ink);max-width:21ch;text-wrap:balance}
+.voice-top p::before{content:"“";color:var(--taupe)}
+.voice-top p::after{content:"”";color:var(--taupe)}
+.voice-top footer{margin-top:24px;font:500 12.5px/1.5 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.voice-top footer span{margin-left:.9em;font-weight:400;color:var(--taupe)}
 .voices{display:grid;border-top:1px solid var(--line-2)}
 .voice{display:grid;align-content:space-between;gap:30px;padding:clamp(28px,3vw,44px) 0;border-bottom:1px solid var(--line)}
 .voice p{font:300 clamp(23px,2.2vw,31px)/1.26 var(--serif);color:var(--ink);max-width:24ch;text-wrap:pretty}
@@ -419,29 +455,35 @@ body.menu-open{overflow:hidden}
 .info dd a{background:linear-gradient(var(--line-2),var(--line-2)) 0 100%/100% 1px no-repeat;transition:color .3s}
 .info dd a:hover{color:var(--taupe)}
 .visit-cta{display:flex;flex-wrap:wrap;align-items:center;gap:20px 30px}
+.faq{display:grid;margin-top:clamp(56px,7vw,104px);border-top:1px solid var(--line-2)}
+.faq > div{padding:26px 0;border-bottom:1px solid var(--line)}
+.faq dt{margin-bottom:10px;font:400 clamp(21px,1.9vw,26px)/1.2 var(--serif);color:var(--ink)}
+.faq dd{font-size:15.5px;color:var(--muted);max-width:40ch}
+@media (min-width:900px){.faq{grid-template-columns:repeat(3,1fr);column-gap:clamp(28px,4vw,64px)}.faq > div{border-bottom:0;padding-bottom:0}}
 
-/* ---------- rodapé: o letreiro à noite ---------- */
-.ftr{position:relative;overflow:hidden;background:#3C332D;color:#C7B8A7}
-.sign{display:grid;justify-items:center;gap:clamp(10px,1.6vw,22px);padding:clamp(72px,10vw,150px) var(--pad) clamp(56px,7vw,104px);text-align:center;user-select:none;background:radial-gradient(60% 70% at 50% 46%,rgba(246,221,176,.12),rgba(246,221,176,0) 70%)}
-.sign{--halo:0 0 18px rgba(250,228,188,.55),0 0 60px rgba(247,214,160,.5),0 0 140px rgba(244,200,136,.34);--halo-s:0 0 12px rgba(250,228,188,.5),0 0 34px rgba(247,214,160,.42)}
-.sign-viv{font:500 clamp(104px,25vw,360px)/.84 var(--serif);letter-spacing:.05em;margin-right:-.05em;color:#1B1411;text-shadow:var(--halo)}
-.sign-sub{font:500 clamp(11px,1.9vw,25px)/1 var(--sans);letter-spacing:.62em;margin-right:-.62em;text-transform:uppercase;color:#1B1411;text-shadow:var(--halo-s)}
-/* O letreiro só acende quando a pessoa chega ao fim da página. */
-.js .sign:not(.on) .sign-viv,.js .sign:not(.on) .sign-sub{text-shadow:none}
-.js .sign:not(.on){background:none}
-.sign.on .sign-viv{animation:acende 1.5s linear both}
-.sign.on .sign-sub{animation:acende-s 1.5s linear .15s both}
-@keyframes acende{0%,9%,15%,24%{text-shadow:none}6%,12%,20%,34%,100%{text-shadow:var(--halo)}}
-@keyframes acende-s{0%,9%,15%,24%{text-shadow:none}6%,12%,20%,34%,100%{text-shadow:var(--halo-s)}}
-.ftr-in{padding-bottom:calc(34px + env(safe-area-inset-bottom))}
-.ftr-top{display:grid;gap:36px;padding-top:36px;border-top:1px solid rgba(239,229,215,.16)}
-.ftr-line{font:300 italic clamp(24px,2.6vw,36px)/1.2 var(--serif);color:#F5EDE1;max-width:18ch}
-.ftr nav{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:14px 56px;font:400 12.5px var(--cond);letter-spacing:.22em;text-transform:uppercase}
-.ftr nav a{transition:color .3s}
-.ftr nav a:hover{color:var(--glow)}
-.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:52px;font-size:12.5px;color:#A89886}
-.ftr-note{margin-top:8px;font-size:12px;color:#8F8072}
-@media (min-width:900px){.ftr-top{grid-template-columns:1fr auto;align-items:end}}
+/* ---------- rodapé: o letreiro aceso ---------- */
+/* Mesmo café escuro da seção do Cronograma. As letras são claras e acendem quando o rodapé aparece. */
+.ftr{background:var(--night);color:#C7B8A7;text-align:center;overflow:hidden}
+.sign{--lit:#F6EAD6;--off:#5B4C42;--halo:0 0 14px rgba(255,236,200,.5),0 0 48px rgba(246,214,160,.42),0 0 120px rgba(244,196,128,.26);display:grid;justify-items:center;gap:clamp(10px,1.4vw,18px);padding:clamp(76px,10vw,140px) var(--pad) 0;user-select:none}
+.sign-viv{font:500 clamp(96px,21vw,290px)/.86 var(--serif);letter-spacing:.05em;margin-right:-.05em;color:var(--lit);text-shadow:var(--halo)}
+.sign-sub{font:500 clamp(10px,1.5vw,19px)/1 var(--sans);letter-spacing:.62em;margin-right:-.62em;text-transform:uppercase;color:#E6D6BD;transition:color 1s var(--ease) .5s}
+.js .sign:not(.on) .sign-viv{color:var(--off);text-shadow:none}
+.js .sign:not(.on) .sign-sub{color:var(--off)}
+.sign.on .sign-viv{animation:acende 1.6s linear both}
+@keyframes acende{0%,9%,15%,24%{color:var(--off);text-shadow:none}6%,12%,20%,34%,100%{color:var(--lit);text-shadow:var(--halo)}}
+.ftr-in{padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+.ftr-say{margin-top:clamp(40px,5vw,64px);font:300 italic clamp(23px,2.6vw,34px)/1.25 var(--serif);color:#F5EDE1}
+.ftr .btn{margin-top:28px}
+.ftr-cols{display:grid;gap:30px;margin-top:clamp(56px,7vw,96px);padding-top:34px;border-top:1px solid rgba(239,229,215,.16);text-align:left}
+.ftr-cols h4{margin-bottom:12px;font:400 12px/1.3 var(--cond);letter-spacing:.24em;text-transform:uppercase;color:#BFA88F}
+.ftr-cols p,.ftr-cols a{display:block;font-size:15px;line-height:1.7;color:#D9CBBB}
+.ftr-cols a{width:fit-content;transition:color .3s}
+.ftr-cols a:hover{color:var(--glow)}
+.ftr-cols .status{display:flex;margin-top:10px;font:400 11.5px/1 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:#BFA88F}
+.ftr-cols .status:not(.open){display:none}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:48px;font-size:12.5px;color:#A89886;text-align:left}
+.ftr-note{margin-top:8px;font-size:12px;color:#8F8072;text-align:left}
+@media (min-width:760px){.ftr-cols{grid-template-columns:repeat(3,1fr);gap:40px}}
 
 /* ---------- prévia: janela do WhatsApp ---------- */
 .demo{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px));background:rgba(42,32,27,.52);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
@@ -489,7 +531,7 @@ body.menu-open{overflow:hidden}
     </a>
     <div class="hdr-r">
       <nav class="nav" aria-label="Secundário">
-        <a href="#bar">Bebidas</a>
+        <a href="#celebrar">Celebrar</a>
         <a href="#presente">Presentear</a>
         <a href="#visite">Visite</a>
       </nav>
@@ -503,7 +545,7 @@ body.menu-open{overflow:hidden}
     <a href="#experiencias"><span>01</span>Experiências</a>
     <a href="#cronograma"><span>02</span>Cronograma</a>
     <a href="#cardapio"><span>03</span>Cardápio</a>
-    <a href="#bar"><span>04</span>Bebidas</a>
+    <a href="#celebrar"><span>04</span>Celebrar</a>
     <a href="#presente"><span>05</span>Presentear</a>
     <a href="#visite"><span>06</span>Visite</a>
   </nav>
@@ -519,14 +561,14 @@ body.menu-open{overflow:hidden}
 <!-- ============ ABERTURA ============ -->
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-top">
-    <p class="label r">Um endereço só · Aracaju</p>
-    <h1 class="h1 r" id="hero-title" style="--d:.06s">A massagem que<br>termina <em>à mesa.</em></h1>
-    <p class="lead r" style="--d:.12s">Na VIV, toda experiência começa com um shot funcional, passa pelo toque e termina com um prato feito na casa. Uma hora só sua, no Shopping Praia Sul.</p>
+    <p class="label r">Shopping Praia Sul · Aracaju</p>
+    <h1 class="h1 r" id="hero-title" style="--d:.06s">Troque uma hora de celular por uma hora <em>só sua.</em></h1>
+    <p class="lead r" style="--d:.12s">Na VIV, essa hora começa com um shot funcional, passa por uma massagem e termina com um prato feito na casa. Você chega com a semana nas costas e sai leve, cuidada e alimentada.</p>
     <div class="hero-cta r" style="--d:.18s">
-      <a class="btn" data-wa="geral">Agendar a minha hora</a>
-      <a class="lnk" href="#experiencias">Descobrir a minha experiência</a>
+      <a class="btn" data-wa="geral">Quero a minha hora</a>
+      <a class="lnk" href="#hora">Ver como é essa hora</a>
     </div>
-    <p class="now r" style="--d:.24s" data-now hidden><i></i><span></span></p>
+    <p class="hero-from r" style="--d:.24s">Experiências completas a partir de R$ 179</p>
   </div>
 
   <div class="strip" aria-label="A VIV em quatro imagens">
@@ -549,59 +591,54 @@ body.menu-open{overflow:hidden}
   </div>
 </section>
 
-<!-- ============ A PAREDE ============ -->
-<section class="sec" id="viv" aria-labelledby="wall-title">
-  <div class="wrap wall-grid">
-    <div class="wall-copy">
-      <p class="label r">Está escrito na nossa parede</p>
-      <h2 class="h2 r" id="wall-title">Cinco palavras. <em>Uma casa.</em></h2>
-      <p class="lead r">Um espaço onde alimentação, bem-estar e autocuidado se encontram. Criamos uma experiência completa para quem quer viver com mais equilíbrio, energia e qualidade de vida.</p>
-      <figure class="wall-photo">
-        <div class="ph ri"><img loading="lazy" src="img/pilar-encontro.jpg" alt="Amigas brindando com bebidas VIV, com as palavras da parede ao fundo"></div>
-        <figcaption class="cap"><b>Na loja</b>As palavras ficam acima das mesas</figcaption>
-      </figure>
-    </div>
-    <ol class="words">
-      <li class="r"><span class="n">01</span><span class="w">Conexão</span><p class="d">Um lugar para encontrar quem você gosta, ou só você mesma, sem pressa.</p></li>
-      <li class="r"><span class="n">02</span><span class="w">Nutrição</span><p class="d">Pratos e bebidas funcionais de produção própria, feitos com ingredientes de verdade.</p></li>
-      <li class="r"><span class="n">03</span><span class="w">Equilíbrio</span><p class="d">Cuidado que cabe na rotina real, sem cobrança e sem excessos.</p></li>
-      <li class="r"><span class="n">04</span><span class="w">Massagens</span><p class="d">Protocolos corporais que unem toque, terapias e nutrição funcional.</p></li>
-      <li class="r"><span class="n">05</span><span class="w">Escolhas inteligentes</span><p class="d">Viver bem é a soma das pequenas decisões de todos os dias.</p></li>
+<!-- ============ POR QUE SÓ NA VIV ============ -->
+<section class="sec why" id="viv" aria-labelledby="why-title">
+  <div class="wrap">
+    <header class="why-head">
+      <p class="label r">Por que só na VIV</p>
+      <h2 class="h2 r" id="why-title">A massagem que termina <em>à mesa.</em></h2>
+      <p class="lead r">Em outros lugares você faz a massagem e vai embora. Aqui o cuidado continua: toda experiência já inclui o que você bebe antes e o que você come depois.</p>
+    </header>
+    <ol class="why-list">
+      <li class="r"><span class="n">01</span><h3>Toque e nutrição na mesma hora</h3><p>Shot funcional na chegada, massagem no meio, prato ou shake no final. Tudo incluso, numa visita só.</p></li>
+      <li class="r" style="--d:.06s"><span class="n">02</span><h3>Feito na casa</h3><p>Bebidas de produção própria e pratos com ingredientes de verdade. Aqui, saudável não é sem graça.</p></li>
+      <li class="r" style="--d:.12s"><span class="n">03</span><h3>Cabe na sua rotina</h3><p>Fica no Shopping Praia Sul e abre até as 22h, de segunda a sábado. Dá para vir depois do trabalho.</p></li>
+      <li class="r" style="--d:.18s"><span class="n">04</span><h3>Sem cobrança</h3><p>Nada de dieta, meta ou promessa milagrosa. Só um cuidado que faz sentido na vida real.</p></li>
     </ol>
   </div>
 </section>
 
 <!-- ============ UMA HORA ============ -->
-<section class="hx paper" id="hora" aria-labelledby="hour-title">
-  <div class="hx-sticky">
-    <div class="wrap hx-grid">
-      <div class="hx-copy">
-        <p class="label">Uma hora só sua</p>
-        <h2 class="h2" id="hour-title">Você trocaria uma hora no celular por uma hora de <em>descanso?</em></h2>
-        <ol class="hx-steps">
-          <li class="on"><span class="sn">I</span><h3>Boas-vindas</h3><p>Um shot funcional para despertar o corpo.</p></li>
-          <li><span class="sn">II</span><h3>Preparo</h3><p>Esfoliação, argila, ducha ou chás, conforme o seu objetivo.</p></li>
-          <li><span class="sn">III</span><h3>O toque</h3><p>Massagem drenante, modeladora, ativadora ou esportiva.</p></li>
-          <li><span class="sn">IV</span><h3>À mesa</h3><p>Shake funcional ou bowl de salada, à sua escolha.</p></li>
-          <li><span class="sn">V</span><h3>De volta ao dia</h3><p>Mais leve, com energia e presença.</p></li>
-        </ol>
-        <p class="hx-hint" aria-hidden="true">Role para viver a hora</p>
+<section class="sec paper" id="hora" aria-labelledby="hour-title">
+  <div class="wrap hx-grid">
+    <header class="hx-head">
+      <p class="label r">Uma hora só sua</p>
+      <h2 class="h2 r" id="hour-title">Como é a sua hora, <em>do shot ao prato.</em></h2>
+    </header>
+    <div class="dial r" id="dial" aria-hidden="true">
+      <div class="ph dial-ph">
+        <img class="on" loading="lazy" src="img/bar-cold-pressed.jpg" alt="">
+        <img loading="lazy" src="img/ritual-firmeza.jpg" alt="">
+        <img loading="lazy" src="img/ritual-leveza.jpg" alt="">
+        <img loading="lazy" src="img/prato-smoothie-bowl.jpg" alt="">
+        <img loading="lazy" src="img/de-volta.jpg" alt="">
       </div>
-      <div class="dial" aria-hidden="true">
-        <div class="ph dial-ph">
-          <img class="on" loading="lazy" src="img/bar-cold-pressed.jpg" alt="">
-          <img loading="lazy" src="img/ritual-firmeza.jpg" alt="">
-          <img loading="lazy" src="img/ritual-leveza.jpg" alt="">
-          <img loading="lazy" src="img/prato-smoothie-bowl.jpg" alt="">
-          <img loading="lazy" src="img/de-volta.jpg" alt="">
-        </div>
-        <svg viewBox="0 0 100 100">
-          <circle class="d-ticks" cx="50" cy="50" r="46.6" pathLength="60"/>
-          <circle class="d-track" cx="50" cy="50" r="49"/>
-          <circle class="d-prog" id="dProg" cx="50" cy="50" r="49" pathLength="100"/>
-        </svg>
-        <p class="cap dial-cap"><b id="dialN">I de V</b><span id="dialT">Boas-vindas</span></p>
-      </div>
+      <svg viewBox="0 0 100 100">
+        <circle class="d-ticks" cx="50" cy="50" r="46.6" pathLength="60"/>
+        <circle class="d-track" cx="50" cy="50" r="49"/>
+        <circle class="d-prog" id="dProg" cx="50" cy="50" r="49" pathLength="100"/>
+      </svg>
+      <p class="cap dial-cap"><b id="dialN">I de V</b><span id="dialT">Você chega</span></p>
+    </div>
+    <div class="hx-body r">
+      <ol class="hx-steps" id="hxSteps">
+        <li class="on"><button type="button" aria-pressed="true"><span class="sn">I</span><span><b>Você chega</b><span class="tx"><span><span>O celular fica na bolsa. Um shot funcional de boas-vindas acorda o corpo por dentro.</span></span></span></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">II</span><span><b>O preparo</b><span class="tx"><span><span>Esfoliação, argila, ducha ou um mix de chás. Muda conforme o que o seu corpo pede hoje.</span></span></span></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">III</span><span><b>O toque</b><span class="tx"><span><span>Luz baixa, vela acesa, óleos essenciais. É aqui que acontece a massagem do seu protocolo.</span></span></span></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">IV</span><span><b>À mesa</b><span class="tx"><span><span>De volta ao salão, a sua Nutrição VIV: shake funcional ou bowl de salada. Você escolhe.</span></span></span></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="sn">V</span><span><b>De volta ao dia</b><span class="tx"><span><span>Corpo leve, cabeça quieta, refeição feita. E o resto do dia fica mais leve também.</span></span></span></span></button></li>
+      </ol>
+      <a class="btn hx-cta" data-wa="geral">Quero viver essa hora</a>
     </div>
   </div>
 </section>
@@ -620,7 +657,7 @@ body.menu-open{overflow:hidden}
         <button type="button" data-pick="avulsa" aria-pressed="false"><span>só relaxar</span></button>
         <button type="button" data-pick="pes" aria-pressed="false"><span>celebrar</span></button>
       </div>
-      <p class="pede-hint tiny r" style="--d:.14s">Toque numa resposta e a carta mostra a experiência certa. Todas incluem massagem.</p>
+      <p class="pede-hint r" style="--d:.14s">Toque numa resposta e a carta abre a experiência certa. <b>Toda experiência inclui shot de boas-vindas, massagem e a Nutrição VIV</b>: shake funcional ou bowl de salada, você escolhe.</p>
     </header>
 
     <div class="exp-grid">
@@ -632,9 +669,12 @@ body.menu-open{overflow:hidden}
           </button>
           <div class="rit-body"><div class="rit-in"><div class="rit-pad">
             <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-leveza.jpg" alt=""></figure>
-            <p class="rit-for">Para desinchar e devolver ao corpo a sensação de leveza.</p>
+            <p class="rit-tag">Boa para a primeira visita</p>
+            <p class="rit-for">Para os dias de corpo pesado e inchado. Você sai com a sensação de ter tirado um peso.</p>
+            <p class="label rit-inc">O que está incluso</p>
             <ol class="rit-steps"><li>Shot funcional</li><li>Massagem drenante</li><li>Mix de chás leveza</li><li>Nutrição VIV</li></ol>
-            <a class="lnk" data-wa="ritual" data-name="Leveza">Agendar Leveza</a>
+            <blockquote class="rit-quote">“Tive uma experiência voltada ao bem-estar do início ao fim. Escolhi o protocolo Leveza.”<span>Dezza · cliente</span></blockquote>
+            <a class="btn btn-sm" data-wa="ritual" data-name="Leveza">Agendar Leveza · R$ 179</a>
           </div></div></div>
         </article>
 
@@ -644,9 +684,10 @@ body.menu-open{overflow:hidden}
           </button>
           <div class="rit-body"><div class="rit-in"><div class="rit-pad">
             <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-contorno.jpg" alt=""></figure>
-            <p class="rit-for">Para modelar e desenhar as curvas do corpo.</p>
+            <p class="rit-for">Para modelar e desenhar as curvas do corpo, da esfoliação à massagem modeladora.</p>
+            <p class="label rit-inc">O que está incluso</p>
             <ol class="rit-steps"><li>Shot funcional</li><li>Esfoliação</li><li>Ducha</li><li>Massagem modeladora</li><li>Suco verde</li><li>Nutrição VIV</li></ol>
-            <a class="lnk" data-wa="ritual" data-name="Contorno &amp; Definição">Agendar Contorno</a>
+            <a class="btn btn-sm" data-wa="ritual" data-name="Contorno &amp; Definição">Agendar Contorno · R$ 219</a>
           </div></div></div>
         </article>
 
@@ -656,9 +697,10 @@ body.menu-open{overflow:hidden}
           </button>
           <div class="rit-body"><div class="rit-in"><div class="rit-pad">
             <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-firmeza.jpg" alt=""></figure>
-            <p class="rit-for">Para uma pele mais firme, viva e tonificada.</p>
+            <p class="rit-for">Para a pele que pede firmeza: esfoliação, argila e uma massagem que ativa o corpo.</p>
+            <p class="label rit-inc">O que está incluso</p>
             <ol class="rit-steps"><li>Shot funcional</li><li>Esfoliação</li><li>Aplicação de argila</li><li>Ducha</li><li>Massagem ativadora</li><li>Suco verde com colágeno</li><li>Nutrição VIV</li></ol>
-            <a class="lnk" data-wa="ritual" data-name="Firmeza &amp; Tonificação">Agendar Firmeza</a>
+            <a class="btn btn-sm" data-wa="ritual" data-name="Firmeza &amp; Tonificação">Agendar Firmeza · R$ 219</a>
           </div></div></div>
         </article>
 
@@ -668,9 +710,10 @@ body.menu-open{overflow:hidden}
           </button>
           <div class="rit-body"><div class="rit-in"><div class="rit-pad">
             <figure class="ph rit-thumb"><img loading="lazy" src="img/ritual-energia.jpg" alt=""></figure>
-            <p class="rit-for">Para quem treina e quer recuperar o corpo com energia.</p>
+            <p class="rit-for">Para quem treina. A energia começa no treino e continua na VIV.</p>
+            <p class="label rit-inc">O que está incluso</p>
             <ol class="rit-steps"><li>Shot funcional</li><li>Bebida funcional com cafeína</li><li>Massagem esportiva</li><li>Nutrição VIV</li></ol>
-            <a class="lnk" data-wa="ritual" data-name="Energia &amp; Performance">Agendar Energia</a>
+            <a class="btn btn-sm" data-wa="ritual" data-name="Energia &amp; Performance">Agendar Energia · R$ 179</a>
           </div></div></div>
         </article>
 
@@ -687,31 +730,54 @@ body.menu-open{overflow:hidden}
       </figure>
     </div>
 
-    <p class="exp-note tiny r">Todos os protocolos terminam com a Nutrição VIV: shake funcional ou bowl de salada, à sua escolha. Ou montamos uma experiência personalizada, do jeito que você desejar. Valores de referência; confirme a disponibilidade pelo WhatsApp.</p>
+    <p class="exp-note tiny r">Não achou a sua? A VIV monta uma experiência personalizada, do jeito que você desejar. Valores de referência; confirme a disponibilidade pelo WhatsApp.</p>
 
-    <div class="extras">
+    <div class="extras one">
       <article class="extra r" id="x-avulsa">
         <figure class="ph ri"><img loading="lazy" src="img/massagens-avulsas.jpg" alt="Mãos de terapeuta massageando as costas, com toalha bordada VIV"></figure>
         <div>
           <p class="label">Só o toque</p>
           <h3 class="h2 caps" style="font-size:clamp(25px,2.5vw,34px)">Massagens avulsas</h3>
+          <p>Se hoje você só quer a massagem, também pode. Escolha o toque e agende.</p>
           <ul class="massages">
-            <li>Drenagem</li><li>Esportiva</li>
-            <li>Modeladora</li><li>Relaxante</li>
-            <li>Ativadora</li><li>Liberação miofascial</li>
+            <li>Drenagem</li><li>Modeladora</li><li>Ativadora</li>
+            <li>Esportiva</li><li>Relaxante</li><li>Liberação miofascial</li>
           </ul>
           <a class="lnk" data-wa="avulsa">Agendar uma massagem</a>
         </div>
       </article>
-      <article class="extra r" id="x-pes" style="--d:.08s">
-        <figure class="ph ri"><img loading="lazy" src="img/cha-ervas.jpg" alt="Bule de porcelana florido e potes de ervas do Ritual dos Pés"></figure>
-        <div>
-          <p class="label">Para celebrar</p>
-          <h3 class="h2 caps" style="font-size:clamp(25px,2.5vw,34px)">Ritual dos Pés</h3>
-          <p>Aniversário com escalda-pés? Aqui, sim. Ervas, flores e sais na bacia, chá servido no bule de porcelana. Para comemorar, reunir as amigas ou dar uma pausa aos pés que sustentam a sua rotina.</p>
-          <a class="lnk" data-wa="pes">Agendar o ritual</a>
-        </div>
-      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOZES ============ -->
+<section class="sec paper" id="vozes" aria-labelledby="voices-title">
+  <div class="wrap">
+    <header class="voices-head">
+      <p class="label r">Quem já viveu</p>
+      <h2 class="h2 r" id="voices-title">Quem veio <em>já quer voltar.</em></h2>
+    </header>
+    <blockquote class="voice-top r">
+      <p>Um dia incrível na VIV, na qual já estou me programando pra voltar de novo!</p>
+      <footer>Dezza<span>Cliente</span></footer>
+    </blockquote>
+    <div class="voices">
+      <blockquote class="voice r">
+        <p>Finalizei o meu dia com a melhor escolha inteligente da cidade: massagem relaxante e uma salada deliciosa.</p>
+        <footer>Andrea<span>Fisioterapeuta</span></footer>
+      </blockquote>
+      <blockquote class="voice r" style="--d:.06s">
+        <p>Tenho um novo spot preferido na cidade.</p>
+        <footer>Thamires<span>Cliente</span></footer>
+      </blockquote>
+      <blockquote class="voice r">
+        <p>Tarde de aniversário com nutrição, conexão e equilíbrio. Nada como um spa dos pés.</p>
+        <footer>Cindy<span>Cliente</span></footer>
+      </blockquote>
+      <blockquote class="voice r" style="--d:.06s">
+        <p>Sábado do jeitinho que eu gosto: movimento, brunch e autocuidado.</p>
+        <footer>Rebecca<span>Nutricionista</span></footer>
+      </blockquote>
     </div>
   </div>
 </section>
@@ -720,9 +786,9 @@ body.menu-open{overflow:hidden}
 <section class="sec plan night" id="cronograma" aria-labelledby="plan-title">
   <div class="wrap plan-grid">
     <div>
-      <p class="label r">Cronograma Corporal VIV</p>
+      <p class="label r">Para quem quer continuar · Cronograma Corporal VIV</p>
       <h2 class="h2 r" id="plan-title">Seu bem-estar merece um <em>plano,</em> não uma tentativa.</h2>
-      <p class="lead r">Uma jornada personalizada que acompanha a sua evolução, desenvolvida em parceria com a nutricionista @nutri.amandaperiim para a sua rotina e os seus objetivos.</p>
+      <p class="lead r">Uma hora muda o seu dia. Um plano muda a sua rotina. O Cronograma foi criado com a nutricionista @nutri.amandaperiim e junta três frentes, com cada encontro somando ao anterior.</p>
       <ul class="plan-pillars r">
         <li><span>01</span>Acompanhamento nutricional individual</li>
         <li><span>02</span>Protocolos corporais estratégicos</li>
@@ -736,7 +802,7 @@ body.menu-open{overflow:hidden}
       <div class="plans">
         <div class="plan-row r">
           <div><p class="pl-k">2×<small>por semana</small></p><p class="pl-m">8 encontros por mês</p></div>
-          <p class="pl-p">R$ 1.097 <small>/ mês</small></p>
+          <p class="pl-p">R$ 1.097 <small>/ mês</small><span class="per">cerca de R$ 137 por encontro</span></p>
           <a class="lnk" data-wa="plano" data-name="2x por semana">Quero este plano</a>
         </div>
         <div class="plan-row r" style="--d:.08s">
@@ -754,9 +820,9 @@ body.menu-open{overflow:hidden}
 <section class="sec" id="cardapio" aria-labelledby="menu-title">
   <div class="wrap">
     <header class="menu-head">
-      <p class="label r">Cardápio</p>
+      <p class="label r">À mesa · é só chegar</p>
       <h2 class="h2 r" id="menu-title">O pão é verde. <em>De propósito.</em></h2>
-      <p class="lead r">Espinafre e chlorella na massa, frango no recheio. Na cozinha da VIV, comer bem não precisa ser complicado: é prático, saboroso e feito para nutrir sem abrir mão do prazer de comer.</p>
+      <p class="lead r">Espinafre e chlorella na massa, frango no recheio: é o prato-assinatura da casa. Para comer e beber na VIV não precisa agendar. É só chegar, sozinha ou com quem você gosta.</p>
     </header>
 
     <article class="combo">
@@ -773,6 +839,7 @@ body.menu-open{overflow:hidden}
           <p class="combo-price"><small>Tudo por</small>R$ 69,90</p>
           <a class="btn" data-wa="combo">Pedir o combo</a>
         </div>
+        <p class="aside">“Lanche saudável, maravilhoso.”<span>Iza · pediatra</span></p>
       </div>
     </article>
 
@@ -859,36 +926,29 @@ body.menu-open{overflow:hidden}
   </div>
 </section>
 
-<!-- ============ CARTA DA FUNDADORA ============ -->
-<section class="sec letter" aria-label="Carta da fundadora">
-  <div class="wrap letter-grid">
-    <figure class="ph ri letter-img"><img loading="lazy" src="img/fundadora-parede.jpg" alt="Fundadora da VIV arrumando flores em frente à parede com as palavras da marca"></figure>
-    <div>
-      <p class="label r">Carta da fundadora</p>
-      <blockquote class="r" style="--d:.08s">
-        <p>“A VIV nasceu de algo que sempre fez muito sentido: a forma como escolhemos viver.</p>
-        <p>Eu acredito no cuidado que cabe na rotina, na comida que faz bem, em um ambiente gostoso, em desacelerar quando é preciso e em encontrar equilíbrio sem transformar isso em <em>cobrança.</em></p>
-        <p>Não sobre viver uma vida perfeita. Mas sobre fazer escolhas que façam sentido.”</p>
-        <cite>@vivianesd__ · Fundadora da VIV</cite>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ENCONTROS ============ -->
-<section class="sec" id="encontros" aria-labelledby="meet-title">
+<!-- ============ CELEBRAR ============ -->
+<section class="sec" id="celebrar" aria-labelledby="cel-title">
   <div class="wrap">
-    <header class="meet-head">
-      <p class="label r">Para grupos e eventos</p>
-      <h2 class="h2 r" id="meet-title">Leve a VIV para o seu <em>encontro.</em></h2>
-      <p class="lead r">A gente cuida dos detalhes para deixar cada encontro mais leve, bonito e gostoso.</p>
-    </header>
+    <div class="pes" id="x-pes">
+      <div class="pes-art">
+        <figure class="ph ri a"><img loading="lazy" src="img/cha-ervas.jpg" alt="Bule de porcelana florido e potes de ervas do Ritual dos Pés"></figure>
+        <figure class="ph ri b" style="--d:.15s"><img loading="lazy" src="img/ritual-pes.jpg" alt="Cliente à mesa na VIV enquanto recebe o escalda-pés"></figure>
+      </div>
+      <div>
+        <p class="label r">Para celebrar · Ritual dos Pés</p>
+        <h2 class="h2 r" id="cel-title">Aniversário com escalda-pés? <em>Aqui, sim.</em></h2>
+        <p class="lead r">Ervas, flores e sais na bacia. Chá servido no bule de porcelana. As amigas em volta da mesa. É o jeito VIV de comemorar, ou de dar uma pausa aos pés que sustentam a sua rotina.</p>
+        <a class="btn r" data-wa="pes">Agendar o Ritual dos Pés</a>
+      </div>
+    </div>
+
+    <p class="label groups-label r" id="encontros">Para o seu grupo</p>
     <div class="meet-grid">
       <article class="meet">
         <figure class="ph ri"><img loading="lazy" src="img/brunch.jpg" alt="Potes VIV com salada de frutas montados para um brunch"></figure>
         <p class="label">Smart Brunch VIV</p>
         <h3>Um brunch <em>do seu jeito.</em></h3>
-        <p>Montamos uma experiência personalizada para o seu grupo, com opções leves, frescas e especiais para compartilhar.</p>
+        <p>Você escolhe entre opções leves, frescas e especiais. A VIV monta e cuida dos detalhes para o seu grupo.</p>
         <p class="tiny">Valor conforme a quantidade de pessoas e os itens escolhidos.</p>
         <a class="lnk" data-wa="brunch">Montar meu brunch</a>
       </article>
@@ -908,9 +968,10 @@ body.menu-open{overflow:hidden}
   <div class="wrap gift-grid">
     <figure class="ph ri gift-img"><img loading="lazy" src="img/vale-presente.jpg" alt="Vale-presente VIV. Smart Living com envelope, sobre o balcão de granito"></figure>
     <div>
-      <p class="label r">Vale-presente</p>
+      <p class="label r">Para presentear · Vale-presente</p>
       <h2 class="h2 r" id="gift-title">Presenteie quem você ama com um <em>Momento VIV.</em></h2>
       <p class="lead r">Tem presente que ocupa espaço. E tem presente que proporciona uma pausa, um cuidado e um momento só para a pessoa.</p>
+      <p class="gift-sub r">Vem num cartão de verdade, dentro do envelope, e vale para:</p>
       <ul class="gift-list r">
         <li>Experiências VIV</li>
         <li>Massagens avulsas</li>
@@ -921,29 +982,39 @@ body.menu-open{overflow:hidden}
   </div>
 </section>
 
-<!-- ============ VOZES ============ -->
-<section class="sec" aria-labelledby="voices-title">
-  <div class="wrap">
-    <header class="voices-head">
-      <p class="label r">Quem já viveu</p>
-      <h2 class="h2 r" id="voices-title">Palavras de quem <em>passou</em> por aqui.</h2>
-    </header>
-    <div class="voices">
-      <blockquote class="voice r">
-        <p>Escolhi o protocolo Leveza. Uma experiência voltada ao bem-estar do início ao fim.</p>
-        <footer>Dezza<span>Cliente</span></footer>
-      </blockquote>
-      <blockquote class="voice r" style="--d:.06s">
-        <p>Finalizei o meu dia com a melhor escolha inteligente da cidade: massagem relaxante e uma salada deliciosa.</p>
-        <footer>Andrea<span>Fisioterapeuta</span></footer>
-      </blockquote>
-      <blockquote class="voice r">
-        <p>Lanche saudável, maravilhoso.</p>
-        <footer>Iza<span>Pediatra</span></footer>
-      </blockquote>
-      <blockquote class="voice r" style="--d:.06s">
-        <p>Tenho um novo spot preferido na cidade.</p>
-        <footer>Thamires<span>Cliente</span></footer>
+<!-- ============ A PAREDE ============ -->
+<section class="sec" id="casa" aria-labelledby="wall-title">
+  <div class="wrap wall-grid">
+    <div class="wall-copy">
+      <p class="label r">Está escrito na nossa parede</p>
+      <h2 class="h2 r" id="wall-title">Cinco palavras. <em>Uma casa.</em></h2>
+      <p class="lead r">Elas ficam acima das mesas, iluminadas, para ninguém esquecer por que veio. É o jeito mais curto de explicar a VIV.</p>
+      <figure class="wall-photo">
+        <div class="ph ri"><img loading="lazy" src="img/pilar-encontro.jpg" alt="Amigas brindando com bebidas VIV, com as palavras da parede ao fundo"></div>
+        <figcaption class="cap"><b>Na loja</b>As palavras ficam acima das mesas</figcaption>
+      </figure>
+    </div>
+    <ol class="words">
+      <li class="r"><span class="n">01</span><span class="w">Conexão</span><p class="d">Um lugar para encontrar quem você gosta, ou só você mesma, sem pressa.</p></li>
+      <li class="r"><span class="n">02</span><span class="w">Nutrição</span><p class="d">Pratos e bebidas funcionais de produção própria, feitos com ingredientes de verdade.</p></li>
+      <li class="r"><span class="n">03</span><span class="w">Equilíbrio</span><p class="d">Cuidado que cabe na rotina real, sem cobrança e sem excessos.</p></li>
+      <li class="r"><span class="n">04</span><span class="w">Massagens</span><p class="d">Protocolos corporais que unem toque, terapias e nutrição funcional.</p></li>
+      <li class="r"><span class="n">05</span><span class="w">Escolhas inteligentes</span><p class="d">Viver bem é a soma das pequenas decisões de todos os dias.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CARTA DA FUNDADORA ============ -->
+<section class="sec letter" aria-label="Carta da fundadora">
+  <div class="wrap letter-grid">
+    <figure class="ph ri letter-img"><img loading="lazy" src="img/fundadora-parede.jpg" alt="Fundadora da VIV arrumando flores em frente à parede com as palavras da marca"></figure>
+    <div>
+      <p class="label r">Carta da fundadora</p>
+      <blockquote class="r" style="--d:.08s">
+        <p>“A VIV nasceu de algo que sempre fez muito sentido: a forma como escolhemos viver.</p>
+        <p>Eu acredito no cuidado que cabe na rotina, na comida que faz bem, em um ambiente gostoso, em desacelerar quando é preciso e em encontrar equilíbrio sem transformar isso em <em>cobrança.</em></p>
+        <p>Não sobre viver uma vida perfeita. Mas sobre fazer escolhas que façam sentido.”</p>
+        <cite>@vivianesd__ · Fundadora da VIV</cite>
       </blockquote>
     </div>
   </div>
@@ -968,6 +1039,13 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
   </div>
+  <div class="wrap">
+    <dl class="faq">
+      <div class="r"><dt>Preciso agendar?</dt><dd>Para as experiências, as massagens e o Ritual dos Pés, sim: é pelo WhatsApp. Para comer e beber, é só chegar.</dd></div>
+      <div class="r" style="--d:.06s"><dt>Posso montar a minha experiência?</dt><dd>Pode. A VIV monta uma experiência personalizada, do jeito que você desejar.</dd></div>
+      <div class="r" style="--d:.12s"><dt>Posso ir com as amigas?</dt><dd>Pode. O Ritual dos Pés e o Smart Brunch foram pensados para grupos.</dd></div>
+    </dl>
+  </div>
 </section>
 
 </main>
@@ -979,14 +1057,24 @@ body.menu-open{overflow:hidden}
     <span class="sign-sub">Smart Living</span>
   </div>
   <div class="wrap ftr-in">
-    <div class="ftr-top">
-      <p class="ftr-line">Viver bem é uma escolha inteligente.</p>
-      <nav aria-label="Rodapé">
-        <a href="#experiencias">Experiências</a><a href="#cardapio">Cardápio</a>
-        <a href="#cronograma">Cronograma</a><a href="#bar">Bebidas</a>
-        <a href="#encontros">Eventos</a><a href="#presente">Vale-presente</a>
-        <a href="https://www.instagram.com/vivsmartliving/" target="_blank" rel="noopener">Instagram</a><a data-wa="geral">WhatsApp</a>
-      </nav>
+    <p class="ftr-say">Viver bem é uma escolha inteligente.</p>
+    <a class="btn btn-cream" data-wa="geral">Agendar a minha hora</a>
+    <div class="ftr-cols">
+      <div>
+        <h4>Onde</h4>
+        <p>Shopping Praia Sul · Loja 10<br>Av. Melício Machado, 4880<br>Aruana, Aracaju · SE</p>
+        <a href="https://maps.app.goo.gl/CA63zyDGSom9JX5W7" target="_blank" rel="noopener">Como chegar</a>
+      </div>
+      <div>
+        <h4>Quando</h4>
+        <p>Segunda a sábado, 10h às 22h<br>Domingo, 12h às 20h</p>
+        <p class="status" data-status><i></i><b style="font-weight:400"></b></p>
+      </div>
+      <div>
+        <h4>Fale com a VIV</h4>
+        <a data-wa="geral">(79) 98161-5004</a>
+        <a href="https://www.instagram.com/vivsmartliving/" target="_blank" rel="noopener">@vivsmartliving</a>
+      </div>
     </div>
     <div class="ftr-bot">
       <span>© <span id="yr">2026</span> VIV. Smart Living · Aracaju, SE</span>
@@ -1016,7 +1104,7 @@ body.menu-open{overflow:hidden}
   const PREVIEW = root.hasAttribute('data-preview');
   const WA = '5579981615004';
   const MSG = {
-    geral: () => 'Olá, VIV! Vim pelo site e gostaria de agendar uma experiência.',
+    geral: () => 'Olá, VIV! Vim pelo site e quero agendar a minha hora.',
     ritual: n => `Olá, VIV! Vim pelo site e quero agendar o protocolo ${n}.`,
     pes: () => 'Olá, VIV! Vim pelo site e quero agendar o Ritual dos Pés.',
     avulsa: () => 'Olá, VIV! Vim pelo site e quero agendar uma massagem avulsa.',
@@ -1050,6 +1138,7 @@ body.menu-open{overflow:hidden}
   demo.addEventListener('click', e => { if (e.target === demo || e.target.closest('[data-close]')) closeDemo(); });
 
   // aberto agora? (horário de Aracaju)
+  const HOURS_TEXT = 'Seg a sáb 10h–22h · Dom 12h–20h';
   const HOURS = { 0: [12, 20], 1: [10, 22], 2: [10, 22], 3: [10, 22], 4: [10, 22], 5: [10, 22], 6: [10, 22] };
   const setStatus = () => {
     try {
@@ -1059,25 +1148,10 @@ body.menu-open{overflow:hidden}
       const now = (+get('hour') % 24) + (+get('minute')) / 60;
       const [open, close] = HOURS[day];
       const isOpen = now >= open && now < close;
-      const text = isOpen ? `Aberto agora · até ${close}h`
-        : now < open ? `Fechado agora · abre às ${open}h`
-        : `Fechado agora · abre amanhã às ${HOURS[(day + 1) % 7][0]}h`;
+      // só avisa quando está aberto; fora do horário fica o horário de sempre
       document.querySelectorAll('[data-status]').forEach(el => {
         el.classList.toggle('open', isOpen);
-        el.querySelector('b').textContent = text;
-      });
-      // sugestão da hora, só com o que a casa serve
-      const tip = !isOpen ? 'A casa está fechada agora. Guarde a sua hora pelo WhatsApp.'
-        : now < 11.5 ? 'Boa hora para um Whey Coffee.'
-        : now < 14.5 ? 'Boa hora para um almoço leve: Combo VIV.'
-        : now < 17 ? 'Boa hora para um matcha gelado.'
-        : now < 20 ? 'Boa hora para uma massagem antes de voltar para casa.'
-        : 'Ainda dá tempo de uma sopa de legumes e um chá.';
-      const hh = Math.floor(now), mm = String(Math.round((now - hh) * 60)).padStart(2, '0');
-      document.querySelectorAll('[data-now]').forEach(el => {
-        el.classList.toggle('open', isOpen);
-        el.querySelector('span').textContent = `${hh}h${mm} em Aracaju · ${tip}`;
-        el.hidden = false;
+        el.querySelector('b').textContent = isOpen ? `Aberto agora · até ${close}h` : HOURS_TEXT;
       });
     } catch (e) { /* mantém o horário fixo escrito no HTML */ }
   };
@@ -1150,7 +1224,7 @@ body.menu-open{overflow:hidden}
     setPick(key);
     const card = document.getElementById('x-' + key);
     // o cartão pode ainda não ter entrado na tela: mostra antes de rolar até ele
-    [card, ...card.querySelectorAll('.ri')].forEach(el => el.classList.add('in'));
+    [card, ...card.querySelectorAll('.r, .ri')].forEach(el => el.classList.add('in'));
     glide(card, 'center');
     card.classList.add('hl');
     setTimeout(() => card.classList.remove('hl'), 2600);
@@ -1169,46 +1243,76 @@ body.menu-open{overflow:hidden}
   }, { threshold: 0.45 });
   signIo.observe(sign);
 
-  // rolagem: a hora passa no relógio e as fotos da abertura andam em ritmos diferentes
-  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const strip = [...document.querySelectorAll('.hs')];
-  const drift = [0.05, -0.035, 0.09, 0.02];
+  // uma hora: o relógio anda sozinho; tocar numa etapa, ou no relógio, troca a foto
   const hx = document.getElementById('hora');
+  const dial = document.getElementById('dial');
   const hxSteps = [...hx.querySelectorAll('.hx-steps li')];
   const hxImgs = [...hx.querySelectorAll('.dial-ph img')];
   const prog = document.getElementById('dProg');
   const dialN = document.getElementById('dialN');
   const dialT = document.getElementById('dialT');
-  const hint = hx.querySelector('.hx-hint');
-  let step = 0;
-  const frame = () => {
-    const y = window.scrollY;
-    if (fine && !still && window.innerWidth >= 860 && y < window.innerHeight * 1.8) {
-      strip.forEach((el, i) => { el.style.transform = `translate3d(0,${(-y * drift[i]).toFixed(1)}px,0)`; });
-    }
-    const box = hx.getBoundingClientRect();
-    const span = box.height - window.innerHeight;
-    if (span <= 0 || box.bottom < 0 || box.top > window.innerHeight) return;
-    const p = Math.min(1, Math.max(0, -box.top / span));
-    prog.style.strokeDashoffset = (100 - p * 100).toFixed(2);
-    hint.style.opacity = p > 0.04 ? '0' : '';
-    const i = Math.min(hxSteps.length - 1, Math.floor(p * hxSteps.length));
-    if (i === step) return;
-    step = i;
-    hxSteps.forEach((li, k) => li.classList.toggle('on', k === i));
+  const PACE = 4800, HOLD = 9000;
+  let step = 0, since = 0, pace = PACE, playing = false, paused = 0, seen = false;
+  const ring = p => { prog.style.strokeDashoffset = (100 - p * 100).toFixed(2); };
+  const showStep = (i, ms) => {
+    step = i; pace = ms; since = performance.now(); paused = 0;
+    hxSteps.forEach((li, k) => {
+      li.classList.toggle('on', k === i);
+      li.querySelector('button').setAttribute('aria-pressed', String(k === i));
+    });
     hxImgs.forEach((img, k) => img.classList.toggle('on', k === i));
     dialN.textContent = hxSteps[i].querySelector('.sn').textContent + ' de V';
-    dialT.textContent = hxSteps[i].querySelector('h3').textContent;
+    dialT.textContent = hxSteps[i].querySelector('b').textContent;
+    if (!playing) ring((i + 1) / hxSteps.length);
   };
-  let queued = false;
-  const onMove = () => {
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(() => { queued = false; frame(); });
+  const run = now => {
+    if (!playing) return;
+    const t = (now - since) / pace;
+    if (t >= 1) showStep((step + 1) % hxSteps.length, PACE);
+    else ring((step + t) / hxSteps.length);
+    requestAnimationFrame(run);
   };
-  window.addEventListener('scroll', onMove, { passive: true });
-  window.addEventListener('resize', onMove);
-  frame();
+  const setPlaying = on => {
+    if (on === playing || (on && still)) return;
+    playing = on;
+    if (on) { since = performance.now() - paused; requestAnimationFrame(run); }
+    else paused = performance.now() - since;
+  };
+  new IntersectionObserver(entries => {
+    seen = entries[0].isIntersecting;
+    setPlaying(seen && !document.hidden);
+  }, { threshold: 0.3 }).observe(dial);
+  document.addEventListener('visibilitychange', () => setPlaying(seen && !document.hidden));
+  hxSteps.forEach((li, i) => li.querySelector('button').addEventListener('click', () => showStep(i, HOLD)));
+  dial.addEventListener('click', () => showStep((step + 1) % hxSteps.length, HOLD));
+  let touchX = null;
+  dial.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  dial.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(dx) < 40) return;
+    showStep((step + (dx < 0 ? 1 : -1) + hxSteps.length) % hxSteps.length, HOLD);
+  }, { passive: true });
+  if (still) ring(1 / hxSteps.length);
+
+  // abertura: no computador, as quatro fotos andam em ritmos diferentes
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const strip = [...document.querySelectorAll('.hs')];
+  const drift = [0.05, -0.035, 0.09, 0.02];
+  if (fine && !still) {
+    let queued = false;
+    window.addEventListener('scroll', () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        const y = window.scrollY;
+        if (window.innerWidth < 860 || y > window.innerHeight * 1.8) return;
+        strip.forEach((el, i) => { el.style.transform = `translate3d(0,${(-y * drift[i]).toFixed(1)}px,0)`; });
+      });
+    }, { passive: true });
+  }
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 })();
